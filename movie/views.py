@@ -68,11 +68,21 @@ class ActorCreateView(generic.CreateView):
     form_class = ActorForm
     success_url = reverse_lazy("movies:actor_list")
 
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        self.object.movies.set(form.cleaned_data["movies"])
+        return response
+
 
 class ActorUpdateView(generic.UpdateView):
     model = Actor
     form_class = ActorForm
     success_url = reverse_lazy("movies:actor_list")
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        self.object.movies.set(form.cleaned_data["movies"])
+        return response
 
 
 class DirectorCreateView(generic.CreateView):
@@ -82,7 +92,7 @@ class DirectorCreateView(generic.CreateView):
 
     def form_valid(self, form):
         response = super().form_valid(form)
-        self.object.movies.set(form.cleaned_data['movies'])
+        self.object.movies.set(form.cleaned_data["movies"])
         return response
 
 
@@ -93,9 +103,7 @@ class DirectorUpdateView(generic.UpdateView):
 
     def form_valid(self, form):
         response = super().form_valid(form)
-        movies = form.cleaned_data.get('movies')
-        if movies:
-            self.object.movies.set(movies)
+        self.object.movies.set(form.cleaned_data["movies"])
         return response
 
 
