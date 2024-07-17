@@ -37,3 +37,22 @@ class MovieListView(generic.ListView):
 class DirectorListView(generic.ListView):
     model = Director
     fields = "__all__"
+
+
+class ActorDetailView(generic.DetailView):
+    model = Actor
+    fields = "__all__"
+    queryset = Actor.objects.prefetch_related("films")
+
+
+class DirectorDetailView(generic.DetailView):
+    model = Director
+    fields = "__all__"
+    queryset = Director.objects.prefetch_related("films")
+
+
+class MovieDetailView(generic.DetailView):
+    model = Movie
+    fields = "__all__"
+    queryset = Movie.objects.select_related("reviews")
+

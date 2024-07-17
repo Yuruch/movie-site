@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="centered-heading">
+    <h1>{{ actor.first_name }} {{ actor.last_name }} ({{ actor.age }} year{{ actor.age|pluralize }}</h1>
+    <h2>Bio</h2>
+  </div>
+  <p>{{ actor.bio }}</p>
+  <div class="centered-heading">
+    <h1>Films with {{ actor.first_name }} {{ actor.last_name }}:</h1>
+  </div>
+  <ul class="item-list">
+    {% for movie in actor.films.all %}
+        <li class="item" onclick="window.location.href='/movie/{{ movie.id }}';">
+          <h4>{{ movie.title }}</h4>
+          <br>
+          {{ movie.description }}
+        </li>
+    {% empty %}
+      <p>There are no films with {{ actor.first_name }} {{ actor.last_name }}</p>
+    {% endfor %}
+  </ul>
+{% endblock %}

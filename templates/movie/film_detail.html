@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="centered-heading">
+    <h1>{{ movie.title }}</h1>
+    <h2>Description</h2>
+  </div>
+{# TODO rating with stars #}
+  <p>{{ movie.description }}</p>
+  <div class="centered-heading">
+    <h1>Reviews</h1>
+  </div>
+  <ul class="item-list">
+    {% for review in movie.reviews.all %}
+      {# TODO user profiles with all reviews and link to them#}
+        <li class="item" onclick="window.location.href='/';">
+          <h4>{{ review.creator.first_name }} {{ review.creator.last_name }}</h4>
+          <p>{{ review.rating }}</p>
+          <p>{{ review.comment }}</p>
+          <p>{{ review.created_at }}</p>
+        </li>
+    {% empty %}
+      <p>There are no reviews</p>
+    {% endfor %}
+  </ul>
+{% endblock %}
