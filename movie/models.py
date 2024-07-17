@@ -2,7 +2,7 @@ from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
-from django.db.models import SET_NULL, CASCADE
+from django.db.models import CASCADE
 
 
 class Genre(models.Model):
@@ -21,6 +21,7 @@ class Director(models.Model):
 
 
 class Actor(models.Model):
+    bio = models.TextField(blank=True, null=True)
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
     age = models.IntegerField(
@@ -49,6 +50,8 @@ class Review(models.Model):
 
 
 class Movie(models.Model):
+    title = models.CharField(max_length=255, blank=True, null=True)
+    description = models.TextField(blank=True, null=True)
     director = models.ManyToManyField(Director, related_name="movies")
     genres = models.ManyToManyField(Genre, related_name="movies")
     actors = models.ManyToManyField(Actor, related_name="movies")
