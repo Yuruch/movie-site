@@ -18,7 +18,6 @@ class Director(models.Model):
             MaxValueValidator(100)
         )
     )
-    movies = models.ManyToManyField("Movie", related_name="directors")
 
 
 class Actor(models.Model):
@@ -30,18 +29,21 @@ class Actor(models.Model):
             MaxValueValidator(100)
         )
     )
-    movies = models.ManyToManyField("Movie", related_name="actors")
 
 
 class Review(models.Model):
-    creator = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=CASCADE)
+    creator = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=CASCADE,
+        related_name="reviews"
+    )
     rating = models.IntegerField(
         validators=(
             MinValueValidator(0),
             MaxValueValidator(10),
         )
     )
-    film = models.ForeignKey("Movie", on_delete=CASCADE)
+    film = models.ForeignKey("Movie", on_delete=CASCADE, related_name="reviews")
     comment = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 
