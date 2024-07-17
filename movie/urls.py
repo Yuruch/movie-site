@@ -1,0 +1,9 @@
+from django.urls import path
+
+from movie.views import index
+
+urlpatterns = [
+    path("", index, name="Home"),
+]
+
+app_name = "movies"
