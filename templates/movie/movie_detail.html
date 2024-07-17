@@ -2,11 +2,23 @@
 {% block content %}
   <div class="centered-heading">
     <h1>{{ movie.title }}</h1>
-    <a href="{% url 'movies:movie_update' pk=actor.id %}">Edit</a>
+    <a href="{% url 'movies:movie_update' pk=movie.id %}">Edit</a>
     <h2>Description</h2>
   </div>
 {# TODO rating with stars #}
   <p>{{ movie.description }}</p>
+  <h2>Directors:</h2>
+  <ul>
+    {% for director in movie.director.all %}
+      <li>
+        <a href="{% url 'movies:director_detail' pk=director.id %}">
+          {{ director.first_name }} {{ director.last_name }}
+        </a>
+      </li>
+    {% empty %}
+      <p>This film has no directors</p>
+    {% endfor %}
+  </ul>
   <div class="centered-heading">
     <h1>Reviews</h1>
   </div>

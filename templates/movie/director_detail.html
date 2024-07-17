@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
   <div class="centered-heading">
-    <h1>{{ director.first_name }} {{ director.last_name }} ({{ director.age }} year{{ director.age|pluralize }}</h1>
+    <h1>{{ director.first_name }} {{ director.last_name }} ({{ director.age }} year{{ director.age|pluralize }})</h1>
     <a href="{% url 'movies:director_update' pk=director.id %}">Edit</a>
     <h2>Bio</h2>
   </div>

@@ -7,7 +7,7 @@
   {% if movie_list %}
       <ul class="item-list">
       {% for movie in movie_list %}
-          <li class="item" onclick="window.location.href='/movie/{{ movie.id }}';">
+          <li class="item" onclick="window.location.href='{% url 'movies:movie_detail' pk=movie.id %}';">
             <h4>{{ movie.title }}</h4>
             <br>
             {{ movie.description }}

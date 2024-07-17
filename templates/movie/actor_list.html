@@ -7,11 +7,11 @@
   {% if actor_list %}
       <ul class="item-list">
       {% for actor in actor_list %}
-          <li class="item" onclick="window.location.href='/actor/{{ actor.id }}';">
-            {{ actor.first_name }} {{ actor.last_name }}
-            <br>
-            {{ actor.bio }}
-          </li>
+        <li class="item" onclick="window.location.href='{% url 'movies:actor_detail' pk=actor.id %}';">
+          {{ actor.first_name }} {{ actor.last_name }}
+          <br>
+          {{ actor.bio }}
+        </li>
       {% endfor %}    
       </ul>
   {% else %}

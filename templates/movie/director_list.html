@@ -4,10 +4,10 @@
     <h1>Directors List</h1>
     <a href="{% url 'movies:director_create' %}">Create</a>
   </div>
-  {% if movie_list %}
+  {% if director_list %}
       <ul class="item-list">
       {% for director in director_list %}
-          <li class="item" onclick="window.location.href='/director/{{ director.id }}';">
+          <li class="item" onclick="window.location.href='{% url 'movies:director_detail' pk=director.id %}';">
             <h4>{{ director.first_name }} {{ director.last_name }}</h4>
             <br>
             {{ director.bio }}
@@ -15,6 +15,6 @@
       {% endfor %}
       </ul>
   {% else %}
-      <p>There are no movies found</p>
+      <p>There are no directors found</p>
   {% endif %}
 {% endblock %}
