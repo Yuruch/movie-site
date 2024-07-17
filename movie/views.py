@@ -2,9 +2,13 @@ from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views import generic
 
+from movie.forms import ActorForm, DirectorForm, MovieForm
 from movie.models import Movie, Actor, Director
+
+# TODO add permissions
 
 
 def index(request: HttpRequest) -> HttpResponse:
@@ -55,4 +59,40 @@ class MovieDetailView(generic.DetailView):
     model = Movie
     fields = "__all__"
     queryset = Movie.objects.select_related("reviews")
+
+
+class ActorCreateView(generic.CreateView):
+    model = Actor
+    form_class = ActorForm
+    success_url = reverse_lazy("movies:actor_list")
+
+
+class ActorUpdateView(generic.UpdateView):
+    model = Actor
+    form_class = ActorForm
+    success_url = reverse_lazy("movies:actor_list")
+
+
+class DirectorCreateView(generic.CreateView):
+    model = Director
+    form_class = DirectorForm
+    success_url = reverse_lazy("movies:directors_list")
+
+
+class DirectorUpdateView(generic.UpdateView):
+    model = Director
+    form_class = DirectorForm
+    success_url = reverse_lazy("movies:directors_list")
+
+
+class MovieCreateView(generic.CreateView):
+    model = Movie
+    form_class = MovieForm
+    success_url = reverse_lazy("movies:movie_list")
+
+
+class MovieUpdateView(generic.UpdateView):
+    model = Movie
+    form_class = MovieForm
+    success_url = reverse_lazy("movies:movie_list")
 

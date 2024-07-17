@@ -2,6 +2,7 @@
 {% block content %}
   <div class="centered-heading">
     <h1>{{ movie.title }}</h1>
+    <a href="{% url 'movies:movie_update' pk=actor.id %}">Edit</a>
     <h2>Description</h2>
   </div>
 {# TODO rating with stars #}
