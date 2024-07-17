@@ -21,6 +21,7 @@ from movie.views import user_logout
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("__debug__/", include("debug_toolbar.urls")),
     path("accounts/logout/", user_logout),
     path("accounts/", include("django.contrib.auth.urls")),
     path("", include("movie.urls", namespace="movies"))
