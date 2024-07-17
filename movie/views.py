@@ -13,5 +13,5 @@ def index(request: HttpRequest) -> HttpResponse:
         "num_actors": num_actors,
         "num_directors": num_directors,
     }
-    return render(request, "base.html", context)
+    return render(request, "movie/index.html", context)
 
