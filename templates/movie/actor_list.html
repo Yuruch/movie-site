@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="centered-heading">
+      <h1>Actor List</h1>
+  </div>
+  {% if actor_list %}
+      <ul class="item-list">
+      {% for actor in actor_list %}
+          <li class="item" onclick="window.location.href='/actor/{{ actor.id }}';">
+            {{ actor.first_name }} {{ actor.last_name }}
+            <br>
+            {{ actor.bio }}
+          </li>
+      {% endfor %}    
+      </ul>
+  {% else %}
+      <p>There are no actors found</p>
+  {% endif %}
+{% endblock %}

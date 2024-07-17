@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="centered-heading">
+      <h1>Movies List</h1>
+  </div>
+  {% if movie_list %}
+      <ul class="item-list">
+      {% for movie in movie_list %}
+          <li class="item" onclick="window.location.href='/movie/{{ movie.id }}';">
+            <h4>{{ movie.title }}</h4>
+            <br>
+            {{ movie.description }}
+          </li>
+      {% endfor %}
+      </ul>
+  {% else %}
+      <p>There are no movies found</p>
+  {% endif %}
+{% endblock %}

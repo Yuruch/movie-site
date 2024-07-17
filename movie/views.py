@@ -2,6 +2,7 @@ from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
+from django.views import generic
 
 from movie.models import Movie, Actor, Director
 
@@ -22,3 +23,17 @@ def user_logout(request):
     logout(request)
     return render(request, "registration/logged_out.html")
 
+
+class ActorListView(generic.ListView):
+    model = Actor
+    fields = "__all__"
+
+
+class MovieListView(generic.ListView):
+    model = Movie
+    fields = "__all__"
+
+
+class DirectorListView(generic.ListView):
+    model = Director
+    fields = "__all__"
