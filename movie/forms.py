@@ -5,7 +5,7 @@ from movie.models import Actor, Movie, Director
 
 
 class ActorForm(forms.ModelForm):
-    films = forms.ModelMultipleChoiceField(
+    movies = forms.ModelMultipleChoiceField(
         queryset=Movie.objects.all(),
         widget=forms.CheckboxSelectMultiple,
     )
@@ -24,7 +24,7 @@ class DirectorForm(forms.ModelForm):
 
     class Meta:
         model = Director
-        fields = "__all__"
+        fields = ["bio", "first_name", "last_name", "age", "movies"]
 
 
 class MovieForm(forms.ModelForm):

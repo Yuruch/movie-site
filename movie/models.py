@@ -76,7 +76,7 @@ class Movie(models.Model):
 
 class User(AbstractUser):
     # profile_pic = models.ImageField()
-    favourite_films = models.ManyToManyField(
+    favourite_movies = models.ManyToManyField(
         Movie,
         related_name="users",
         blank=True

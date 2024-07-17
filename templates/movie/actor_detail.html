@@ -7,17 +7,17 @@
   </div>
   <p>{{ actor.bio }}</p>
   <div class="centered-heading">
-    <h1>Films with {{ actor.first_name }} {{ actor.last_name }}:</h1>
+    <h1>Movies with {{ actor.first_name }} {{ actor.last_name }}:</h1>
   </div>
   <ul class="item-list">
-    {% for movie in actor.films.all %}
+    {% for movie in actor.movies.all %}
         <li class="item" onclick="window.location.href='/movie/{{ movie.id }}';">
           <h4>{{ movie.title }}</h4>
           <br>
           {{ movie.description }}
         </li>
     {% empty %}
-      <p>There are no films with {{ actor.first_name }} {{ actor.last_name }}</p>
+      <p>There are no movies with {{ actor.first_name }} {{ actor.last_name }}</p>
     {% endfor %}
   </ul>
 {% endblock %}

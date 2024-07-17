@@ -82,7 +82,7 @@ class DirectorCreateView(generic.CreateView):
 
     def form_valid(self, form):
         response = super().form_valid(form)
-        self.object.movies.set(form.cleaned_data["movies"])
+        self.object.movies.set(form.cleaned_data['movies'])
         return response
 
 
@@ -93,7 +93,9 @@ class DirectorUpdateView(generic.UpdateView):
 
     def form_valid(self, form):
         response = super().form_valid(form)
-        self.object.movies.set(form.cleaned_data["movies"])
+        movies = form.cleaned_data.get('movies')
+        if movies:
+            self.object.movies.set(movies)
         return response
 
 
