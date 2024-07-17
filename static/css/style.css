@@ -54,3 +54,22 @@ nav .auth-links span {
 .content {
   padding-top: 60px;
 }
+
+.centered-heading {
+    text-align: center;
+}
+
+.item-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.item {
+    display: inline-block;
+    margin: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+}
