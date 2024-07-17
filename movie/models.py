@@ -10,6 +10,7 @@ class Genre(models.Model):
 
 
 class Director(models.Model):
+    bio = models.TextField()
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
     age = models.IntegerField(
@@ -21,7 +22,7 @@ class Director(models.Model):
 
 
 class Actor(models.Model):
-    bio = models.TextField(blank=True, null=True)
+    bio = models.TextField()
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
     age = models.IntegerField(
@@ -50,8 +51,8 @@ class Review(models.Model):
 
 
 class Movie(models.Model):
-    title = models.CharField(max_length=255, blank=True, null=True)
-    description = models.TextField(blank=True, null=True)
+    title = models.CharField(max_length=255)
+    description = models.TextField()
     director = models.ManyToManyField(Director, related_name="movies")
     genres = models.ManyToManyField(Genre, related_name="movies")
     actors = models.ManyToManyField(Actor, related_name="movies")
