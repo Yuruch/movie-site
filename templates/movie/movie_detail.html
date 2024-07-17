@@ -16,7 +16,19 @@
         </a>
       </li>
     {% empty %}
-      <p>This film has no directors</p>
+      <p>This movie has no directors</p>
+    {% endfor %}
+  </ul>
+  <h2>Actors:</h2>
+  <ul>
+    {% for actor in movie.actors.all %}
+      <li>
+        <a href="{% url 'movies:actor_detail' pk=actor.id %}">
+          {{ actor.first_name }} {{ actor.last_name }}
+        </a>
+      </li>
+    {% empty %}
+      <p>This movie has no actors</p>
     {% endfor %}
   </ul>
   <div class="centered-heading">
