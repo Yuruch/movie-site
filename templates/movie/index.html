@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>
+    <a href="{% url 'login' %}">Login</a>
+  </h1>
+  <h1>Welcome to the best movie site!</h1>
+  <h2>We have:</h2>
+  <ul>
+    <li>{{ num_actors }} actors</li>
+    <li>{{ num_movies }} movies</li>
+    <li>{{ num_directors }} directors</li>
+  </ul>
+{% endblock %}
