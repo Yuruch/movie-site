@@ -10,7 +10,7 @@ class Genre(models.Model):
 
 
 class Director(models.Model):
-    bio = models.TextField()
+    bio = models.TextField(null=True, blank=True)
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
     age = models.IntegerField(
@@ -22,7 +22,7 @@ class Director(models.Model):
 
 
 class Actor(models.Model):
-    bio = models.TextField()
+    bio = models.TextField(null=True, blank=True)
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
     age = models.IntegerField(
@@ -37,7 +37,8 @@ class Review(models.Model):
     creator = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=CASCADE,
-        related_name="reviews"
+        related_name="reviews",
+        blank=True,
     )
     rating = models.IntegerField(
         validators=(
@@ -46,16 +47,31 @@ class Review(models.Model):
         )
     )
     film = models.ForeignKey("Movie", on_delete=CASCADE, related_name="reviews")
-    comment = models.TextField()
-    created_at = models.DateTimeField(auto_now_add=True)
+    comment = models.TextField(null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True, blank=True)
 
 
 class Movie(models.Model):
     title = models.CharField(max_length=255)
-    description = models.TextField()
-    director = models.ManyToManyField(Director, related_name="movies")
-    genres = models.ManyToManyField(Genre, related_name="movies")
-    actors = models.ManyToManyField(Actor, related_name="movies")
+    description = models.TextField(null=True, blank=True)
+    director = models.ManyToManyField(
+        Director,
+        related_name="movies",
+        null=True,
+        blank=True,
+    )
+    genres = models.ManyToManyField(
+        Genre,
+        related_name="movies",
+        null=True,
+        blank=True
+    )
+    actors = models.ManyToManyField(
+        Actor,
+        related_name="movies",
+        null=True,
+        blank=True
+    )
     rating = models.DecimalField(max_digits=4, decimal_places=2)
 
     # poster = models.ImageField()
@@ -63,4 +79,9 @@ class Movie(models.Model):
 
 class User(AbstractUser):
     # profile_pic = models.ImageField()
-    favourite_films = models.ManyToManyField(Movie, related_name="users")
+    favourite_films = models.ManyToManyField(
+        Movie,
+        related_name="users",
+        null=True,
+        blank=True
+    )
