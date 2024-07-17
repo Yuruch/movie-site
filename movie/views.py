@@ -1,3 +1,5 @@
+from django.contrib.auth import logout
+from django.contrib.auth.decorators import login_required
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
 
@@ -14,4 +16,9 @@ def index(request: HttpRequest) -> HttpResponse:
         "num_directors": num_directors,
     }
     return render(request, "movie/index.html", context)
+
+
+def user_logout(request):
+    logout(request)
+    return render(request, "registration/logged_out.html")
 

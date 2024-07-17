@@ -17,8 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from movie.views import user_logout
+
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("accounts/logout/", user_logout),
     path("accounts/", include("django.contrib.auth.urls")),
     path("", include("movie.urls", namespace="movies"))
 ]
