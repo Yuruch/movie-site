@@ -41,6 +41,7 @@ class Review(models.Model):
             MaxValueValidator(10),
         )
     )
+    film = models.ForeignKey("Movie", on_delete=CASCADE)
     comment = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -50,7 +51,7 @@ class Movie(models.Model):
     genres = models.ManyToManyField(Genre, related_name="movies")
     actors = models.ManyToManyField(Actor, related_name="movies")
     rating = models.DecimalField(max_digits=4, decimal_places=2)
-    reviews = models.ForeignKey(Review, on_delete=CASCADE)
+
     # poster = models.ImageField()
 
 
