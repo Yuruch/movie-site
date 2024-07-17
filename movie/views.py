@@ -6,7 +6,8 @@ from django.urls import reverse_lazy
 from django.views import generic
 
 from movie.forms import ActorForm, DirectorForm, MovieForm
-from movie.models import Movie, Actor, Director
+from movie.models import Movie, Actor, Director, Review
+
 
 # TODO add permissions
 
@@ -46,19 +47,20 @@ class DirectorListView(generic.ListView):
 class ActorDetailView(generic.DetailView):
     model = Actor
     fields = "__all__"
-    queryset = Actor.objects.prefetch_related("films")
+    queryset = Actor.objects.prefetch_related("movies")
 
 
 class DirectorDetailView(generic.DetailView):
     model = Director
     fields = "__all__"
-    queryset = Director.objects.prefetch_related("films")
+    queryset = Director.objects.prefetch_related("movies")
 
 
 class MovieDetailView(generic.DetailView):
     model = Movie
     fields = "__all__"
-    queryset = Movie.objects.select_related("reviews")
+    if Review.objects.all():
+        queryset = Movie.objects.select_related("reviews")
 
 
 class ActorCreateView(generic.CreateView):
@@ -78,11 +80,21 @@ class DirectorCreateView(generic.CreateView):
     form_class = DirectorForm
     success_url = reverse_lazy("movies:directors_list")
 
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        self.object.movies.set(form.cleaned_data["movies"])
+        return response
+
 
 class DirectorUpdateView(generic.UpdateView):
     model = Director
     form_class = DirectorForm
     success_url = reverse_lazy("movies:directors_list")
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        self.object.movies.set(form.cleaned_data["movies"])
+        return response
 
 
 class MovieCreateView(generic.CreateView):

@@ -57,19 +57,16 @@ class Movie(models.Model):
     director = models.ManyToManyField(
         Director,
         related_name="movies",
-        null=True,
         blank=True,
     )
     genres = models.ManyToManyField(
         Genre,
         related_name="movies",
-        null=True,
         blank=True
     )
     actors = models.ManyToManyField(
         Actor,
         related_name="movies",
-        null=True,
         blank=True
     )
     rating = models.DecimalField(max_digits=4, decimal_places=2)
@@ -82,6 +79,5 @@ class User(AbstractUser):
     favourite_films = models.ManyToManyField(
         Movie,
         related_name="users",
-        null=True,
         blank=True
     )
