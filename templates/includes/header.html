@@ -1,0 +1,17 @@
+<header>
+  <nav>
+    <a href="">Home</a>
+    <a href="">About</a>
+    <a href="">Gallery</a>
+    <a href="">Contact</a>
+
+    <div class="auth-links">
+      {% if user.is_authenticated %}
+        <span>{{ user.get_username }}</span>
+        <a class="full-left" href="{% url 'logout'%}?next={{request.path}}">Logout</a>
+      {% else %}
+        <a class="full-left" href="{% url 'login'%}?next={{request.path}}">Login</a>
+      {% endif %}
+    </div>
+  </nav>
+</header>

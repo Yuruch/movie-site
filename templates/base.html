@@ -6,10 +6,15 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Movies</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-  {% block content %}
+  {% include "includes/header.html" %}
+  <div class="content">
+    {% block content %}
 
-  {% endblock %}
+    {% endblock %}
+  </div>
 </body>
 </html>
