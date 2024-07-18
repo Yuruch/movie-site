@@ -31,14 +31,22 @@
       <p>This movie has no actors</p>
     {% endfor %}
   </ul>
+  <p>Rating: {{ movie.average_rating }}</p>
   <div class="centered-heading">
     <h1>Reviews</h1>
+    <h1>
+      <a href="{% url 'movies:add_review' pk=movie.id %}">Add review</a>
+    </h1>
   </div>
   <ul class="item-list">
     {% for review in movie.reviews.all %}
       {# TODO user profiles with all reviews and link to them#}
         <li class="item" onclick="window.location.href='/';">
-          <h4>{{ review.creator.first_name }} {{ review.creator.last_name }}</h4>
+          <h4>
+            <a href="">
+              {{ review.creator.first_name }} {{ review.creator.last_name }}
+            </a>
+          </h4>
           <p>{{ review.rating }}</p>
           <p>{{ review.comment }}</p>
           <p>{{ review.created_at }}</p>
