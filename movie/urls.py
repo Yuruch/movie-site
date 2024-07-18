@@ -11,7 +11,7 @@ from movie.views import (
     DirectorListView,
     DirectorDetailView,
     MovieUpdateView,
-    MovieCreateView, DirectorCreateView, DirectorUpdateView,
+    MovieCreateView, DirectorCreateView, DirectorUpdateView, add_review,
 )
 
 urlpatterns = [
@@ -27,6 +27,7 @@ urlpatterns = [
         MovieUpdateView.as_view(),
         name="movie_update"
     ),
+    path("movie/<int:pk>/add_review/", add_review, name="add_review"),
     path("movies/<int:pk>/", MovieDetailView.as_view(), name="movie_detail"),
     path("directors/", DirectorListView.as_view(), name="directors_list"),
     path("directors/create/", DirectorCreateView.as_view(), name="director_create"),

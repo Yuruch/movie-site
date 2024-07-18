@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth import get_user_model
 
-from movie.models import Actor, Movie, Director
+from movie.models import Actor, Movie, Director, Review
 
 
 class ActorForm(forms.ModelForm):
@@ -31,3 +31,9 @@ class MovieForm(forms.ModelForm):
     class Meta:
         model = Movie
         fields = "__all__"
+
+
+class ReviewForm(forms.ModelForm):
+    class Meta:
+        model = Review
+        fields = ['rating', 'comment']
