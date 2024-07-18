@@ -33,16 +33,19 @@ def user_logout(request):
 class ActorListView(generic.ListView):
     model = Actor
     fields = "__all__"
+    paginate_by = 5
 
 
 class MovieListView(generic.ListView):
     model = Movie
     fields = "__all__"
+    paginate_by = 10
 
 
 class DirectorListView(generic.ListView):
     model = Director
     fields = "__all__"
+    paginate_by = 5
 
 
 class ActorDetailView(generic.DetailView):

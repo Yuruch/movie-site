@@ -2,7 +2,7 @@
 {% block content %}
   <div class="centered-heading">
     <h1>Directors List</h1>
-    <a href="{% url 'movies:director_create' %}">Create</a>
+    <a class="btn btn-primary mb-3" href="{% url 'movies:director_create' %}">Create</a>
   </div>
   {% if director_list %}
       <ul class="item-list">

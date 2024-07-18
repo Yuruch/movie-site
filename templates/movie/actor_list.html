@@ -2,19 +2,18 @@
 {% block content %}
   <div class="centered-heading">
     <h1>Actor List</h1>
-    <a href="{% url 'movies:actor_create' %}">Create</a>
+    <a href="{% url 'movies:actor_create' %}" class="btn btn-primary mb-3">Create</a>
   </div>
   {% if actor_list %}
-      <ul class="item-list">
+    <ul class="item-list">
       {% for actor in actor_list %}
         <li class="item" onclick="window.location.href='{% url 'movies:actor_detail' pk=actor.id %}';">
-          {{ actor.first_name }} {{ actor.last_name }}
-          <br>
-          {{ actor.bio }}
+          <h5>{{ actor.first_name }} {{ actor.last_name }}</h5>
+          <p>{{ actor.bio }}</p>
         </li>
-      {% endfor %}    
-      </ul>
+      {% endfor %}
+    </ul>
   {% else %}
-      <p>There are no actors found</p>
+    <p>There are no actors found</p>
   {% endif %}
 {% endblock %}
