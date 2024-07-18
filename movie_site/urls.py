@@ -17,12 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from movie.views import user_logout
+from movie.views import user_logout, sign_up
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("__debug__/", include("debug_toolbar.urls")),
     path("accounts/logout/", user_logout),
     path("accounts/", include("django.contrib.auth.urls")),
+    path("accounts/signup/", sign_up, name="sign_up"),
     path("", include("movie.urls", namespace="movies"))
 ]

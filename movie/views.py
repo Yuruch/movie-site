@@ -1,4 +1,4 @@
-from django.contrib.auth import logout
+from django.contrib.auth import logout, login
 from django.contrib.auth.decorators import login_required
 from django.db.models import Prefetch
 from django.http import HttpRequest, HttpResponse
@@ -6,7 +6,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views import generic
 
-from movie.forms import ActorForm, DirectorForm, MovieForm, ReviewForm
+from movie.forms import ActorForm, DirectorForm, MovieForm, ReviewForm, SignupForm
 from movie.models import Movie, Actor, Director, Review
 
 
@@ -129,7 +129,7 @@ class MovieUpdateView(generic.UpdateView):
     success_url = reverse_lazy("movies:movie_list")
 
 
-def add_review(request, pk):
+def add_review(request: HttpRequest, pk: int) -> HttpResponse:
     movie = get_object_or_404(Movie, pk=pk)
     if request.method == 'POST':
         form = ReviewForm(request.POST)
@@ -143,3 +143,14 @@ def add_review(request, pk):
         form = ReviewForm()
     return render(request, "movie/add_review.html", {'form': form, 'movie': movie})
 
+
+def sign_up(request: HttpRequest) -> HttpResponse:
+    if request.method == 'POST':
+        form = SignupForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('home')
+    else:
+        form = SignupForm()
+    return render(request, 'registration/signup.html', {'form': form})
