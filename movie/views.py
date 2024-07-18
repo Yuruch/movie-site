@@ -6,7 +6,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views import generic
 
-from movie.forms import ActorForm, DirectorForm, MovieForm, ReviewForm, SignupForm
+from movie.forms import ActorForm, DirectorForm, MovieForm, ReviewForm, SignUpForm, UserUpdateForm
 from movie.models import Movie, Actor, Director, Review, User
 
 
@@ -143,29 +143,29 @@ class MovieUpdateView(generic.UpdateView):
 
 def add_review(request: HttpRequest, pk: int) -> HttpResponse:
     movie = get_object_or_404(Movie, pk=pk)
-    if request.method == 'POST':
+    if request.method == "POST":
         form = ReviewForm(request.POST)
         if form.is_valid():
             review = form.save(commit=False)
             review.creator = request.user
             review.film = movie
             review.save()
-            return redirect('movies:movie_detail', pk=movie.id)
+            return redirect("movies:movie_detail", pk=movie.id)
     else:
         form = ReviewForm()
-    return render(request, "movie/add_review.html", {'form': form, 'movie': movie})
+    return render(request, "movie/add_review.html", {"form": form, "movie": movie})
 
 
 def sign_up(request: HttpRequest) -> HttpResponse:
-    if request.method == 'POST':
-        form = SignupForm(request.POST)
+    if request.method == "POST":
+        form = SignUpForm(request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('home')
+            return redirect("home")
     else:
-        form = SignupForm()
-    return render(request, 'registration/signup.html', {'form': form})
+        form = SignUpForm()
+    return render(request, "registration/signup.html", {"form": form})
 
 
 class UserDetailView(generic.DetailView):
@@ -182,3 +182,9 @@ def toggle_add_to_favourites(request, pk):
     else:
         user.favourite_movies.add(movie)
     return HttpResponseRedirect(reverse_lazy("movies:movie_detail", args=[pk]))
+
+
+class UserUpdateView(generic.UpdateView):
+    model = User
+    form_class = UserUpdateForm
+    success_url = reverse_lazy("movies:home")

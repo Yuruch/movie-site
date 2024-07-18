@@ -2,9 +2,12 @@
 {% block content %}
   <div class="centered-heading">
     <h1>Welcome {{ user.username }}!</h1>
-    <a href="">Edit</a>
+    <a href="{% url 'movies:user_update' pk=user.id %}">Edit</a>
     <h2>Info</h2>
   </div>
+  {% if user.profile_pic %}
+  	<img src="{{ user.profile_pic.url }}" alt="User Profile Picture">
+  {% endif %}
   <p>Name: {{ user.first_name }}</p>
   <p>Last name: {{ user.last_name }}</p>
   <p>Email: {{ user.email }}</p>

@@ -40,9 +40,22 @@ class ReviewForm(forms.ModelForm):
         fields = ['rating', 'comment']
 
 
-class SignupForm(UserCreationForm):
-    email = forms.EmailField(max_length=200, help_text='Required')
+class SignUpForm(UserCreationForm):
+    email = forms.EmailField(max_length=200, help_text="*")
+    profile_pic = forms.ImageField(required=False)
 
     class Meta:
         model = User
         fields = ("username", "email", "password1", "password2")
+
+
+class UserUpdateForm(forms.ModelForm):
+    email = forms.EmailField(
+        max_length=200,
+        required=False
+    )
+    profile_pic = forms.ImageField(required=False)
+
+    class Meta:
+        model = User
+        fields = ("username", "first_name", "last_name", "email", "profile_pic")

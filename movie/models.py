@@ -72,12 +72,18 @@ class Movie(models.Model):
 
     @property
     def average_rating(self) -> float:
-        return Review.objects.filter(film=self).aggregate(Avg("rating"))["rating__avg"] or 0
+        return Review.objects.filter(
+            film=self
+        ).aggregate(Avg("rating"))["rating__avg"] or 0
     # poster = models.ImageField()
 
 
 class User(AbstractUser):
-    # profile_pic = models.ImageField()
+    profile_pic = models.ImageField(
+        default="blank.png",
+        blank=True,
+        null=True
+    )
     favourite_movies = models.ManyToManyField(
         Movie,
         related_name="users",
