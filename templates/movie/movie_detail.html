@@ -1,72 +1,81 @@
 {% extends "base.html" %}
 {% block content %}
-  <div class="centered-heading">
-    <div class="poster-container">
-      <img src="{{ movie.poster.url }}" alt="Movie Poster Picture" class="poster">
+  <div class="detail-container">
+    <div class="detail-film-info-container">
+      <div class="detail-film-photo-container">
+        <img src="{{ movie.poster.url }}" alt="Movie Poster Picture" class="detail-photo">
+      </div>
+      <div class="detail-film-info">
+        <div class="title-heart-container">
+          <h1>{{ movie.title }}</h1>
+           <div class="actions">
+              <a href="{% url 'movies:movie_update' pk=movie.id %}" class="edit-link">
+                <i class="fas fa-pencil-alt"></i>
+              </a>
+              <a href="{% url 'movies:toggle-add-to-favourites' pk=movie.id %}" class="favourite-toggle">
+                {% if is_favourite %}
+                  <i class="fas fa-heart"></i>
+                {% else %}
+                  <i class="far fa-heart"></i>
+                {% endif %}
+              </a>
+            </div>
+        </div>
+        <p>{{ movie.description }}</p>
+      </div>
     </div>
-    <h1>{{ movie.title }}</h1>
-    <a href="{% url 'movies:movie_update' pk=movie.id %}">Edit</a>
     <br>
-    <a href="{% url 'movies:toggle-add-to-favourites' pk=movie.id %}">
-      {% if is_favourite %}
-        Remove from favourites
-      {% else %}
-        Add to favourites
-      {% endif %}
-    </a>
-    <h2>Description</h2>
-  </div>
 {# TODO rating with stars #}
-  <p>{{ movie.description }}</p>
-  <h2>Directors:</h2>
-  <ul>
-    {% for director in movie.director.all %}
-      <li>
-        <a href="{% url 'movies:director_detail' pk=director.id %}">
-          {{ director.first_name }} {{ director.last_name }}
-        </a>
-      </li>
-    {% empty %}
-      <p>This movie has no directors</p>
-    {% endfor %}
-  </ul>
-  <h2>Actors:</h2>
-  <ul>
-    {% for actor in movie.actors.all %}
-      <li>
-        <a href="{% url 'movies:actor_detail' pk=actor.id %}">
-          {{ actor.first_name }} {{ actor.last_name }}
-        </a>
-      </li>
-    {% empty %}
-      <p>This movie has no actors</p>
-    {% endfor %}
-  </ul>
-  <p>Rating: {{ movie.average_rating }}</p>
-  <div class="centered-heading">
-    <h1>Reviews</h1>
-    <h1>
-      <a href="{% url 'movies:add_review' pk=movie.id %}">Add review</a>
-    </h1>
-  </div>
-  <ul class="item-list">
-    {% for review in movie.reviews.all %}
-      {# TODO user profiles with all reviews and link to them#}
-        <li class="item" onclick="window.location.href='/';">
-          <h4>
-            <a href="{% url 'movies:user_detail' pk=review.creator.id %}">
-              {{ review.creator.first_name }} {{ review.creator.last_name }}
-              <div class="profile-pic-container">
-                <img src="{{ review.creator.profile_pic.url }}" alt="User Profile Picture" class="profile-pic">
-              </div>
-            </a>
-          </h4>
-          <p>{{ review.rating }}</p>
-          <p>{{ review.comment }}</p>
-          <p>{{ review.created_at }}</p>
+    <h2>Directors:</h2>
+    <ul>
+      {% for director in movie.director.all %}
+        <li>
+          <a href="{% url 'movies:director_detail' pk=director.id %}">
+            {{ director.first_name }} {{ director.last_name }}
+          </a>
         </li>
-    {% empty %}
-      <p>There are no reviews</p>
-    {% endfor %}
-  </ul>
+      {% empty %}
+        <p>This movie has no directors</p>
+      {% endfor %}
+    </ul>
+    <h2>Actors:</h2>
+    <ul>
+      {% for actor in movie.actors.all %}
+        <li>
+          <a href="{% url 'movies:actor_detail' pk=actor.id %}">
+            {{ actor.first_name }} {{ actor.last_name }}
+          </a>
+        </li>
+      {% empty %}
+        <p>This movie has no actors</p>
+      {% endfor %}
+    </ul>
+    <p>Rating: {{ movie.average_rating }}</p>
+    <div class="centered-heading">
+      <h1>Reviews</h1>
+      <h1>
+        <a href="{% url 'movies:add_review' pk=movie.id %}">Add review</a>
+      </h1>
+    </div>
+    <ul class="item-list">
+      {% for review in movie.reviews.all %}
+        {# TODO user profiles with all reviews and link to them#}
+          <li class="item" onclick="window.location.href='/';">
+            <h4>
+              <a href="{% url 'movies:user_detail' pk=review.creator.id %}">
+                {{ review.creator.first_name }} {{ review.creator.last_name }}
+                <div class="profile-pic-container">
+                  <img src="{{ review.creator.profile_pic.url }}" alt="User Profile Picture" class="profile-pic">
+                </div>
+              </a>
+            </h4>
+            <p>{{ review.rating }}</p>
+            <p>{{ review.comment }}</p>
+            <p>{{ review.created_at }}</p>
+          </li>
+      {% empty %}
+        <p>There are no reviews</p>
+      {% endfor %}
+    </ul>
+  </div>
 {% endblock %}

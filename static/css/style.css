@@ -106,12 +106,6 @@ li{
   margin-bottom: 0;
 }
 
-.poster {
-  object-fit: cover;
-  width: 100%; /* Ensure poster fits container */
-  height: 100%; /* Ensure poster fits container */
-}
-
 .text-container {
   width: 650px;
   text-align: left; /* Center align the text */
@@ -125,4 +119,88 @@ h4 {
 
 p {
   margin-top: 10px; /* Add margin for spacing */
+}
+
+.detail-container {
+  width: 900px;
+}
+
+
+.detail-film-info-container {
+  margin: 10px 0; /* Vertical margin for spacing */
+  padding: 10px;
+  text-align: left; /* Align text to the left */
+  display: flex; /* Use flexbox for layout */
+  justify-content: flex-start; /* Align items to the start */
+}
+
+.detail-film-info-container {
+  margin: 10px 0; /* Vertical margin for spacing */
+  padding: 10px;
+  text-align: left; /* Align text to the left */
+  display: flex; /* Use flexbox for layout */
+  justify-content: flex-start; /* Align items to the start */
+}
+
+.detail-film-photo-container {
+  width: 300px; /* Fixed width */
+  height: 450px; /* Fixed height */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center poster vertically */
+  margin-right: 20px; /* Space between poster and text */
+}
+
+.detail-photo {
+  width: 300px; /* Fixed width */
+  height: 450px; /* Fixed height */
+  object-fit: cover;
+}
+
+.detail-film-info {
+  width: 580px;
+  text-align: left; /* Align text to the left */
+}
+
+.title-heart-container {
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Align items vertically */
+  justify-content: space-between; /* Space items out */
+}
+
+.title-heart-container h1 {
+  margin: 0; /* Remove default margin */
+  flex-grow: 1; /* Allow the title to take up available space */
+}
+
+.actions {
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Align items vertically */
+}
+
+.edit-link,
+.favourite-toggle {
+  text-decoration: none; /* Remove underline from the link */
+  font-size: 24px; /* Adjust the size of the icons */
+  margin-left: 10px; /* Space between icons */
+}
+
+.edit-link {
+  color: grey; /* Icon color for the edit link */
+}
+
+.edit-link:hover {
+  color: black; /* Change color on hover */
+}
+
+.favourite-toggle {
+  color: hotpink; /* Icon color for the heart */
+}
+
+.favourite-toggle:hover {
+  color: #c0392b; /* Change color on hover */
+}
+
+.edit-link i {
+  margin-right: 5px; /* Space between icon and text if text is added later */
 }
