@@ -19,6 +19,10 @@ class Director(models.Model):
             MaxValueValidator(100)
         )
     )
+    models.ImageField(
+        default="blank_people.jpg",
+        blank=True
+    )
 
 
 class Actor(models.Model):
@@ -30,6 +34,10 @@ class Actor(models.Model):
             MinValueValidator(6),
             MaxValueValidator(100)
         )
+    )
+    photo = models.ImageField(
+        default="blank_people.jpg",
+        blank=True
     )
 
 
