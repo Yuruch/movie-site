@@ -1,11 +1,12 @@
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
+from django.db.models import Prefetch
 from django.http import HttpRequest, HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views import generic
 
-from movie.forms import ActorForm, DirectorForm, MovieForm
+from movie.forms import ActorForm, DirectorForm, MovieForm, ReviewForm
 from movie.models import Movie, Actor, Director, Review
 
 
@@ -59,8 +60,17 @@ class DirectorDetailView(generic.DetailView):
 class MovieDetailView(generic.DetailView):
     model = Movie
     fields = "__all__"
-    if Review.objects.all():
-        queryset = Movie.objects.select_related("reviews")
+
+    def get_queryset(self):
+        return Movie.objects.prefetch_related(
+            "director",
+            "genres",
+            "actors",
+            Prefetch(
+                "reviews",
+                queryset=Review.objects.select_related("creator")
+            )
+        )
 
 
 class ActorCreateView(generic.CreateView):
@@ -117,4 +127,19 @@ class MovieUpdateView(generic.UpdateView):
     model = Movie
     form_class = MovieForm
     success_url = reverse_lazy("movies:movie_list")
+
+
+def add_review(request, pk):
+    movie = get_object_or_404(Movie, pk=pk)
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            review = form.save(commit=False)
+            review.creator = request.user
+            review.film = movie
+            review.save()
+            return redirect('movies:movie_detail', pk=movie.id)
+    else:
+        form = ReviewForm()
+    return render(request, "movie/add_review.html", {'form': form, 'movie': movie})
 
