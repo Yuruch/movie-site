@@ -19,7 +19,7 @@ class Director(models.Model):
             MaxValueValidator(100)
         )
     )
-    models.ImageField(
+    photo = models.ImageField(
         default="blank_people.jpg",
         blank=True
     )
