@@ -118,7 +118,8 @@ h4 {
 }
 
 p {
-  margin-top: 10px; /* Add margin for spacing */
+  margin-top: 0; /* Add margin for spacing */
+  margin-bottom: 0;
 }
 
 .detail-container {
@@ -203,4 +204,37 @@ p {
 
 .edit-link i {
   margin-right: 5px; /* Space between icon and text if text is added later */
+}
+
+.director-links {
+  display: flex; /* Use flexbox for layout */
+  flex-wrap: wrap; /* Allow wrapping if necessary */
+  gap: 5px; /* Space between links */
+}
+
+.director-link {
+  text-decoration: none; /* Remove underline from links */
+  color: deepskyblue; /* Link color */
+  font-size: 16px; /* Font size */
+}
+
+.director-link:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+.movie-info-links {
+  display: flex; /* Use flexbox for layout */
+  flex-wrap: wrap; /* Allow wrapping if necessary */
+  gap: 5px; /* Space between links */
+  padding-top: 10px;
+}
+
+.movie-info-link {
+  text-decoration: none; /* Remove underline from links */
+  color: deepskyblue; /* Link color */
+  font-size: 16px; /* Font size */
+}
+
+.movie-info-link:hover {
+  text-decoration: underline; /* Underline on hover */
 }
