@@ -2,7 +2,7 @@ from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
-from django.db.models import CASCADE
+from django.db.models import CASCADE, Avg
 
 
 class Genre(models.Model):
@@ -69,8 +69,10 @@ class Movie(models.Model):
         related_name="movies",
         blank=True
     )
-    rating = models.DecimalField(max_digits=4, decimal_places=2)
 
+    @property
+    def average_rating(self) -> float:
+        return Review.objects.filter(film=self).aggregate(Avg("rating"))["rating__avg"] or 0
     # poster = models.ImageField()
 
 
