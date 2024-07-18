@@ -8,9 +8,13 @@
       <ul class="item-list">
       {% for director in director_list %}
           <li class="item" onclick="window.location.href='{% url 'movies:director_detail' pk=director.id %}';">
-            <h4>{{ director.first_name }} {{ director.last_name }}</h4>
-            <br>
-            {{ director.bio }}
+            <div class="list-container">
+              <img src="{{ director.photo.url }}" alt="Director Picture" class="list-photo">
+            </div>
+            <div class="text-container">
+              <h4>{{ director.first_name }} {{ director.last_name }}</h4>
+              <p>{{ director.bio }}</p>
+            </div>
           </li>
       {% endfor %}
       </ul>

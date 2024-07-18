@@ -8,8 +8,13 @@
     <ul class="item-list">
       {% for actor in actor_list %}
         <li class="item" onclick="window.location.href='{% url 'movies:actor_detail' pk=actor.id %}';">
-          <h5>{{ actor.first_name }} {{ actor.last_name }}</h5>
-          <p>{{ actor.bio }}</p>
+          <div class="list-container">
+            <img src="{{ actor.photo.url }}" alt="Actor Picture" class="list-photo">
+          </div>
+          <div class="text-container">
+            <h4>{{ actor.first_name }} {{ actor.last_name }}</h4>
+            <p>{{ actor.bio }}</p>
+          </div>
         </li>
       {% endfor %}
     </ul>

@@ -8,8 +8,8 @@
       <ul class="item-list">
       {% for movie in movie_list %}
         <li class="item" onclick="window.location.href='{% url 'movies:movie_detail' pk=movie.id %}';">
-          <div class="poster-container">
-            <img src="{{ movie.poster.url }}" alt="Movie Poster Picture" class="poster">
+          <div class="list-container">
+            <img src="{{ movie.poster.url }}" alt="Movie Poster Picture" class="list-photo">
           </div>
           <div class="text-container">
             <h4>{{ movie.title }}</h4>
