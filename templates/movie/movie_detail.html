@@ -3,6 +3,14 @@
   <div class="centered-heading">
     <h1>{{ movie.title }}</h1>
     <a href="{% url 'movies:movie_update' pk=movie.id %}">Edit</a>
+    <br>
+    <a href="{% url 'movies:toggle-add-to-favourites' pk=movie.id %}">
+      {% if is_favourite %}
+        Remove from favourites
+      {% else %}
+        Add to favourites
+      {% endif %}
+    </a>
     <h2>Description</h2>
   </div>
 {# TODO rating with stars #}

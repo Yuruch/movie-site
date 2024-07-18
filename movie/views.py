@@ -1,7 +1,7 @@
 from django.contrib.auth import logout, login
 from django.contrib.auth.decorators import login_required
 from django.db.models import Prefetch
-from django.http import HttpRequest, HttpResponse
+from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views import generic
@@ -71,6 +71,15 @@ class MovieDetailView(generic.DetailView):
                 queryset=Review.objects.select_related("creator")
             )
         )
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user = self.request.user
+        if user.is_authenticated:
+            context['is_favourite'] = user.favourite_movies.filter(id=self.object.id).exists()
+        else:
+            context['is_favourite'] = False
+        return context
 
 
 class ActorCreateView(generic.CreateView):
@@ -159,3 +168,14 @@ def sign_up(request: HttpRequest) -> HttpResponse:
 class UserDetailView(generic.DetailView):
     model = User
     fields = ("username", "first_name", "last_name",)
+
+
+@login_required
+def toggle_add_to_favourites(request, pk):
+    user = User.objects.get(id=request.user.id)
+    movie = Movie.objects.get(id=pk)
+    if movie in user.favourite_movies.all():
+        user.favourite_movies.remove(movie)
+    else:
+        user.favourite_movies.add(movie)
+    return HttpResponseRedirect(reverse_lazy("movies:movie_detail", args=[pk]))

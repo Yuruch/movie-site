@@ -11,7 +11,7 @@ from movie.views import (
     DirectorListView,
     DirectorDetailView,
     MovieUpdateView,
-    MovieCreateView, DirectorCreateView, DirectorUpdateView, add_review, UserDetailView,
+    MovieCreateView, DirectorCreateView, DirectorUpdateView, add_review, UserDetailView, toggle_add_to_favourites,
 )
 
 urlpatterns = [
@@ -23,6 +23,11 @@ urlpatterns = [
     path("actors/<int:pk>/", ActorDetailView.as_view(), name="actor_detail"),
     path("movies/", MovieListView.as_view(), name="movie_list"),
     path("movies/create/", MovieCreateView.as_view(), name="movie_create"),
+    path(
+        "movies/<int:pk>/add_favourite/",
+        toggle_add_to_favourites,
+        name="toggle-add-to-favourites",
+    ),
     path(
         "movies/<int:pk>/update/",
         MovieUpdateView.as_view(),
