@@ -7,7 +7,11 @@
 
     <div class="auth-links">
       {% if user.is_authenticated %}
-        <span>{{ user.get_username }}</span>
+        <span>
+          <a href="{% url 'movies:user_detail' pk=user.id %}">
+            {{ user.get_username }}
+          </a>
+        </span>
         <a class="full-left" href="{% url 'logout'%}">Logout</a>
       {% else %}
         <a class="full-left" href="{% url 'sign_up' %}">Sign Up</a>

@@ -11,11 +11,12 @@ from movie.views import (
     DirectorListView,
     DirectorDetailView,
     MovieUpdateView,
-    MovieCreateView, DirectorCreateView, DirectorUpdateView, add_review,
+    MovieCreateView, DirectorCreateView, DirectorUpdateView, add_review, UserDetailView,
 )
 
 urlpatterns = [
     path("", index, name="home"),
+    path("user/<int:pk>/", UserDetailView.as_view(), name="user_detail"),
     path("actors/", ActorListView.as_view(), name="actor_list"),
     path("actors/create/", ActorCreateView.as_view(), name="actor_create"),
     path("actors/<int:pk>/update/", ActorUpdateView.as_view(), name="actor_update"),

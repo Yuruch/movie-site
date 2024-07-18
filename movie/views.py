@@ -7,7 +7,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 
 from movie.forms import ActorForm, DirectorForm, MovieForm, ReviewForm, SignupForm
-from movie.models import Movie, Actor, Director, Review
+from movie.models import Movie, Actor, Director, Review, User
 
 
 # TODO add permissions
@@ -154,3 +154,8 @@ def sign_up(request: HttpRequest) -> HttpResponse:
     else:
         form = SignupForm()
     return render(request, 'registration/signup.html', {'form': form})
+
+
+class UserDetailView(generic.DetailView):
+    model = User
+    fields = ("username", "first_name", "last_name",)
