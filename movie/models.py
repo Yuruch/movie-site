@@ -75,14 +75,16 @@ class Movie(models.Model):
         return Review.objects.filter(
             film=self
         ).aggregate(Avg("rating"))["rating__avg"] or 0
-    # poster = models.ImageField()
+    poster = models.ImageField(
+        default="blank_poster.webp",
+        blank=True
+    )
 
 
 class User(AbstractUser):
     profile_pic = models.ImageField(
         default="blank.png",
         blank=True,
-        null=True
     )
     favourite_movies = models.ManyToManyField(
         Movie,
