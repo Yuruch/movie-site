@@ -56,16 +56,79 @@ li{
   border: 1px solid #ccc;
   padding: 10px;
   border-radius: 5px;
-  text-align: center;
+  text-align: left; /* Align text to the left */
   cursor: pointer;
   transition: box-shadow 0.3s ease-in-out;
+  display: flex; /* Use flexbox for layout */
+  /*align-items: center; !* Center items vertically *!*/
+  justify-content: flex-start; /* Align items to the start */
 }
 
 .item:hover {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
 .container {
   padding-top: 100px; /* Additional padding to avoid overlap with the fixed header */
 }
 
+.profile-pic-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.profile-pic {
+  border-radius: 50%;
+  width: 150px; /* Fixed width */
+  height: 150px; /* Fixed height */
+  object-fit: cover;
+}
+
+.poster {
+  object-fit: cover;
+}
+
+.poster-container {
+  width: 150px; /* Fixed width */
+  height: 225px; /* Fixed height */
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.text-container {
+  flex-grow: 1; /* Allow text container to grow */
+  padding-right: 20px; /* Space between text and poster */
+}
+
+.poster-container {
+  width: 150px; /* Fixed width */
+  height: 225px; /* Fixed height */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center poster vertically */
+  margin-right: 20px; /* Space between poster and text */
+  margin-bottom: 0;
+}
+
+.poster {
+  object-fit: cover;
+  width: 100%; /* Ensure poster fits container */
+  height: 100%; /* Ensure poster fits container */
+}
+
+.text-container {
+  width: 650px;
+  text-align: left; /* Center align the text */
+}
+
+h4 {
+  margin: 0; /* Remove default margin */
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+p {
+  margin-top: 10px; /* Add margin for spacing */
+}

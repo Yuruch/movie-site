@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
   <div class="centered-heading">
+    <div class="poster-container">
+      <img src="{{ movie.poster.url }}" alt="Movie Poster Picture" class="poster">
+    </div>
     <h1>{{ movie.title }}</h1>
     <a href="{% url 'movies:movie_update' pk=movie.id %}">Edit</a>
     <br>
@@ -51,8 +54,11 @@
       {# TODO user profiles with all reviews and link to them#}
         <li class="item" onclick="window.location.href='/';">
           <h4>
-            <a href="">
+            <a href="{% url 'movies:user_detail' pk=review.creator.id %}">
               {{ review.creator.first_name }} {{ review.creator.last_name }}
+              <div class="profile-pic-container">
+                <img src="{{ review.creator.profile_pic.url }}" alt="User Profile Picture" class="profile-pic">
+              </div>
             </a>
           </h4>
           <p>{{ review.rating }}</p>
