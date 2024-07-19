@@ -67,6 +67,7 @@ li{
 }
 
 .container {
+  margin-top: 30px;
   align-items: center;
   justify-content: center;
 }
@@ -159,6 +160,7 @@ p {
 }
 
 .title-heart-container {
+  margin-left: 10px;
   display: flex; /* Use flexbox for layout */
   align-items: center; /* Align items vertically */
   justify-content: space-between; /* Space items out */
@@ -351,7 +353,7 @@ p {
 
 .search-container input{
   height: 34px;
-  width: 100%;
+  width: 500px;
 }
 
 .search-container input[type="submit"] {
@@ -374,7 +376,7 @@ p {
   background: #007bff;
   color: white;
   border: none;
-  padding: 5px 10px;
+  padding: 10px 10px;
   cursor: pointer;
   font-size: 16px;
   display: inline-block;
@@ -410,7 +412,8 @@ p {
   background: #28a745;
   color: white;
   border: none;
-  padding: 5px 10px;
+  border-radius: 5px;
+  padding: 14px 10px;
   cursor: pointer;
   font-size: 16px;
 }

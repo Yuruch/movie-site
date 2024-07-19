@@ -7,8 +7,9 @@
     </h1>
   </div>
   <form method="get" action="" class="form-container">
-    <div class="search-container">
-      {{ search_form.as_p }}
+    <div class="nice-form-group">
+      {{ search_form.name.label_tag }}
+      {{ search_form.name }}
       <input type="submit" value="Search" class="search-button">
     </div>
   </form>

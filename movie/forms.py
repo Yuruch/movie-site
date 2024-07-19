@@ -13,7 +13,7 @@ class ActorForm(forms.ModelForm):
 
     class Meta:
         model = Actor
-        fields = "__all__"
+        fields = ("first_name", "last_name", "bio", "age", "movies", "photo")
 
 
 class DirectorForm(forms.ModelForm):
@@ -29,6 +29,22 @@ class DirectorForm(forms.ModelForm):
 
 
 class MovieForm(forms.ModelForm):
+    genres = forms.ModelMultipleChoiceField(
+        queryset=Genre.objects.all(),
+        widget=forms.CheckboxSelectMultiple,
+        required=False
+    )
+    directors = forms.ModelMultipleChoiceField(
+        queryset=Director.objects.all(),
+        widget=forms.CheckboxSelectMultiple,
+        required=False
+    )
+    actors = forms.ModelMultipleChoiceField(
+        queryset=Actor.objects.all(),
+        widget=forms.CheckboxSelectMultiple,
+        required=False
+    )
+
     class Meta:
         model = Movie
         fields = "__all__"
@@ -72,6 +88,7 @@ class MovieSearchForm(forms.Form):
     )
     genre = forms.ModelChoiceField(
         queryset=Genre.objects.all(),
+        label="Genres",
         widget=forms.RadioSelect,
         required=False
     )

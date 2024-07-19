@@ -1,15 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
-  <form method="get" action="">
-    {{ search_form.as_p }}
-    <input type="submit" value="Search">
-  </form>
   <div class="centered-heading">
     <h1>
       Actor List
       <a class="add" href="{% url 'movies:actor_create' %}">+</a>
     </h1>
   </div>
+  <form method="get" action="" class="form-container">
+    <div class="nice-form-group">
+      {{ search_form.name.label_tag }}
+      {{ search_form.name }}
+      <input type="submit" value="Search" class="search-button">
+    </div>
+  </form>
   {% if actor_list %}
     <ul class="item-list">
       {% for actor in actor_list %}
