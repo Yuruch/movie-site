@@ -54,7 +54,7 @@ class Review(models.Model):
             MaxValueValidator(10),
         )
     )
-    film = models.ForeignKey("Movie", on_delete=CASCADE, related_name="reviews")
+    movie = models.ForeignKey("Movie", on_delete=CASCADE, related_name="reviews")
     comment = models.TextField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True, blank=True)
 
@@ -81,7 +81,7 @@ class Movie(models.Model):
     @property
     def average_rating(self) -> float:
         return Review.objects.filter(
-            film=self
+            movie=self
         ).aggregate(Avg("rating"))["rating__avg"] or 0
     poster = models.ImageField(
         default="blank_poster.webp",
