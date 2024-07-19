@@ -117,7 +117,7 @@ class MovieDetailView(generic.DetailView):
 
     def get_queryset(self):
         return Movie.objects.prefetch_related(
-            "director",
+            "directors",
             "genres",
             "actors",
             Prefetch(

@@ -131,8 +131,7 @@ p {
   margin: 0 auto;
 }
 
-
-.detail-film-info-container {
+.detail-info-container {
   margin: 10px 0; /* Vertical margin for spacing */
   padding: 10px;
   text-align: left; /* Align text to the left */
@@ -140,15 +139,7 @@ p {
   justify-content: flex-start; /* Align items to the start */
 }
 
-.detail-film-info-container {
-  margin: 10px 0; /* Vertical margin for spacing */
-  padding: 10px;
-  text-align: left; /* Align text to the left */
-  display: flex; /* Use flexbox for layout */
-  justify-content: flex-start; /* Align items to the start */
-}
-
-.detail-film-photo-container {
+.detail-photo-container {
   width: 300px; /* Fixed width */
   height: 450px; /* Fixed height */
   display: flex;
@@ -163,7 +154,7 @@ p {
   object-fit: cover;
 }
 
-.detail-film-info {
+.detail-info {
   width: 580px;
   text-align: left; /* Align text to the left */
 }

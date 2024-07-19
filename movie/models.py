@@ -27,6 +27,14 @@ class Director(models.Model):
         blank=True
     )
 
+    @property
+    def best_movie(self):
+        return Movie.objects.filter(
+            directors=self.id
+        ).annotate(
+            avg_rating=Avg('reviews__rating')
+        ).order_by('-avg_rating').first()
+
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
 
@@ -45,6 +53,14 @@ class Actor(models.Model):
         default="blank_people.jpg",
         blank=True
     )
+
+    @property
+    def best_movie(self):
+        return Movie.objects.filter(
+            actors=self.id
+        ).annotate(
+            avg_rating=Avg('reviews__rating')
+        ).order_by('-avg_rating').first()
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
@@ -71,7 +87,7 @@ class Review(models.Model):
 class Movie(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField(null=True, blank=True)
-    director = models.ManyToManyField(
+    directors = models.ManyToManyField(
         Director,
         related_name="movies",
         blank=True,

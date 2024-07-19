@@ -1,23 +1,48 @@
 {% extends "base.html" %}
 {% block content %}
-  <div class="centered-heading">
-    <h1>{{ actor.first_name }} {{ actor.last_name }} ({{ actor.age }} year{{ actor.age|pluralize }}</h1>
-    <a href="{% url 'movies:actor_update' pk=actor.id %}">Edit</a>
-    <h2>Bio</h2>
-  </div>
-  <p>{{ actor.bio }}</p>
-  <div class="centered-heading">
-    <h1>Movies with {{ actor.first_name }} {{ actor.last_name }}:</h1>
-  </div>
-  <ul class="item-list">
-    {% for movie in actor.movies.all %}
-        <li class="item" onclick="window.location.href='/movies/{{ movie.id }}';">
-          <h4>{{ movie.title }}</h4>
-          <br>
-          {{ movie.description }}
+  <div class="detail-container">
+    <div class="title-heart-container">
+      <h1>{{ actor.first_name }} {{ actor.last_name }}</h1>
+       <div class="actions">
+          <a href="{% url 'movies:actor_update' pk=actor.id %}" class="edit-link">
+            <i class="fas fa-pencil-alt"></i>
+          </a>
+        </div>
+    </div>
+    <div class="detail-info-container">
+      <div class="detail-photo-container">
+        <img src="{{ actor.photo.url }}" alt="Actor Photo Picture" class="detail-photo">
+      </div>
+      <div class="detail-info">
+        <p>Age: {{ actor.age }} year{{ actor.age|pluralize }}</p>
+        <p>
+          Best movie: 
+          <a class="movie-info-link" href="{% url 'movies:movie_detail' pk=actor.best_movie.id %}">
+            {{ actor.best_movie.title }}
+          </a>
+        </p>
+        <br>
+        <div class="centered-heading">
+          <h2>Bio</h2>
+        </div>
+        <p>{{ actor.bio }}</p>
+      </div>
+    </div>
+    <div class="centered-heading">
+      <h1>Movies with {{ actor.first_name }} {{ actor.last_name }}</h1>
+    </div>
+    <ul class="item-list">
+      {% for movie in actor.movies.all %}
+        <li class="item" onclick="window.location.href='{% url 'movies:movie_detail' pk=movie.id %}';">
+          <div class="list-container">
+            <img src="{{ movie.poster.url }}" alt="Movie Poster Picture" class="list-photo">
+          </div>
+          <div class="text-container">
+            <h4>{{ movie.title }}</h4>
+            <p>{{ movie.description }}</p>
+          </div>
         </li>
-    {% empty %}
-      <p>There are no movies with {{ actor.first_name }} {{ actor.last_name }}</p>
-    {% endfor %}
-  </ul>
+      {% endfor %}
+      </ul>
+  </div>
 {% endblock %}
