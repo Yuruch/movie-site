@@ -168,9 +168,13 @@ def sign_up(request: HttpRequest) -> HttpResponse:
     return render(request, "registration/signup.html", {"form": form})
 
 
-class UserDetailView(generic.DetailView):
-    model = User
-    fields = ("username", "first_name", "last_name",)
+def user_detail_view(request, pk):
+    user = get_object_or_404(User, pk=pk)
+
+    if request.user.id == user.id:
+        return render(request, "movie/user_detail.html", {"user": user})
+    else:
+        return render(request, "movie/user_public.html", {"user": user})
 
 
 @login_required
