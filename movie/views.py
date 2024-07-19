@@ -60,8 +60,9 @@ class MovieListView(generic.ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         title = self.request.GET.get("title", "")
+        genre_id = self.request.GET.get("genre")
         context["search_form"] = MovieSearchForm(
-            initial={"title": title}
+            initial={"title": title, "genre": genre_id}
         )
         return context
 
@@ -69,9 +70,10 @@ class MovieListView(generic.ListView):
         queryset = Movie.objects.all()
         form = MovieSearchForm(self.request.GET)
         if form.is_valid():
-            return queryset.filter(
-                title__icontains=form.cleaned_data["title"]
-            )
+            if form.cleaned_data["title"]:
+                queryset = queryset.filter(title__icontains=form.cleaned_data["title"])
+            if form.cleaned_data["genre"]:
+                queryset = queryset.filter(genres=form.cleaned_data["genre"])
         return queryset
 
 

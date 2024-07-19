@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
 
-from movie.models import Actor, Movie, Director, Review, User
+from movie.models import Actor, Movie, Director, Review, User, Genre
 
 
 class ActorForm(forms.ModelForm):
@@ -69,6 +69,11 @@ class MovieSearchForm(forms.Form):
         widget=forms.TextInput(
             attrs={"placeholder": "Search by title"}
         )
+    )
+    genre = forms.ModelChoiceField(
+        queryset=Genre.objects.all(),
+        widget=forms.RadioSelect,
+        required=False
     )
 
 

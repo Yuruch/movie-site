@@ -1,8 +1,33 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
-  <form method="get" action="">
-    {{ search_form.as_p }}
-    <input type="submit" value="Search">
+  <form method="get" action="" class="form-container">
+    <div class="search-container">
+      {{ search_form.title.label_tag }}
+      {{ search_form.title }}
+      <input type="submit" value="Search" class="search-button">
+    </div>
+  
+    <!-- Hidden checkbox to toggle genre section -->
+    <input type="checkbox" id="toggle-genre" class="toggle-checkbox" hidden>
+  
+    <!-- Labels for the checkbox to act as buttons -->
+    <label for="toggle-genre" class="toggle-button show-genres">
+      ▼ Show Genres
+    </label>
+    <label for="toggle-genre" class="toggle-button hide-genres">
+      ▲ Hide Genres
+    </label>
+  
+    <div class="genre-section">
+      {{ search_form.genre.label_tag }}
+      <div class="genre-options">
+        {{ search_form.genre }}
+      </div>
+      <a href="{% url 'movies:movie_list' %}?title={{ search_form.initial.title }}" class="clear-button">
+        Clear Genres
+      </a>
+    </div>
   </form>
   <div class="centered-heading">
     <h1>

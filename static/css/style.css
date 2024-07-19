@@ -344,3 +344,100 @@ p {
   display: flex; /* Use flexbox for layout */
   justify-content: flex-start; /* Align items to the start */
 }
+
+.form-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Style the search container */
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Adds space between the input and button */
+  margin-bottom: 20px; /* Adds space below the search container */
+}
+
+/* Initially hide the genre section */
+.genre-section {
+  display: none;
+  margin-top: 20px; /* Adds space above the genre section */
+}
+
+/* Show the genre section when the checkbox is checked */
+.toggle-checkbox:checked ~ .genre-section {
+  display: block;
+}
+
+/* Style the toggle buttons */
+.toggle-button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 16px;
+  display: inline-block;
+  text-align: center;
+  margin-top: 10px;
+  margin-right: 10px; /* Adds space between the toggle buttons */
+  position: relative;
+}
+
+/* Show only the "Show Genres" button when the checkbox is unchecked */
+.toggle-checkbox:checked ~ .show-genres {
+  display: none;
+}
+
+/* Show only the "Hide Genres" button when the checkbox is checked */
+.toggle-checkbox:not(:checked) ~ .hide-genres {
+  display: none;
+}
+
+/* Button appearance when checked */
+.toggle-checkbox:checked ~ .hide-genres {
+  background: #0056b3;
+}
+
+/* Button appearance when unchecked */
+.toggle-checkbox:not(:checked) ~ .show-genres {
+  background: #0056b3;
+}
+
+/* Style the search button */
+.search-button {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.search-button:hover {
+  background: #218838;
+}
+
+/* Style the clear button */
+.clear-button {
+  text-decoration: none;
+  color: #007bff;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+.clear-button:hover {
+  text-decoration: underline;
+}
+
+/* Style the genre options to display in columns */
+.genre-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Adds space between genre options */
+}
+
+.genre-options label {
+  display: block;
+  margin-right: 10px; /* Adds space between the labels */
+}

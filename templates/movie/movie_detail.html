@@ -53,12 +53,12 @@
         <div class="movie-info-links">
           <p>Genres: </p>
           {% for genre in movie.genres.all %}
-          <p class="movie-info-link">
+          <a class="movie-info-link" href="{% url 'movies:movie_list' %}?genre={{ genre.id }}">
           {% if not forloop.last %}
             {{ genre.name }},
           {% else %}
             {{ genre.name }}
-          </p>
+          </a>
           {% endif %}
           {% empty %}
             <p>This movie has no genres</p>

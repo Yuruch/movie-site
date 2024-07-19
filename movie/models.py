@@ -8,6 +8,9 @@ from django.db.models import CASCADE, Avg
 class Genre(models.Model):
     name = models.CharField(max_length=255)
 
+    def __str__(self):
+        return self.name
+
 
 class Director(models.Model):
     bio = models.TextField(null=True, blank=True)
@@ -24,6 +27,9 @@ class Director(models.Model):
         blank=True
     )
 
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
+
 
 class Actor(models.Model):
     bio = models.TextField(null=True, blank=True)
@@ -39,6 +45,9 @@ class Actor(models.Model):
         default="blank_people.jpg",
         blank=True
     )
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
 
 
 class Review(models.Model):
@@ -87,6 +96,9 @@ class Movie(models.Model):
         default="blank_poster.webp",
         blank=True
     )
+
+    def __str__(self):
+        return self.title
 
 
 class User(AbstractUser):
