@@ -2,23 +2,33 @@
 {% block content %}
   <div class="centered-heading">
     <h1>Welcome {{ user.username }}!</h1>
-    <a href="{% url 'movies:user_update' pk=user.id %}">Edit</a>
+    <a href="{% url 'movies:user_update' pk=user.id %}" class="edit-link">
+      <i class="fas fa-pencil-alt"></i>
+    </a>
   </div>
-  <div class="profile-pic-container">
-    <img src="{{ user.profile_pic.url }}" alt="User Profile Picture" class="profile-pic">
+  <div class="profile-info-container">
+    <div class="profile-pic-container">
+      <img src="{{ user.profile_pic.url }}" alt="User Profile Picture" class="profile-pic">
+    </div>
+    <div class="text-container">
+      <p>Name: {{ user.first_name }}</p>
+      <p>Last name: {{ user.last_name }}</p>
+      <p>Email: {{ user.email }}</p>
+    </div>
   </div>
-  <p>Name: {{ user.first_name }}</p>
-  <p>Last name: {{ user.last_name }}</p>
-  <p>Email: {{ user.email }}</p>
   <div class="centered-heading">
     <h1>Movies you like</h1>
   </div>
   <ul class="item-list">
     {% for movie in user.favourite_movies.all %}
-        <li class="item" onclick="window.location.href='/movies/{{ movie.id }}';">
-          <h4>{{ movie.title }}</h4>
-          <br>
-          {{ movie.description }}
+        <li class="item" onclick="window.location.href='{% url 'movies:movie_detail' pk=movie.id %}';">
+          <div class="list-container">
+            <img src="{{ movie.poster.url }}" alt="Movie Poster Picture" class="list-photo">
+          </div>
+          <div class="text-container">
+            <h4>{{ movie.title }}</h4>
+            <p>{{ movie.description }}</p>
+          </div>
         </li>
     {% empty %}
       <p>You don't have any favourite movies</p>

@@ -76,6 +76,8 @@ li{
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
+  width: 150px; /* Fixed width */
+  height: 150px; /* Fixed height */
 }
 
 .profile-pic {
@@ -91,11 +93,6 @@ li{
   object-fit: cover;
 }
 
-.text-container {
-  flex-grow: 1; /* Allow text container to grow */
-  padding-right: 20px; /* Space between text and poster */
-}
-
 .list-container {
   width: 150px; /* Fixed width */
   height: 225px; /* Fixed height */
@@ -107,8 +104,15 @@ li{
 }
 
 .text-container {
+  margin-left: 40px;
+  flex-grow: 1; /* Allow text container to grow */
+  padding-right: 20px; /* Space between text and poster */
   width: 650px;
   text-align: left; /* Center align the text */
+}
+
+.text-container p {
+  margin-bottom: 20px;
 }
 
 h4 {
@@ -303,6 +307,15 @@ p {
   border-radius: 5px;
 }
 
+.review-movie-container {
+  display: block;
+  position: relative;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
 .review-link {
   text-decoration: none;
   color: black;
@@ -321,4 +334,13 @@ p {
 
 .add:hover {
   color: #000; /* Change color on hover if needed */
+}
+
+.profile-info-container {
+  width: 800px; /* Fixed width */
+  margin: 10px auto; /* Vertical margin for spacing */
+  padding: 10px;
+  text-align: left; /* Align text to the left */
+  display: flex; /* Use flexbox for layout */
+  justify-content: flex-start; /* Align items to the start */
 }

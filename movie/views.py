@@ -6,7 +6,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views import generic
 
-from movie.forms import ActorForm, DirectorForm, MovieForm, ReviewForm, SignUpForm, UserUpdateForm
+from movie.forms import ActorForm, DirectorForm, MovieForm, ReviewForm, SignUpForm, UserUpdateForm, MovieSearchForm, \
+    ActorSearchForm, DirectorSearchForm
 from movie.models import Movie, Actor, Director, Review, User
 
 
@@ -31,21 +32,69 @@ def user_logout(request):
 
 
 class ActorListView(generic.ListView):
-    model = Actor
     fields = "__all__"
     paginate_by = 5
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        name = self.request.GET.get("name", "")
+        context["search_form"] = ActorSearchForm(
+            initial={"name": name}
+        )
+        return context
+
+    def get_queryset(self):
+        queryset = Actor.objects.all()
+        form = ActorSearchForm(self.request.GET)
+        if form.is_valid():
+            return queryset.filter(
+                first_name__icontains=form.cleaned_data["name"]
+            )
+        return queryset
 
 
 class MovieListView(generic.ListView):
-    model = Movie
     fields = "__all__"
     paginate_by = 10
 
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        title = self.request.GET.get("title", "")
+        context["search_form"] = MovieSearchForm(
+            initial={"title": title}
+        )
+        return context
+
+    def get_queryset(self):
+        queryset = Movie.objects.all()
+        form = MovieSearchForm(self.request.GET)
+        if form.is_valid():
+            return queryset.filter(
+                title__icontains=form.cleaned_data["title"]
+            )
+        return queryset
+
 
 class DirectorListView(generic.ListView):
-    model = Director
     fields = "__all__"
     paginate_by = 5
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        name = self.request.GET.get("name", "")
+        context["search_form"] = DirectorSearchForm(
+            initial={"name": name}
+        )
+        return context
+
+    def get_queryset(self):
+        queryset = Director.objects.all()
+        form = DirectorSearchForm(self.request.GET)
+        if form.is_valid():
+            return queryset.filter(
+                first_name__icontains=form.cleaned_data["name"]
+            )
+        return queryset
 
 
 class ActorDetailView(generic.DetailView):
