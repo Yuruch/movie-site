@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
   <div class="centered-heading">
-    <h1>Actor List</h1>
-    <a href="{% url 'movies:actor_create' %}" class="btn btn-primary mb-3">Create</a>
+    <h1>
+      Actor List
+      <a class="add" href="{% url 'movies:actor_create' %}">+</a>
+    </h1>
   </div>
   {% if actor_list %}
     <ul class="item-list">
