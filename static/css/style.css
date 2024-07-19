@@ -67,7 +67,6 @@ li{
 }
 
 .container {
-  padding-top: 100px; /* Additional padding to avoid overlap with the fixed header */
   align-items: center;
   justify-content: center;
 }
@@ -104,11 +103,12 @@ li{
 }
 
 .text-container {
+  align-items: flex-start;
+  text-align: left;
   margin-left: 40px;
   flex-grow: 1; /* Allow text container to grow */
   padding-right: 20px; /* Space between text and poster */
   width: 650px;
-  text-align: left; /* Center align the text */
 }
 
 .text-container p {
@@ -118,7 +118,6 @@ li{
 h4 {
   margin: 0; /* Remove default margin */
   padding-bottom: 30px;
-  text-align: center;
 }
 
 p {
@@ -344,15 +343,25 @@ p {
 /* Style the search container */
 .search-container {
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 10px; /* Adds space between the input and button */
-  margin-bottom: 20px; /* Adds space below the search container */
+  height: 100%;
+  width: 100%;
+}
+
+.search-container input{
+  height: 34px;
+  width: 100%;
+}
+
+.search-container input[type="submit"] {
+  width: 100px;
+
 }
 
 /* Initially hide the genre section */
 .genre-section {
   display: none;
-  margin-top: 20px; /* Adds space above the genre section */
 }
 
 /* Show the genre section when the checkbox is checked */
@@ -387,13 +396,14 @@ p {
 
 /* Button appearance when checked */
 .toggle-checkbox:checked ~ .hide-genres {
-  background: #0056b3;
+  background: grey;
 }
 
 /* Button appearance when unchecked */
 .toggle-checkbox:not(:checked) ~ .show-genres {
   background: #0056b3;
 }
+
 
 /* Style the search button */
 .search-button {
@@ -412,13 +422,17 @@ p {
 /* Style the clear button */
 .clear-button {
   text-decoration: none;
-  color: #007bff;
+  background: indianred;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
   font-size: 16px;
-  margin-left: 10px;
 }
 
 .clear-button:hover {
   text-decoration: underline;
+  background: orangered;
 }
 
 /* Style the genre options to display in columns */
@@ -426,9 +440,20 @@ p {
   display: flex;
   flex-wrap: wrap;
   gap: 10px; /* Adds space between genre options */
+  margin-bottom: 10px;
 }
 
 .genre-options label {
   display: block;
   margin-right: 10px; /* Adds space between the labels */
+}
+
+.movie-rating {
+
+  font-size: 1.2em;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
 }

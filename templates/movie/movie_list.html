@@ -1,16 +1,22 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
+  <div class="centered-heading">
+    <h1>
+      Movies List
+      <a class="add" href="{% url 'movies:movie_create' %}">+</a>
+    </h1>
+  </div>
   <form method="get" action="" class="form-container">
     <div class="search-container">
       {{ search_form.title.label_tag }}
       {{ search_form.title }}
       <input type="submit" value="Search" class="search-button">
     </div>
-  
+
     <!-- Hidden checkbox to toggle genre section -->
     <input type="checkbox" id="toggle-genre" class="toggle-checkbox" hidden>
-  
+
     <!-- Labels for the checkbox to act as buttons -->
     <label for="toggle-genre" class="toggle-button show-genres">
       ▼ Show Genres
@@ -18,7 +24,7 @@
     <label for="toggle-genre" class="toggle-button hide-genres">
       ▲ Hide Genres
     </label>
-  
+
     <div class="genre-section">
       {{ search_form.genre.label_tag }}
       <div class="genre-options">
@@ -29,12 +35,7 @@
       </a>
     </div>
   </form>
-  <div class="centered-heading">
-    <h1>
-      Movies List
-      <a class="add" href="{% url 'movies:movie_create' %}">+</a>
-    </h1>
-  </div>
+
   {% if movie_list %}
       <ul class="item-list">
       {% for movie in movie_list %}
@@ -45,8 +46,11 @@
           <div class="text-container">
             <h4>{{ movie.title }}</h4>
             <p>{{ movie.description }}</p>
+            <span class="movie-rating">Rating: {{ movie.average_rating }} / 10</span>
           </div>
         </li>
+      {% empty %}
+        <p>There are no films</p>
       {% endfor %}
       </ul>
   {% else %}

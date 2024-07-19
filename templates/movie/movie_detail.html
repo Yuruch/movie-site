@@ -102,3 +102,43 @@
     </ul>
   </div>
 {% endblock %}
+
+
+
+
+
+
+
+
+
+<li class="item" onclick="window.location.href='{% url 'movies:movie_detail' pk=movie.id %}';">
+          <div class="list-container">
+            <img src="{{ movie.poster.url }}" alt="Movie Poster Picture" class="list-photo">
+          </div>
+          <div class="text-container">
+            <h4>{{ movie.title }}</h4>
+            <p>{{ movie.description }}</p>
+            <span class="review-rating">{{ movie.average_rating }} / 10</span>
+          </div>
+        </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
