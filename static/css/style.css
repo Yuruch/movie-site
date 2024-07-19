@@ -27,11 +27,9 @@ nav .auth-links span {
 }
 
 .centered-heading {
-  align-content: center;
-  align-items: center;
+  display: flex;
   justify-content: center;
-  text-align: center;
-  margin-bottom: 20px;
+  align-items: center;
 }
 
 ul {
@@ -237,4 +235,87 @@ p {
 
 .movie-info-link:hover {
   text-decoration: underline; /* Underline on hover */
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px; /* Add margin-bottom to separate from comment */
+}
+
+.review-pic-container {
+  flex-shrink: 0;
+}
+
+.review-pic {
+  border-radius: 50%;
+  width: 50px; /* Adjust the width as needed */
+  height: 50px; /* Adjust the height as needed */
+  object-fit: cover;
+}
+
+.review-info {
+  flex-grow: 1;
+  margin-left: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.review-info a {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.review-rating {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.review-body {
+  margin-top: 10px; /* Ensure comment is separated from the header */
+}
+
+.review-comment {
+  font-size: 1em;
+}
+
+.review-date {
+  font-size: 0.9em;
+  color: #666;
+  text-align: right;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.movie-review-container {
+  cursor: default;
+  display: block;
+  position: relative;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.review-link {
+  text-decoration: none;
+  color: black;
+}
+
+.centered-heading h1 {
+  position: relative;
+}
+
+.add {
+  margin-left: 10px; /* Adjust spacing between text and plus sign */
+  text-decoration: none;
+  font-size: 1.2em; /* Adjust font size as needed */
+  color: grey; /* Inherit color from parent element */
+}
+
+.add:hover {
+  color: #000; /* Change color on hover if needed */
 }

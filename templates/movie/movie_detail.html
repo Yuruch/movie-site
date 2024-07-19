@@ -62,27 +62,31 @@
     <br>
 {# TODO rating with stars #}
     <div class="centered-heading">
-      <h1>Reviews</h1>
       <h1>
-        <a href="{% url 'movies:add_review' pk=movie.id %}">Add review</a>
+        Reviews
+        <a href="{% url 'movies:add_review' pk=movie.id %}" class="add">+</a>
       </h1>
     </div>
     <ul class="item-list">
       {% for review in movie.reviews.all %}
-        {# TODO user profiles with all reviews and link to them#}
-          <li class="item" onclick="window.location.href='/';">
-            <h4>
-              <a href="{% url 'movies:user_detail' pk=review.creator.id %}">
+        <li class="item movie-review-container">
+          <div class="review-header">
+            <div class="review-pic-container">
+              <img src="{{ review.creator.profile_pic.url }}" alt="User Profile Picture" class="review-pic">
+            </div>
+            <div class="review-info">
+              <a class="review-link" href="{% url 'movies:user_detail' pk=review.creator.id %}">
                 {{ review.creator.first_name }} {{ review.creator.last_name }}
-                <div class="profile-pic-container">
-                  <img src="{{ review.creator.profile_pic.url }}" alt="User Profile Picture" class="profile-pic">
-                </div>
               </a>
-            </h4>
-            <p>{{ review.rating }}</p>
-            <p>{{ review.comment }}</p>
-            <p>{{ review.created_at }}</p>
-          </li>
+              <span class="review-rating">{{ review.rating }} / 10</span>
+            </div>
+          </div>
+          <div class="review-body">
+            <p class="review-comment">{{ review.comment }}</p>
+          </div>
+          <br>
+          <p class="review-date">{{ review.created_at }}</p>
+        </li>
       {% empty %}
         <p>There are no reviews</p>
       {% endfor %}
