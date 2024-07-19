@@ -460,3 +460,16 @@ p {
   padding: 5px 10px;
   border-radius: 5px;
 }
+
+.nice-form-group {
+  font-size: 20px;
+}
+
+.nice-form-group div div label input {
+  width: 20px;
+  height: 20px;
+}
+
+.nice-form-group div div {
+    margin-bottom: 10px;
+}

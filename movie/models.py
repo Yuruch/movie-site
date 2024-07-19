@@ -13,9 +13,10 @@ class Genre(models.Model):
 
 
 class Director(models.Model):
-    bio = models.TextField(null=True, blank=True)
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
+    bio = models.TextField(null=True, blank=True)
+    birth_date = models.DateField(default="1994-07-19")
     age = models.IntegerField(
         validators=(
             MinValueValidator(6),
@@ -40,9 +41,10 @@ class Director(models.Model):
 
 
 class Actor(models.Model):
-    bio = models.TextField(null=True, blank=True)
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
+    bio = models.TextField(null=True, blank=True)
+    birth_date = models.DateField(default="2004-05-12")
     age = models.IntegerField(
         validators=(
             MinValueValidator(6),

@@ -15,6 +15,7 @@
       </div>
       <div class="detail-info">
         <p>Age: {{ director.age }} year{{ director.age|pluralize }}</p>
+        <p>Birthdate {{ director.birth_date }}</p>
         <p>
           Best movie: 
           <a class="movie-info-link" href="{% url 'movies:movie_detail' pk=director.best_movie.id %}">
