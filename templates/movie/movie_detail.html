@@ -26,9 +26,12 @@
           <p>Directors: </p>
           {% for director in movie.director.all %}
             <a href="{% url 'movies:director_detail' pk=director.id %}" class="movie-info-link">
+              {% if not forloop.last %}
+              {{ director.first_name }} {{ director.last_name }},
+              {% else %}
               {{ director.first_name }} {{ director.last_name }}
+              {% endif %}
             </a>
-            {% if not forloop.last %}, {% endif %}
           {% empty %}
             <p>This movie has no directors</p>
           {% endfor %}
@@ -37,9 +40,12 @@
           <p>Actors: </p>
           {% for actor in movie.actors.all %}
             <a href="{% url 'movies:actor_detail' pk=actor.id %}" class="movie-info-link">
+              {% if not forloop.last %}
+              {{ actor.first_name }} {{ actor.last_name }},
+              {% else %}
               {{ actor.first_name }} {{ actor.last_name }}
+              {% endif %}
             </a>
-            {% if not forloop.last %}, {% endif %}
           {% empty %}
             <p>This movie has no actors</p>
           {% endfor %}
@@ -47,10 +53,13 @@
         <div class="movie-info-links">
           <p>Genres: </p>
           {% for genre in movie.genres.all %}
-            <p class="movie-info-link">
-              {{ genre.name }}
-            </p>
-          {% if not forloop.last %}, {% endif %}
+          <p class="movie-info-link">
+          {% if not forloop.last %}
+            {{ genre.name }},
+          {% else %}
+            {{ genre.name }}
+          </p>
+          {% endif %}
           {% empty %}
             <p>This movie has no genres</p>
           {% endfor %}

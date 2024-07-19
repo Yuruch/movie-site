@@ -68,6 +68,8 @@ li{
 
 .container {
   padding-top: 100px; /* Additional padding to avoid overlap with the fixed header */
+  align-items: center;
+  justify-content: center;
 }
 
 .profile-pic-container {
@@ -122,6 +124,7 @@ p {
 
 .detail-container {
   width: 900px;
+  margin: 0 auto;
 }
 
 
