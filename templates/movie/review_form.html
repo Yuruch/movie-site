@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>{{ object|yesno:"Update,Create" }}  a review for {{ movie.title }}</h1>
+  <form method="post">
+    {% csrf_token %}
+    {% for field in form %}
+        <div class="nice-form-group">
+          {{ field.errors }}
+          {{ field.label_tag }}
+          {{ field }}
+        </div>
+    {% endfor %}
+    <button class="search-button" type="submit">Submit</button>
+  </form>
+{% endblock %}

@@ -35,6 +35,12 @@
       </a>
     </div>
   </form>
+  
+  <!-- Sorting buttons -->
+  <div class="sorting-buttons">
+    <a href="{% url 'movies:movie_list' %}?orderby=title">Order by title</a>
+    <a href="{% url 'movies:movie_list' %}?orderby=rating">Order by rating</a>
+  </div>
 
   {% if movie_list %}
       <ul class="item-list">
@@ -46,7 +52,7 @@
           <div class="text-container">
             <h4>{{ movie.title }}</h4>
             <p>{{ movie.description }}</p>
-            <span class="movie-rating">Rating: {{ movie.average_rating }} / 10</span>
+            <span class="movie-rating">Rating: {{ movie.avg_rating }} / 10</span>
           </div>
         </li>
       {% empty %}

@@ -1,6 +1,6 @@
 from django.contrib.auth import logout, login
 from django.contrib.auth.decorators import login_required
-from django.db.models import Prefetch
+from django.db.models import Prefetch, Avg
 from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
@@ -66,19 +66,31 @@ class MovieListView(generic.ListView):
         context = super().get_context_data(**kwargs)
         title = self.request.GET.get("title", "")
         genre_id = self.request.GET.get("genre")
+
         context["search_form"] = MovieSearchForm(
             initial={"title": title, "genre": genre_id}
         )
+        context["orderby"] = self.request.GET.get("orderby", "")
         return context
 
     def get_queryset(self):
-        queryset = Movie.objects.all()
+        queryset = Movie.objects.prefetch_related(
+            "reviews"
+        ).annotate(avg_rating=Avg("reviews__rating"))
+
         form = MovieSearchForm(self.request.GET)
         if form.is_valid():
             if form.cleaned_data["title"]:
                 queryset = queryset.filter(title__icontains=form.cleaned_data["title"])
             if form.cleaned_data["genre"]:
                 queryset = queryset.filter(genres=form.cleaned_data["genre"])
+
+        orderby = self.request.GET.get('orderby')
+        if orderby == "title":
+            queryset = queryset.order_by('title')
+        elif orderby == "rating":
+            queryset = queryset.order_by('-avg_rating')
+
         return queryset
 
 
@@ -204,12 +216,38 @@ def add_review(request: HttpRequest, pk: int) -> HttpResponse:
         if form.is_valid():
             review = form.save(commit=False)
             review.creator = request.user
-            review.film = movie
+            review.movie = movie
             review.save()
             return redirect("movies:movie_detail", pk=movie.id)
     else:
         form = ReviewForm()
-    return render(request, "movie/add_review.html", {"form": form, "movie": movie})
+    return render(request, "movie/review_form.html", {"form": form, "movie": movie})
+
+
+def update_review(request: HttpRequest, movie_pk: int, review_pk: int) -> HttpResponse:
+    movie = get_object_or_404(Movie, pk=movie_pk)
+    review = get_object_or_404(Review, pk=review_pk, creator=request.user)
+
+    if request.method == "POST":
+        form = ReviewForm(request.POST, instance=review)
+        if form.is_valid():
+            form.save()
+            return redirect("movies:movie_detail", pk=movie.pk)
+    else:
+        form = ReviewForm(instance=review)
+
+    return render(request, "movie/review_form.html", {"form": form, "movie": movie})
+
+
+def delete_review(request: HttpRequest, movie_pk: int, review_pk: int) -> HttpResponse:
+    movie = get_object_or_404(Movie, pk=movie_pk)
+    review = get_object_or_404(Review, pk=review_pk, creator=request.user)
+
+    if request.method == "POST":
+        review.delete()
+        return redirect("movies:movie_detail", pk=movie.pk)
+
+    return render(request, "movie/review_confirm_delete.html", {"review": review, "movie": movie})
 
 
 def sign_up(request: HttpRequest) -> HttpResponse:

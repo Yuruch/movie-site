@@ -8,6 +8,9 @@ from django.db.models import CASCADE, Avg
 class Genre(models.Model):
     name = models.CharField(max_length=255)
 
+    class Meta:
+        ordering = ("name",)
+
     def __str__(self):
         return self.name
 
@@ -27,6 +30,9 @@ class Director(models.Model):
         default="blank_people.jpg",
         blank=True
     )
+
+    class Meta:
+        ordering = ("first_name",)
 
     @property
     def best_movie(self):
@@ -56,6 +62,9 @@ class Actor(models.Model):
         blank=True
     )
 
+    class Meta:
+        ordering = ("first_name",)
+
     @property
     def best_movie(self):
         return Movie.objects.filter(
@@ -84,6 +93,9 @@ class Review(models.Model):
     movie = models.ForeignKey("Movie", on_delete=CASCADE, related_name="reviews")
     comment = models.TextField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True, blank=True)
+
+    class Meta:
+        ordering = ("-created_at",)
 
 
 class Movie(models.Model):

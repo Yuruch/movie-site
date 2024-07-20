@@ -17,7 +17,7 @@
               <i class="far fa-heart"></i>
             {% endif %}
           </a>
-        </div>    
+        </div>
     </div>
     <div class="detail-info-container">
       <div class="detail-photo-container">
@@ -90,7 +90,17 @@
               <a class="review-link" href="{% url 'movies:user_detail' pk=review.creator.id %}">
                 {{ review.creator.first_name }} {{ review.creator.last_name }}
               </a>
-              <span class="review-rating">{{ review.rating }} / 10</span>
+              <div class="review-rating">
+                {% if review.creator == request.user %}
+                  <a href="{% url 'movies:delete_review' review_pk=review.id movie_pk=movie.id %}" class="delete-link">
+                    <i class="fas fa-trash-alt"></i>
+                  </a>
+                	<a href="{% url 'movies:update_review' movie_pk=movie.id review_pk=review.pk %}" class="edit-link">
+                    <i class="fas fa-pencil-alt"></i>
+                  </a>
+                {% endif %}
+                {{ review.rating }} / 10
+              </div>
             </div>
           </div>
           <div class="review-body">
@@ -105,43 +115,3 @@
     </ul>
   </div>
 {% endblock %}
-
-
-
-
-
-
-
-
-
-<li class="item" onclick="window.location.href='{% url 'movies:movie_detail' pk=movie.id %}';">
-          <div class="list-container">
-            <img src="{{ movie.poster.url }}" alt="Movie Poster Picture" class="list-photo">
-          </div>
-          <div class="text-container">
-            <h4>{{ movie.title }}</h4>
-            <p>{{ movie.description }}</p>
-            <span class="review-rating">{{ movie.average_rating }} / 10</span>
-          </div>
-        </li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
