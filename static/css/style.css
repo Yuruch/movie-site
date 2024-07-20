@@ -4,6 +4,7 @@ body {
 
 header {
   width: 100%;
+  background: #007bff;
 }
 
 nav a {
@@ -403,7 +404,7 @@ p {
 
 /* Button appearance when unchecked */
 .toggle-checkbox:not(:checked) ~ .show-genres {
-  background: #0056b3;
+  background: #007bff;
 }
 
 
@@ -511,4 +512,24 @@ p {
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   padding: 10px 5px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination a {
+  background: #007bff;
+  color: white;
+  border-radius: 5px;
+  float: left;
+  margin: 0 10px;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.pagination a:hover {
+  background: #0056b3;
 }
