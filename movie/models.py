@@ -61,8 +61,8 @@ class Actor(models.Model):
         return Movie.objects.filter(
             actors=self.id
         ).annotate(
-            avg_rating=Avg('reviews__rating')
-        ).order_by('-avg_rating').first()
+            avg_rating=Avg("reviews__rating")
+        ).order_by("-avg_rating").first()
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
@@ -104,6 +104,9 @@ class Movie(models.Model):
         related_name="movies",
         blank=True
     )
+
+    class Meta:
+        ordering = ("title",)
 
     @property
     def average_rating(self) -> float:

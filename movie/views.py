@@ -9,7 +9,7 @@ from django.views import generic
 from movie.forms import ActorForm, DirectorForm, MovieForm, ReviewForm, SignUpForm, UserUpdateForm, MovieSearchForm, \
     ActorSearchForm, DirectorSearchForm
 from movie.models import Movie, Actor, Director, Review, User
-
+from movie.services import movies
 
 # TODO add permissions
 
@@ -18,10 +18,14 @@ def index(request: HttpRequest) -> HttpResponse:
     num_movies = Movie.objects.count()
     num_actors = Actor.objects.count()
     num_directors = Director.objects.count()
+    best_movies = movies.best_movies(16)
+    movies_you_like = movies.movie_you_like(request.user, 16)
     context = {
         "num_movies": num_movies,
         "num_actors": num_actors,
         "num_directors": num_directors,
+        "best_movies": best_movies,
+        "movies_you_like": movies_you_like,
     }
     return render(request, "movie/index.html", context)
 

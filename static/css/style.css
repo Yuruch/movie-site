@@ -49,7 +49,7 @@ li{
 }
 
 .item {
-  width: 800px; /* Fixed width */
+  width: 900px;
   margin: 10px 0; /* Vertical margin for spacing */
   border: 1px solid #ccc;
   padding: 10px;
@@ -67,6 +67,7 @@ li{
 }
 
 .container {
+  width: 900px;
   margin-top: 30px;
   align-items: center;
   justify-content: center;
@@ -329,7 +330,6 @@ p {
 }
 
 .profile-info-container {
-  width: 800px; /* Fixed width */
   margin: 10px auto; /* Vertical margin for spacing */
   padding: 10px;
   text-align: left; /* Align text to the left */
@@ -472,4 +472,43 @@ p {
 
 .nice-form-group div div {
     margin-bottom: 10px;
+}
+
+.movies-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Add some space between the movie containers */
+  justify-content: center; /* Center the items horizontally */
+}
+
+.movie-container {
+  cursor: pointer;
+  width: 200px;
+  height: 400px;
+  display: flex; /* Ensure child elements are aligned correctly */
+  flex-direction: column; /* Arrange child elements in a column */
+  margin-bottom: 50px;
+}
+
+.movie-poster-container {
+  width: 200px;
+  height: 300px;
+}
+
+.movie-poster {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  width: 100%;
+  height: 300px;
+  object-fit: cover; /* Ensure the image covers the container without distortion */
+}
+
+.movie-text-container {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #ddd;
+  border-top: none;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 10px 5px;
 }

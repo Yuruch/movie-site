@@ -9,6 +9,7 @@ class ActorForm(forms.ModelForm):
     movies = forms.ModelMultipleChoiceField(
         queryset=Movie.objects.all(),
         widget=forms.CheckboxSelectMultiple,
+        required=False
     )
 
     class Meta:
