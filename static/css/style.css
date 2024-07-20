@@ -192,6 +192,17 @@ p {
   color: black; /* Change color on hover */
 }
 
+.delete-link {
+  color: grey; /* Icon color for the edit link */
+  text-decoration: none; /* Remove underline from the link */
+  font-size: 24px; /* Adjust the size of the icons */
+  margin-left: 10px; /* Space between icons */
+}
+
+.delete-link:hover {
+  color: red; /* Change color on hover */
+}
+
 .favourite-toggle {
   color: hotpink; /* Icon color for the heart */
 }
@@ -413,6 +424,7 @@ p {
   background: #28a745;
   color: white;
   border: none;
+  text-decoration: none;
   border-radius: 5px;
   padding: 14px 10px;
   cursor: pointer;
@@ -426,9 +438,10 @@ p {
 /* Style the clear button */
 .clear-button {
   text-decoration: none;
-  background: indianred;
+  background: orangered;
   color: white;
   border: none;
+  border-radius: 5px;
   padding: 5px 10px;
   cursor: pointer;
   font-size: 16px;
@@ -436,7 +449,7 @@ p {
 
 .clear-button:hover {
   text-decoration: underline;
-  background: orangered;
+  background: indianred;
 }
 
 /* Style the genre options to display in columns */

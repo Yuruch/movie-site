@@ -3,7 +3,10 @@
   <div class="detail-container">
     <div class="title-heart-container">
       <h1>{{ movie.title }}</h1>
-       <div class="actions">
+        <div class="actions">
+          <a href="{% url 'movies:movie_delete' pk=movie.id %}" class="delete-link">
+            <i class="fas fa-trash-alt"></i>
+          </a>
           <a href="{% url 'movies:movie_update' pk=movie.id %}" class="edit-link">
             <i class="fas fa-pencil-alt"></i>
           </a>
@@ -14,7 +17,7 @@
               <i class="far fa-heart"></i>
             {% endif %}
           </a>
-        </div>
+        </div>    
     </div>
     <div class="detail-info-container">
       <div class="detail-photo-container">

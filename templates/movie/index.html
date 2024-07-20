@@ -7,6 +7,7 @@
     <li>{{ num_movies }} movies</li>
     <li>{{ num_directors }} directors</li>
   </ul>
+  {% if request.user.is_authenticated %}
   <div class="centered-heading">
     <h1>Movies You like</h1>
   </div>
@@ -23,6 +24,7 @@
       </div>
     {% endfor %}
   </div>
+  {% endif %}
   <div class="centered-heading">
     <h1>Best movies</h1>
   </div>

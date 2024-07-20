@@ -19,14 +19,15 @@ def index(request: HttpRequest) -> HttpResponse:
     num_actors = Actor.objects.count()
     num_directors = Director.objects.count()
     best_movies = movies.best_movies(16)
-    movies_you_like = movies.movie_you_like(request.user, 16)
     context = {
         "num_movies": num_movies,
         "num_actors": num_actors,
         "num_directors": num_directors,
         "best_movies": best_movies,
-        "movies_you_like": movies_you_like,
     }
+    if request.user.is_authenticated:
+        movies_you_like = movies.movie_you_like(request.user, 16)
+        context["movies_you_like"] = movies_you_like
     return render(request, "movie/index.html", context)
 
 
@@ -247,3 +248,18 @@ class UserUpdateView(generic.UpdateView):
     model = User
     form_class = UserUpdateForm
     success_url = reverse_lazy("movies:home")
+
+
+class MovieDeleteView(generic.DeleteView):
+    model = Movie
+    success_url = reverse_lazy("movies:movie_list")
+
+
+class ActorDeleteView(generic.DeleteView):
+    model = Actor
+    success_url = reverse_lazy("movies:actor_list")
+
+
+class DirectorDeleteView(generic.DeleteView):
+    model = Director
+    success_url = reverse_lazy("movies:directors_list")
