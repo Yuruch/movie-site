@@ -16,7 +16,6 @@ nav .auth-links {
   position: absolute;
   right: 10px;
   top: 50%;
-  transform: translateY(-50%);
 }
 
 nav .auth-links a,
@@ -340,6 +339,7 @@ p {
 .form-container {
   max-width: 600px;
   margin: 0 auto;
+  margin-bottom: 30px;
 }
 
 /* Style the search container */
