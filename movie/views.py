@@ -52,9 +52,16 @@ class ActorListView(generic.ListView):
         queryset = Actor.objects.all()
         form = ActorSearchForm(self.request.GET)
         if form.is_valid():
-            return queryset.filter(
+            queryset.filter(
                 first_name__icontains=form.cleaned_data["name"]
             )
+        orderby = self.request.GET.get("orderby")
+        if orderby == "name":
+            queryset = queryset.order_by("first_name")
+        elif orderby == "surname":
+            queryset = queryset.order_by("last_name")
+        elif orderby == "age":
+            queryset = queryset.order_by("-age")
         return queryset
 
 
@@ -85,11 +92,11 @@ class MovieListView(generic.ListView):
             if form.cleaned_data["genre"]:
                 queryset = queryset.filter(genres=form.cleaned_data["genre"])
 
-        orderby = self.request.GET.get('orderby')
+        orderby = self.request.GET.get("orderby")
         if orderby == "title":
-            queryset = queryset.order_by('title')
+            queryset = queryset.order_by("title")
         elif orderby == "rating":
-            queryset = queryset.order_by('-avg_rating')
+            queryset = queryset.order_by("-avg_rating")
 
         return queryset
 

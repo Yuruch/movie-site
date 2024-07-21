@@ -72,7 +72,6 @@
     <h2>What "{{ movie.title }}" is about:</h2>
     <p>{{ movie.description }}</p>
     <br>
-{# TODO rating with stars #}
     <div class="centered-heading">
       <h1>
         Reviews
@@ -84,7 +83,9 @@
         <li class="item movie-review-container">
           <div class="review-header">
             <div class="review-pic-container">
-              <img src="{{ review.creator.profile_pic.url }}" alt="User Profile Picture" class="review-pic">
+              <a class="review-link" href="{% url 'movies:user_detail' pk=review.creator.id %}">
+                <img src="{{ review.creator.profile_pic.url }}" alt="User Profile Picture" class="review-pic">
+              </a>
             </div>
             <div class="review-info">
               <a class="review-link" href="{% url 'movies:user_detail' pk=review.creator.id %}">

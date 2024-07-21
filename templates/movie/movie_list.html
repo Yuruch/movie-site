@@ -35,13 +35,10 @@
       </a>
     </div>
   </form>
-  
-  <!-- Sorting buttons -->
   <div class="sorting-buttons">
     <a href="{% url 'movies:movie_list' %}?orderby=title">Order by title</a>
     <a href="{% url 'movies:movie_list' %}?orderby=rating">Order by rating</a>
   </div>
-
   {% if movie_list %}
       <ul class="item-list">
       {% for movie in movie_list %}

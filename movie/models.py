@@ -1,3 +1,5 @@
+from datetime import timedelta
+
 from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django.core.validators import MinValueValidator, MaxValueValidator
@@ -99,6 +101,13 @@ class Review(models.Model):
 
 
 class Movie(models.Model):
+    COUNTRY_CHOICES = [
+        ("US", "United States"),
+        ("CA", "Canada"),
+        ("FR", "France"),
+        ("DE", "Germany"),
+        ("UA", "Ukraine")
+    ]
     title = models.CharField(max_length=255)
     description = models.TextField(null=True, blank=True)
     directors = models.ManyToManyField(
@@ -116,6 +125,19 @@ class Movie(models.Model):
         related_name="movies",
         blank=True
     )
+    release_date = models.DateField(
+        default="2004-05-12",
+        blank=True
+    )
+    duration = models.DurationField(
+        default=timedelta(hours=2, minutes=30)
+    )
+
+    country = models.CharField(
+        max_length=2,
+        choices=COUNTRY_CHOICES,
+        default="UA"
+    )
 
     class Meta:
         ordering = ("title",)
@@ -129,6 +151,11 @@ class Movie(models.Model):
         default="blank_poster.webp",
         blank=True
     )
+
+    def get_duration_in_minutes(self):
+        total_seconds = self.duration.total_seconds()
+        minutes = total_seconds // 60
+        return f"{int(minutes // 60)}h {int(minutes % 60)}m"
 
     def __str__(self):
         return self.title

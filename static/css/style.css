@@ -435,6 +435,21 @@ p {
   background: #218838;
 }
 
+.sorting-buttons a {
+  background: #28a745;
+  color: white;
+  border: none;
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 5px 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.sorting-buttons a:hover {
+  background: #218838;
+}
+
 /* Style the clear button */
 .clear-button {
   text-decoration: none;

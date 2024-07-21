@@ -15,4 +15,6 @@ def movie_you_like(user: User, number: int) -> QuerySet:
         genres__in=genres
     ).annotate(
         avg_rating=Avg("reviews__rating")
+    ).filter(
+        avg_rating__gte=5
     ).order_by("-avg_rating")[:number]
