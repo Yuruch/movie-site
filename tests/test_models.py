@@ -30,7 +30,10 @@ class DirectorModelTest(TestCase):
         )
         self.movie.directors.add(self.director)
         self.review = Review.objects.create(
-            creator=User.objects.create_user(username="testuser", password="password"),
+            creator=User.objects.create_user(
+                username="testuser",
+                password="password"
+            ),
             movie=self.movie,
             rating=8,
             comment="Great movie!"
@@ -61,7 +64,10 @@ class ActorModelTest(TestCase):
         )
         self.movie.actors.add(self.actor)
         self.review = Review.objects.create(
-            creator=User.objects.create_user(username="testactoruser", password="password"),
+            creator=User.objects.create_user(
+                username="testactoruser",
+                password="password"
+            ),
             movie=self.movie,
             rating=9,
             comment="Excellent performance!"
@@ -77,7 +83,10 @@ class ActorModelTest(TestCase):
 
 class ReviewModelTest(TestCase):
     def setUp(self):
-        self.user = User.objects.create_user(username="reviewer", password="password")
+        self.user = User.objects.create_user(
+            username="reviewer",
+            password="password"
+        )
         self.movie = Movie.objects.create(
             title="Test Movie",
             release_date="2024-07-21",
@@ -92,7 +101,10 @@ class ReviewModelTest(TestCase):
         )
 
     def test_review_str(self):
-        self.assertEqual(str(self.review), f"Review by {self.user.username} for {self.movie.title}")
+        self.assertEqual(
+            str(self.review),
+            f"Review by {self.user.username} for {self.movie.title}"
+        )
 
     def test_review_created_at(self):
         self.assertTrue(self.review.created_at <= timezone.now())
@@ -124,7 +136,10 @@ class MovieModelTest(TestCase):
         self.movie.directors.add(self.director)
         self.movie.actors.add(self.actor)
         self.review = Review.objects.create(
-            creator=User.objects.create_user(username="moviereviewer", password="password"),
+            creator=User.objects.create_user(
+                username="moviereviewer",
+                password="password"
+            ),
             movie=self.movie,
             rating=9,
             comment="Incredible film!"
@@ -139,7 +154,10 @@ class MovieModelTest(TestCase):
 
 class UserModelTest(TestCase):
     def setUp(self):
-        self.user = User.objects.create_user(username="testuser", password="password")
+        self.user = User.objects.create_user(
+            username="testuser",
+            password="password"
+        )
 
     def test_user_str(self):
         self.assertEqual(str(self.user), "testuser")

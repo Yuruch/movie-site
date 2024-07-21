@@ -1,18 +1,28 @@
 from django.test import TestCase, Client
 from django.urls import reverse
 from movie.models import Actor, Director, Movie, User, Genre, Review
-from datetime import date, timedelta
+from datetime import timedelta
+
 
 class ViewTests(TestCase):
     def setUp(self):
         self.client = Client()
-        self.user = User.objects.create_user(username="testuser", password="12345")
+        self.user = User.objects.create_user(
+            username="testuser",
+            password="12345"
+        )
         self.client.login(username="testuser", password="12345")
         self.director = Director.objects.create(
-            first_name="Quentin", last_name="Tarantino", birth_date="1963-03-27", age=60
+            first_name="Quentin",
+            last_name="Tarantino",
+            birth_date="1963-03-27",
+            age=60
         )
         self.actor = Actor.objects.create(
-            first_name="Leonardo", last_name="DiCaprio", birth_date="1974-11-11", age=49
+            first_name="Leonardo",
+            last_name="DiCaprio",
+            birth_date="1974-11-11",
+            age=49
         )
         self.genre = Genre.objects.create(name="Drama")
         self.movie = Movie.objects.create(
@@ -53,33 +63,64 @@ class ViewTests(TestCase):
         self.assertContains(response, "Inception")
 
     def test_movie_detail_view(self):
-        response = self.client.get(reverse("movies:movie_detail", kwargs={"pk": self.movie.id}))
+        response = self.client.get(
+            reverse(
+                "movies:movie_detail",
+                kwargs={"pk": self.movie.id}
+            )
+        )
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "A mind-bending thriller")
 
     def test_actor_detail_view(self):
-        response = self.client.get(reverse("movies:actor_detail", kwargs={"pk": self.actor.id}))
+        response = self.client.get(
+            reverse(
+                "movies:actor_detail",
+                kwargs={"pk": self.actor.id}
+            )
+        )
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Leonardo")
 
     def test_director_detail_view(self):
-        response = self.client.get(reverse("movies:director_detail", kwargs={"pk": self.director.id}))
+        response = self.client.get(
+            reverse(
+                "movies:director_detail",
+                kwargs={"pk": self.director.id}
+            )
+        )
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Quentin")
 
     def test_add_review(self):
-        response = self.client.post(reverse("movies:add_review", kwargs={"pk": self.movie.id}), {
-            "rating": 8,
-            "comment": "Great movie!"
-        })
+        response = self.client.post(
+            reverse(
+                "movies:add_review",
+                kwargs={"pk": self.movie.id}),
+            {"rating": 8, "comment": "Great movie!"}
+        )
         self.assertEqual(response.status_code, 302)
         self.assertEqual(Review.objects.count(), 2)
 
     def test_toggle_add_to_favourites(self):
-        response = self.client.get(reverse("movies:toggle-add-to-favourites", kwargs={"pk": self.movie.id}))
+        response = self.client.get(
+            reverse(
+                "movies:toggle-add-to-favourites",
+                kwargs={"pk": self.movie.id}
+            )
+        )
         self.assertEqual(response.status_code, 302)
-        self.assertTrue(self.user.favourite_movies.filter(id=self.movie.id).exists())
+        self.assertTrue(
+            self.user.favourite_movies.filter(id=self.movie.id).exists()
+        )
 
-        response = self.client.get(reverse("movies:toggle-add-to-favourites", kwargs={"pk": self.movie.id}))
+        response = self.client.get(
+            reverse(
+                "movies:toggle-add-to-favourites",
+                kwargs={"pk": self.movie.id}
+            )
+        )
         self.assertEqual(response.status_code, 302)
-        self.assertFalse(self.user.favourite_movies.filter(id=self.movie.id).exists())
+        self.assertFalse(
+            self.user.favourite_movies.filter(id=self.movie.id).exists()
+        )

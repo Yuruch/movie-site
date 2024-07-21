@@ -7,6 +7,34 @@ from django.db import models
 from django.db.models import CASCADE, Avg
 
 
+class Person(models.Model):
+    first_name = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=255)
+    bio = models.TextField(null=True, blank=True)
+    birth_date = models.DateField()
+    age = models.IntegerField(
+        validators=(
+            MinValueValidator(6),
+            MaxValueValidator(100)
+        )
+    )
+    photo = models.ImageField(
+        default="blank_people.jpg",
+        blank=True
+    )
+
+    class Meta:
+        abstract = True
+        ordering = ("first_name",)
+
+    @property
+    def best_movie(self):
+        raise NotImplementedError("Subclasses must implement this method")
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
+
+
 class Genre(models.Model):
     name = models.CharField(max_length=255)
 
@@ -17,25 +45,7 @@ class Genre(models.Model):
         return self.name
 
 
-class Director(models.Model):
-    first_name = models.CharField(max_length=255)
-    last_name = models.CharField(max_length=255)
-    bio = models.TextField(null=True, blank=True)
-    birth_date = models.DateField(default="1994-07-19")
-    age = models.IntegerField(
-        validators=(
-            MinValueValidator(6),
-            MaxValueValidator(100)
-        )
-    )
-    photo = models.ImageField(
-        default="blank_people.jpg",
-        blank=True
-    )
-
-    class Meta:
-        ordering = ("first_name",)
-
+class Director(Person):
     @property
     def best_movie(self):
         return Movie.objects.filter(
@@ -44,29 +54,8 @@ class Director(models.Model):
             avg_rating=Avg('reviews__rating')
         ).order_by('-avg_rating').first()
 
-    def __str__(self):
-        return f"{self.first_name} {self.last_name}"
 
-
-class Actor(models.Model):
-    first_name = models.CharField(max_length=255)
-    last_name = models.CharField(max_length=255)
-    bio = models.TextField(null=True, blank=True)
-    birth_date = models.DateField(default="2004-05-12")
-    age = models.IntegerField(
-        validators=(
-            MinValueValidator(6),
-            MaxValueValidator(100)
-        )
-    )
-    photo = models.ImageField(
-        default="blank_people.jpg",
-        blank=True
-    )
-
-    class Meta:
-        ordering = ("first_name",)
-
+class Actor(Person):
     @property
     def best_movie(self):
         return Movie.objects.filter(
@@ -74,9 +63,6 @@ class Actor(models.Model):
         ).annotate(
             avg_rating=Avg("reviews__rating")
         ).order_by("-avg_rating").first()
-
-    def __str__(self):
-        return f"{self.first_name} {self.last_name}"
 
 
 class Review(models.Model):
@@ -143,7 +129,7 @@ class Movie(models.Model):
     country = models.CharField(
         max_length=63,
         choices=COUNTRY_CHOICES,
-        default="UA"
+        default="Ukraine"
     )
 
     class Meta:

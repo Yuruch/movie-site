@@ -1,15 +1,37 @@
 from django.test import TestCase
-from movie.forms import ActorForm, DirectorForm, MovieForm, ReviewForm, SignUpForm, UserUpdateForm, MovieSearchForm, ActorSearchForm, DirectorSearchForm
-from movie.models import Actor, Director, Movie, Genre, User
+from movie.forms import (
+    ActorForm,
+    DirectorForm,
+    MovieForm,
+    ReviewForm,
+    SignUpForm,
+    UserUpdateForm,
+    MovieSearchForm,
+    ActorSearchForm,
+    DirectorSearchForm
+)
+from movie.models import (
+    Actor,
+    Director,
+    Movie,
+    Genre
+)
 from datetime import timedelta
+
 
 class FormTests(TestCase):
     def setUp(self):
         self.director = Director.objects.create(
-            first_name="Quentin", last_name="Tarantino", birth_date="1963-03-27", age=60
+            first_name="Quentin",
+            last_name="Tarantino",
+            birth_date="1963-03-27",
+            age=60
         )
         self.actor = Actor.objects.create(
-            first_name="Leonardo", last_name="DiCaprio", birth_date="1974-11-11", age=49
+            first_name="Leonardo",
+            last_name="DiCaprio",
+            birth_date="1974-11-11",
+            age=49
         )
         self.genre = Genre.objects.create(name="Drama")
         self.movie = Movie.objects.create(
