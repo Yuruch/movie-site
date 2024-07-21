@@ -137,9 +137,12 @@ class Movie(models.Model):
 
     @property
     def average_rating(self) -> float:
-        return Review.objects.filter(
-            movie=self
-        ).aggregate(Avg("rating"))["rating__avg"] or 0
+        return round(
+            Review.objects.filter(
+                movie=self
+            ).aggregate(Avg("rating"))["rating__avg"] or 0,
+            2
+        )
     poster = models.ImageField(
         default="blank_poster.webp",
         blank=True
