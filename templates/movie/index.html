@@ -4,9 +4,11 @@
   <h1>Welcome to the best movie site!</h1>
   </div>
   {% if request.user.is_authenticated %}
-  <div class="centered-heading">
-    <h2>Movies for you</h2>
-  </div>
+    {% if movies_you_like %}
+    	<div class="centered-heading">
+        <h2>Movies for you</h2>
+      </div>
+    {% endif %}
   <div class="movies-container">
     {% for movie in movies_you_like %}
       <div class="movie-container" onclick="window.location.href='{% url "movies:movie_detail" pk=movie.id %}';">
