@@ -35,7 +35,7 @@ class Command(BaseCommand):
                         "bio": director.get("bio"),
                         "birth_date": director["birth_date"],
                         "age": director["age"],
-                        "photo": "blank_people.jpg"
+                        "photo": "blank.png"
                     }
                 )
                 if created:
@@ -58,7 +58,7 @@ class Command(BaseCommand):
                         "bio": actor.get("bio"),
                         "birth_date": actor["birth_date"],
                         "age": actor["age"],
-                        "photo": "blank_people.jpg"
+                        "photo": "blank.png"
                     }
                 )
                 if created:
@@ -80,7 +80,7 @@ class Command(BaseCommand):
                         "release_date": movie["release_date"],
                         "duration": self.parse_duration(movie["duration"]),
                         "country": movie["country"],
-                        "poster": movie.get("poster", "blank_poster.webp"),
+                        "poster": "blank_poster.webp",
                     }
                 )
                 if created:
@@ -103,7 +103,7 @@ class Command(BaseCommand):
                 )
                 if created:
                     user.set_password(user_data["password"])
-                    user.profile_pic = user_data.get("profile_pic")
+                    user.profile_pic = "blank.png"
                     user.save()
                     favourite_movies = user_data.get("favourite_movies", [])
                     movies = Movie.objects.filter(title__in=favourite_movies)
@@ -139,7 +139,7 @@ class Command(BaseCommand):
                 email="admin@example.com",
                 first_name="Yurii",
                 last_name="Yurchenko",
-                profile_pic="1-intro-photo-final.jpg",
+                profile_pic="blank.png",
                 password="Fuceqwertyt1"
             )
             self.stdout.write(self.style.SUCCESS(

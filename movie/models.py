@@ -51,8 +51,8 @@ class Director(Person):
         return Movie.objects.filter(
             directors=self.id
         ).annotate(
-            avg_rating=Avg('reviews__rating')
-        ).order_by('-avg_rating').first()
+            avg_rating=Avg("reviews__rating")
+        ).order_by("-avg_rating").first()
 
 
 class Actor(Person):

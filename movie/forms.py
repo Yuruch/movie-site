@@ -60,7 +60,7 @@ class MovieForm(forms.ModelForm):
 class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
-        fields = ['rating', 'comment']
+        fields = ["rating", "comment"]
 
 
 class SignUpForm(UserCreationForm):

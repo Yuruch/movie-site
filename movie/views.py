@@ -186,11 +186,11 @@ class MovieDetailView(generic.DetailView):
         context = super().get_context_data(**kwargs)
         user = self.request.user
         if user.is_authenticated:
-            context['is_favourite'] = user.favourite_movies.filter(
+            context["is_favourite"] = user.favourite_movies.filter(
                 id=self.object.id
             ).exists()
         else:
-            context['is_favourite'] = False
+            context["is_favourite"] = False
         return context
 
 
