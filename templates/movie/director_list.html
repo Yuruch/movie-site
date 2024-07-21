@@ -13,6 +13,11 @@
       <input type="submit" value="Search" class="search-button">
     </div>
   </form>
+    <div class="sorting-buttons">
+    <a href="{% url 'movies:directors_list' %}?orderby=name">Order by name</a>
+    <a href="{% url 'movies:directors_list' %}?orderby=surname">Order by surname</a>
+    <a href="{% url 'movies:directors_list' %}?orderby=age">Order by age</a>
+  </div>
   {% if director_list %}
       <ul class="item-list">
       {% for director in director_list %}
@@ -22,6 +27,7 @@
             </div>
             <div class="text-container">
               <h4>{{ director.first_name }} {{ director.last_name }}</h4>
+              <p>Age: {{ director.age }}</p>
               <p>{{ director.bio }}</p>
             </div>
           </li>

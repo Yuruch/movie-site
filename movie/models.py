@@ -92,21 +92,28 @@ class Review(models.Model):
             MaxValueValidator(10),
         )
     )
-    movie = models.ForeignKey("Movie", on_delete=CASCADE, related_name="reviews")
+    movie = models.ForeignKey(
+        "Movie",
+        on_delete=CASCADE,
+        related_name="reviews"
+    )
     comment = models.TextField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True, blank=True)
 
     class Meta:
         ordering = ("-created_at",)
 
+    def __str__(self):
+        return f"Review by {self.creator.username} for {self.movie.title}"
+
 
 class Movie(models.Model):
     COUNTRY_CHOICES = [
-        ("US", "United States"),
-        ("CA", "Canada"),
-        ("FR", "France"),
-        ("DE", "Germany"),
-        ("UA", "Ukraine")
+        ("United States", "United States"),
+        ("Canada", "Canada"),
+        ("France", "France"),
+        ("Germany", "Germany"),
+        ("Ukraine", "Ukraine")
     ]
     title = models.CharField(max_length=255)
     description = models.TextField(null=True, blank=True)
@@ -134,7 +141,7 @@ class Movie(models.Model):
     )
 
     country = models.CharField(
-        max_length=2,
+        max_length=63,
         choices=COUNTRY_CHOICES,
         default="UA"
     )
@@ -151,11 +158,6 @@ class Movie(models.Model):
         default="blank_poster.webp",
         blank=True
     )
-
-    def get_duration_in_minutes(self):
-        total_seconds = self.duration.total_seconds()
-        minutes = total_seconds // 60
-        return f"{int(minutes // 60)}h {int(minutes % 60)}m"
 
     def __str__(self):
         return self.title

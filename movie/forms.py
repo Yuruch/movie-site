@@ -2,7 +2,13 @@ from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
 
-from movie.models import Actor, Movie, Director, Review, User, Genre
+from movie.models import (
+    Actor,
+    Movie,
+    Director,
+    Review,
+    Genre
+)
 
 
 class ActorForm(forms.ModelForm):
@@ -62,7 +68,7 @@ class SignUpForm(UserCreationForm):
     profile_pic = forms.ImageField(required=False)
 
     class Meta:
-        model = User
+        model = get_user_model()
         fields = ("username", "email", "password1", "password2")
 
 
@@ -74,8 +80,14 @@ class UserUpdateForm(forms.ModelForm):
     profile_pic = forms.ImageField(required=False)
 
     class Meta:
-        model = User
-        fields = ("username", "first_name", "last_name", "email", "profile_pic")
+        model = get_user_model()
+        fields = (
+            "username",
+            "first_name",
+            "last_name",
+            "email",
+            "profile_pic"
+        )
 
 
 class MovieSearchForm(forms.Form):

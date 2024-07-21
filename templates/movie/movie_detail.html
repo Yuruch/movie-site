@@ -24,10 +24,13 @@
         <img src="{{ movie.poster.url }}" alt="Movie Poster Picture" class="detail-photo">
       </div>
       <div class="detail-info">
-        <p>Rating: {{ movie.average_rating }}</p>
+        <p class="movie-info-line">Rating: {{ movie.average_rating }}</p>
+        <p class="movie-info-line">Release date: {{ movie.release_date }}</p>
+        <p class="movie-info-line">Duration: {{ movie.duration }}</p>
+        <p class="movie-info-line">Country: {{ movie.country }}</p>
         <div class="movie-info-links">
           <p>Directors: </p>
-          {% for director in movie.director.all %}
+          {% for director in movie.directors.all %}
             <a href="{% url 'movies:director_detail' pk=director.id %}" class="movie-info-link">
               {% if not forloop.last %}
               {{ director.first_name }} {{ director.last_name }},

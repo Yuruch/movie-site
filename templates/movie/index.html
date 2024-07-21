@@ -26,7 +26,7 @@
   </div>
   <div class="movies-container">
     {% for movie in best_movies %}
-      <div class="movie-container">
+      <div class="movie-container" onclick="window.location.href='{% url "movies:movie_detail" pk=movie.id %}';">
         <div class="movie-poster-container">
           <img class="movie-poster" src="{{ movie.poster.url }}" alt="Movie Poster Picture">
         </div>

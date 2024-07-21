@@ -248,6 +248,10 @@ p {
   text-decoration: underline; /* Underline on hover */
 }
 
+.movie-info-line {
+  padding-bottom: 10px;
+}
+
 .review-header {
   display: flex;
   align-items: center;

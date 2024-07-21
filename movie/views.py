@@ -1,14 +1,37 @@
 from django.contrib.auth import logout, login
 from django.contrib.auth.decorators import login_required
 from django.db.models import Prefetch, Avg
-from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
-from django.shortcuts import render, get_object_or_404, redirect
+from django.http import (
+    HttpRequest,
+    HttpResponse,
+    HttpResponseRedirect
+)
+from django.shortcuts import (
+    render,
+    get_object_or_404,
+    redirect
+)
 from django.urls import reverse_lazy
 from django.views import generic
 
-from movie.forms import ActorForm, DirectorForm, MovieForm, ReviewForm, SignUpForm, UserUpdateForm, MovieSearchForm, \
-    ActorSearchForm, DirectorSearchForm
-from movie.models import Movie, Actor, Director, Review, User
+from movie.forms import (
+    ActorForm,
+    DirectorForm,
+    MovieForm,
+    ReviewForm,
+    SignUpForm,
+    UserUpdateForm,
+    MovieSearchForm,
+    ActorSearchForm,
+    DirectorSearchForm
+)
+from movie.models import (
+    Movie,
+    Actor,
+    Director,
+    Review,
+    User
+)
 from movie.services import movies
 
 # TODO add permissions
@@ -52,7 +75,7 @@ class ActorListView(generic.ListView):
         queryset = Actor.objects.all()
         form = ActorSearchForm(self.request.GET)
         if form.is_valid():
-            queryset.filter(
+            queryset = queryset.filter(
                 first_name__icontains=form.cleaned_data["name"]
             )
         orderby = self.request.GET.get("orderby")
@@ -88,7 +111,9 @@ class MovieListView(generic.ListView):
         form = MovieSearchForm(self.request.GET)
         if form.is_valid():
             if form.cleaned_data["title"]:
-                queryset = queryset.filter(title__icontains=form.cleaned_data["title"])
+                queryset = queryset.filter(
+                    title__icontains=form.cleaned_data["title"]
+                )
             if form.cleaned_data["genre"]:
                 queryset = queryset.filter(genres=form.cleaned_data["genre"])
 
@@ -117,9 +142,16 @@ class DirectorListView(generic.ListView):
         queryset = Director.objects.all()
         form = DirectorSearchForm(self.request.GET)
         if form.is_valid():
-            return queryset.filter(
+            queryset = queryset.filter(
                 first_name__icontains=form.cleaned_data["name"]
             )
+        orderby = self.request.GET.get("orderby")
+        if orderby == "name":
+            queryset = queryset.order_by("first_name")
+        elif orderby == "surname":
+            queryset = queryset.order_by("last_name")
+        elif orderby == "age":
+            queryset = queryset.order_by("-age")
         return queryset
 
 
@@ -154,7 +186,9 @@ class MovieDetailView(generic.DetailView):
         context = super().get_context_data(**kwargs)
         user = self.request.user
         if user.is_authenticated:
-            context['is_favourite'] = user.favourite_movies.filter(id=self.object.id).exists()
+            context['is_favourite'] = user.favourite_movies.filter(
+                id=self.object.id
+            ).exists()
         else:
             context['is_favourite'] = False
         return context
@@ -213,7 +247,12 @@ class MovieCreateView(generic.CreateView):
 class MovieUpdateView(generic.UpdateView):
     model = Movie
     form_class = MovieForm
-    success_url = reverse_lazy("movies:movie_list")
+
+    def get_success_url(self):
+        return reverse_lazy(
+            "movies:movie_detail",
+            kwargs={"pk": self.object.pk}
+        )
 
 
 def add_review(request: HttpRequest, pk: int) -> HttpResponse:
@@ -228,10 +267,18 @@ def add_review(request: HttpRequest, pk: int) -> HttpResponse:
             return redirect("movies:movie_detail", pk=movie.id)
     else:
         form = ReviewForm()
-    return render(request, "movie/review_form.html", {"form": form, "movie": movie})
+    return render(
+        request,
+        "movie/review_form.html",
+        {"form": form, "movie": movie}
+    )
 
 
-def update_review(request: HttpRequest, movie_pk: int, review_pk: int) -> HttpResponse:
+def update_review(
+        request: HttpRequest,
+        movie_pk: int,
+        review_pk: int
+) -> HttpResponse:
     movie = get_object_or_404(Movie, pk=movie_pk)
     review = get_object_or_404(Review, pk=review_pk, creator=request.user)
 
@@ -243,10 +290,18 @@ def update_review(request: HttpRequest, movie_pk: int, review_pk: int) -> HttpRe
     else:
         form = ReviewForm(instance=review)
 
-    return render(request, "movie/review_form.html", {"form": form, "movie": movie})
+    return render(
+        request,
+        "movie/review_form.html",
+        {"form": form, "movie": movie}
+    )
 
 
-def delete_review(request: HttpRequest, movie_pk: int, review_pk: int) -> HttpResponse:
+def delete_review(
+        request: HttpRequest,
+        movie_pk: int,
+        review_pk: int
+) -> HttpResponse:
     movie = get_object_or_404(Movie, pk=movie_pk)
     review = get_object_or_404(Review, pk=review_pk, creator=request.user)
 
@@ -254,7 +309,11 @@ def delete_review(request: HttpRequest, movie_pk: int, review_pk: int) -> HttpRe
         review.delete()
         return redirect("movies:movie_detail", pk=movie.pk)
 
-    return render(request, "movie/review_confirm_delete.html", {"review": review, "movie": movie})
+    return render(
+        request,
+        "movie/review_confirm_delete.html",
+        {"review": review, "movie": movie}
+    )
 
 
 def sign_up(request: HttpRequest) -> HttpResponse:
