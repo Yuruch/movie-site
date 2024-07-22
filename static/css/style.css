@@ -565,3 +565,19 @@ p {
 .pagination a:hover {
   background: #0056b3;
 }
+
+.star-rating {
+  display: flex;
+  font-size: 2em;
+  color: #ddd;
+  cursor: pointer;
+}
+
+.star-rating .star {
+  transition: color 0.2s;
+}
+
+.star-rating .star:hover,
+.star-rating .star.selected {
+  color: gold;
+}
