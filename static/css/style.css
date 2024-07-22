@@ -334,10 +334,10 @@ p {
 }
 
 .add {
-  margin-left: 10px; /* Adjust spacing between text and plus sign */
   text-decoration: none;
   font-size: 1.2em; /* Adjust font size as needed */
   color: grey; /* Inherit color from parent element */
+  margin: 10px 20px;
 }
 
 .add:hover {

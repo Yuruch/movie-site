@@ -35,7 +35,7 @@ class Command(BaseCommand):
                         "bio": director.get("bio"),
                         "birth_date": director["birth_date"],
                         "age": director["age"],
-                        "photo": "blank.png"
+                        "photo": director.get("photo", "blank.png")
                     }
                 )
                 if created:
@@ -58,11 +58,10 @@ class Command(BaseCommand):
                         "bio": actor.get("bio"),
                         "birth_date": actor["birth_date"],
                         "age": actor["age"],
-                        "photo": "blank.png"
+                        "photo": actor.get("photo", "blank.png")
                     }
                 )
                 if created:
-
                     movies = Movie.objects.filter(
                         title__in=actor.get("movies", [])
                     )
@@ -80,7 +79,7 @@ class Command(BaseCommand):
                         "release_date": movie["release_date"],
                         "duration": self.parse_duration(movie["duration"]),
                         "country": movie["country"],
-                        "poster": "blank_poster.webp",
+                        "poster": f"{movie.get('title')}.jpg"
                     }
                 )
                 if created:

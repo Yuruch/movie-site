@@ -32,7 +32,7 @@ class DirectorForm(forms.ModelForm):
 
     class Meta:
         model = Director
-        fields = ["bio", "first_name", "last_name", "age", "movies"]
+        fields = ("bio", "first_name", "last_name", "age", "movies", "photo")
 
 
 class MovieForm(forms.ModelForm):

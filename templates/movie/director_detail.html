@@ -21,9 +21,13 @@
         <p>Birthdate {{ director.birth_date }}</p>
         <p>
           Best movie: 
-          <a class="movie-info-link" href="{% url 'movies:movie_detail' pk=director.best_movie.id %}">
-            {{ director.best_movie.title }}
-          </a>
+          {% if not director.best_movie %}
+            No movies
+          {% else %}
+            <a class="movie-info-link" href="{% url 'movies:movie_detail' pk=director.best_movie.id %}">
+              {{ director.best_movie.title }}
+            </a>
+          {% endif %}
         </p>
         <br>
         <div class="centered-heading">

@@ -48,21 +48,23 @@ class Genre(models.Model):
 class Director(Person):
     @property
     def best_movie(self):
-        return Movie.objects.filter(
-            directors=self.id
-        ).annotate(
-            avg_rating=Avg("reviews__rating")
-        ).order_by("-avg_rating").first()
+        if self.movies:
+            return Movie.objects.filter(
+                directors=self.id
+            ).annotate(
+                avg_rating=Avg("reviews__rating")
+            ).order_by("-avg_rating").first()
 
 
 class Actor(Person):
     @property
     def best_movie(self):
-        return Movie.objects.filter(
-            actors=self.id
-        ).annotate(
-            avg_rating=Avg("reviews__rating")
-        ).order_by("-avg_rating").first()
+        if self.movies:
+            return Movie.objects.filter(
+                actors=self.id
+            ).annotate(
+                avg_rating=Avg("reviews__rating")
+            ).order_by("-avg_rating").first()
 
 
 class Review(models.Model):

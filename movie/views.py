@@ -1,6 +1,7 @@
 from django.contrib.auth import logout, login
 from django.contrib.auth.decorators import login_required
 from django.db.models import Prefetch, Avg
+from django.db.models.functions import Round
 from django.http import (
     HttpRequest,
     HttpResponse,
@@ -106,7 +107,9 @@ class MovieListView(generic.ListView):
     def get_queryset(self):
         queryset = Movie.objects.prefetch_related(
             "reviews"
-        ).annotate(avg_rating=Avg("reviews__rating"))
+        ).annotate(
+            avg_rating=Round(Avg("reviews__rating"), 2)
+        )
 
         form = MovieSearchForm(self.request.GET)
         if form.is_valid():
@@ -210,6 +213,11 @@ class ActorUpdateView(generic.UpdateView):
     form_class = ActorForm
     success_url = reverse_lazy("movies:actor_list")
 
+    def get_initial(self):
+        initial = super().get_initial()
+        initial["movies"] = self.object.movies.all()
+        return initial
+
     def form_valid(self, form):
         response = super().form_valid(form)
         self.object.movies.set(form.cleaned_data["movies"])
@@ -231,6 +239,11 @@ class DirectorUpdateView(generic.UpdateView):
     model = Director
     form_class = DirectorForm
     success_url = reverse_lazy("movies:directors_list")
+
+    def get_initial(self):
+        initial = super().get_initial()
+        initial["movies"] = self.object.movies.all()
+        return initial
 
     def form_valid(self, form):
         response = super().form_valid(form)
