@@ -19,7 +19,7 @@ python manage.py runserver
 If you run this commands you will have project without any data
 #### You can use this credentials to login or create new superuser
 Login: `admin`  
-Password: `Adminq123`
+Password: `Qjasq123`
 
 
 

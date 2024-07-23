@@ -139,7 +139,7 @@ class Command(BaseCommand):
                 first_name="Admin",
                 last_name="Admin",
                 profile_pic="blank.png",
-                password="Adminq123"
+                password="Qjasq123"
             )
             self.stdout.write(self.style.SUCCESS(
                 "Successfully created superuser")
