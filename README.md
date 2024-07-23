@@ -16,8 +16,12 @@ source venv/bin/activate
 pip install -r requirements.txt
 python manage.py runserver
 ```
-
 If you run this commands you will have project without any data
+#### You can use this credentials to login or create new superuser
+Login: `admin`  
+Password: `Adminq123`
+
+
 
 ## Installing / Loading data
 
