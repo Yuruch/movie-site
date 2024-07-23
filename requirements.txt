@@ -5,7 +5,9 @@ django-debug-toolbar==4.4.6
 factory-boy==3.3.0
 Faker==26.0.0
 flake8==7.1.0
+gunicorn==22.0.0
 mccabe==0.7.0
+packaging==24.1
 pillow==10.4.0
 psycopg==3.2.1
 psycopg2-binary==2.9.9
