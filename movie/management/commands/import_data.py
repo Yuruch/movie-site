@@ -134,12 +134,12 @@ class Command(BaseCommand):
         user = get_user_model()
         if not user.objects.filter(is_superuser=True).exists():
             user.objects.create_superuser(
-                username="Yuruch",
+                username="admin",
                 email="admin@example.com",
-                first_name="Yurii",
-                last_name="Yurchenko",
+                first_name="Admin",
+                last_name="Admin",
                 profile_pic="blank.png",
-                password="Fuceqwertyt1"
+                password="Adminq123"
             )
             self.stdout.write(self.style.SUCCESS(
                 "Successfully created superuser")

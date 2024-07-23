@@ -1,13 +1,29 @@
-# movie-site
-First run 
-`python manage.py migrate`
+# Movie review project
 
-To load data run
-`python manage.py import_data`
+Django project for rating movies and finding the best movie for you
 
-You can login with this data:
+## Check it out!
+[Movie project deployed to render](https://movie-site.render.com)
+## Installing / Getting started
 
-login: Yuruch
+Python3 must be installed
 
-password: Fuceqwertyt1
+```shell
+git clone https://github.com/Yuruch/movie-site
+cd movie-site
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python manage.py runserver
+```
 
+If you run this commands you will have project without any data
+
+## Installing / Loading data
+
+If you want to load already prepared data run this commands
+
+```shell
+python manage.py migrate
+python manage.py import_data
+```
