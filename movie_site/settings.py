@@ -25,7 +25,7 @@ SECRET_KEY = os.environ["DJANGO_SECRET_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DJANGO_DEBUG", "") != "False"
-ALLOWED_HOSTS = ["localhost", "movie-site-0otf.onrender.com"]
+ALLOWED_HOSTS = ["127.0.0.1","localhost", "movie-site-0otf.onrender.com"]
 
 
 # Application definition
@@ -142,3 +142,19 @@ LOGIN_REDIRECT_URL = "/"
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
+
+STORAGES = {
+    "default": {
+        "BACKEND": "storages.backends.dropbox.DropboxStorage",
+        "OPTIONS": {
+            "oauth2_access_token": os.environ.get("oauth2_access_token"),
+            "oauth2_refresh_token": os.environ.get("oauth2_refresh_token"),
+            "app_secret": os.environ.get("app_secret"),
+            "app_key": os.environ.get("app_key"),
+            "root_path": "/media/"
+        },
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
