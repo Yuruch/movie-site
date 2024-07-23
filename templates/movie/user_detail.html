@@ -2,7 +2,7 @@
 {% block content %}
   <div class="centered-heading">
     <h1>Welcome {{ user.username }}!</h1>
-    <a href="{% url 'movies:user_update' pk=user.id %}" class="edit-link">
+    <a href="{% url 'movies:user-update' pk=user.id %}" class="edit-link">
       <i class="fas fa-pencil-alt"></i>
     </a>
   </div>
@@ -21,7 +21,7 @@
   </div>
   <ul class="item-list">
     {% for movie in user.favourite_movies.all %}
-        <li class="item" onclick="window.location.href='{% url 'movies:movie_detail' pk=movie.id %}';">
+        <li class="item" onclick="window.location.href='{% url 'movies:movie-detail' pk=movie.id %}';">
           <div class="list-container">
             <img src="{{ movie.poster.url }}" alt="Movie Poster Picture" class="list-photo">
           </div>

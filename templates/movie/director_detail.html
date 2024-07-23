@@ -4,10 +4,10 @@
     <div class="title-heart-container">
       <h1>{{ director.first_name }} {{ director.last_name }}</h1>
         <div class="actions">
-          <a href="{% url 'movies:director_delete' pk=director.id %}" class="delete-link">
+          <a href="{% url 'movies:director-delete' pk=director.id %}" class="delete-link">
             <i class="fas fa-trash-alt"></i>
           </a>
-          <a href="{% url 'movies:director_update' pk=director.id %}" class="edit-link">
+          <a href="{% url 'movies:director-update' pk=director.id %}" class="edit-link">
             <i class="fas fa-pencil-alt"></i>
           </a>
         </div>
@@ -24,7 +24,7 @@
           {% if not director.best_movie %}
             No movies
           {% else %}
-            <a class="movie-info-link" href="{% url 'movies:movie_detail' pk=director.best_movie.id %}">
+            <a class="movie-info-link" href="{% url 'movies:movie-detail' pk=director.best_movie.id %}">
               {{ director.best_movie.title }}
             </a>
           {% endif %}
@@ -41,7 +41,7 @@
     </div>
     <ul class="item-list">
       {% for movie in director.movies.all %}
-        <li class="item" onclick="window.location.href='{% url 'movies:movie_detail' pk=movie.id %}';">
+        <li class="item" onclick="window.location.href='{% url 'movies:movie-detail' pk=movie.id %}';">
           <div class="list-container">
             <img src="{{ movie.poster.url }}" alt="Movie Poster Picture" class="list-photo">
           </div>

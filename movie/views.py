@@ -35,8 +35,6 @@ from movie.models import (
 )
 from movie.services import movies
 
-# TODO add permissions
-
 
 def index(request: HttpRequest) -> HttpResponse:
     num_movies = Movie.objects.count()

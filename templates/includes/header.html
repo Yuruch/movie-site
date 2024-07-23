@@ -5,19 +5,19 @@
       <div class="navbar-collapse">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'movies:actor_list' %}">Actors</a>
+            <a class="nav-link" href="{% url 'movies:actor-list' %}">Actors</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'movies:movie_list' %}">Movies</a>
+            <a class="nav-link" href="{% url 'movies:movie-list' %}">Movies</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'movies:directors_list' %}">Directors</a>
+            <a class="nav-link" href="{% url 'movies:director-list' %}">Directors</a>
           </li>
         </ul>
         <ul class="navbar-nav ms-auto">
           {% if request.user.is_authenticated %}
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'movies:user_detail' pk=request.user.id %}">
+              <a class="nav-link" href="{% url 'movies:user-detail' pk=request.user.id %}">
                 {{ request.user.get_username }}
               </a>
             </li>
@@ -26,7 +26,7 @@
             </li>
           {% else %}
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'sign_up' %}">Sign Up</a>
+              <a class="nav-link" href="{% url 'sign-up' %}">Sign Up</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'login' %}">Login</a>

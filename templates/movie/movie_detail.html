@@ -4,10 +4,10 @@
     <div class="title-heart-container">
       <h1>{{ movie.title }}</h1>
         <div class="actions">
-          <a href="{% url 'movies:movie_delete' pk=movie.id %}" class="delete-link">
+          <a href="{% url 'movies:movie-delete' pk=movie.id %}" class="delete-link">
             <i class="fas fa-trash-alt"></i>
           </a>
-          <a href="{% url 'movies:movie_update' pk=movie.id %}" class="edit-link">
+          <a href="{% url 'movies:movie-update' pk=movie.id %}" class="edit-link">
             <i class="fas fa-pencil-alt"></i>
           </a>
           <a href="{% url 'movies:toggle-add-to-favourites' pk=movie.id %}" class="favourite-toggle">
@@ -31,7 +31,7 @@
         <div class="movie-info-links">
           <p>Directors: </p>
           {% for director in movie.directors.all %}
-            <a href="{% url 'movies:director_detail' pk=director.id %}" class="movie-info-link">
+            <a href="{% url 'movies:director-detail' pk=director.id %}" class="movie-info-link">
               {% if not forloop.last %}
               {{ director.first_name }} {{ director.last_name }},
               {% else %}
@@ -45,7 +45,7 @@
         <div class="movie-info-links">
           <p>Actors: </p>
           {% for actor in movie.actors.all %}
-            <a href="{% url 'movies:actor_detail' pk=actor.id %}" class="movie-info-link">
+            <a href="{% url 'movies:actor-detail' pk=actor.id %}" class="movie-info-link">
               {% if not forloop.last %}
               {{ actor.first_name }} {{ actor.last_name }},
               {% else %}
@@ -59,7 +59,7 @@
         <div class="movie-info-links">
           <p>Genres: </p>
           {% for genre in movie.genres.all %}
-          <a class="movie-info-link" href="{% url 'movies:movie_list' %}?genre={{ genre.id }}">
+          <a class="movie-info-link" href="{% url 'movies:movie-list' %}?genre={{ genre.id }}">
           {% if not forloop.last %}
             {{ genre.name }},
           {% else %}
@@ -78,7 +78,7 @@
     <div class="centered-heading">
       <h1>
         Reviews
-        <a href="{% url 'movies:add_review' pk=movie.id %}" class="add">+</a>
+        <a href="{% url 'movies:review-create' pk=movie.id %}" class="add">+</a>
       </h1>
     </div>
     <ul class="item-list">
@@ -86,20 +86,20 @@
         <li class="item movie-review-container">
           <div class="review-header">
             <div class="review-pic-container">
-              <a class="review-link" href="{% url 'movies:user_detail' pk=review.creator.id %}">
+              <a class="review-link" href="{% url 'movies:user-detail' pk=review.creator.id %}">
                 <img src="{{ review.creator.profile_pic.url }}" alt="User Profile Picture" class="review-pic">
               </a>
             </div>
             <div class="review-info">
-              <a class="review-link" href="{% url 'movies:user_detail' pk=review.creator.id %}">
+              <a class="review-link" href="{% url 'movies:user-detail' pk=review.creator.id %}">
                 {{ review.creator.first_name }} {{ review.creator.last_name }}
               </a>
               <div class="review-rating">
                 {% if review.creator == request.user %}
-                  <a href="{% url 'movies:delete_review' review_pk=review.id movie_pk=movie.id %}" class="delete-link">
+                  <a href="{% url 'movies:review-delete' review_pk=review.id movie_pk=movie.id %}" class="delete-link">
                     <i class="fas fa-trash-alt"></i>
                   </a>
-                	<a href="{% url 'movies:update_review' movie_pk=movie.id review_pk=review.pk %}" class="edit-link">
+                	<a href="{% url 'movies:review-update' movie_pk=movie.id review_pk=review.pk %}" class="edit-link">
                     <i class="fas fa-pencil-alt"></i>
                   </a>
                 {% endif %}

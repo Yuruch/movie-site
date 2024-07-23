@@ -4,7 +4,7 @@
     <h1>
       Actor List
     </h1>
-    <a class="add" href="{% url 'movies:movie_create' %}"> Add new actor</a>
+    <a class="add" href="{% url 'movies:movie-create' %}"> Add new actor</a>
   </div>
   <form method="get" action="" class="form-container">
     <div class="nice-form-group">
@@ -14,14 +14,14 @@
     </div>
   </form>
   <div class="sorting-buttons">
-    <a href="{% url 'movies:actor_list' %}?orderby=name">Order by name</a>
-    <a href="{% url 'movies:actor_list' %}?orderby=surname">Order by surname</a>
-    <a href="{% url 'movies:actor_list' %}?orderby=age">Order by age</a>
+    <a href="{% url 'movies:actor-list' %}?orderby=name">Order by name</a>
+    <a href="{% url 'movies:actor-list' %}?orderby=surname">Order by surname</a>
+    <a href="{% url 'movies:actor-list' %}?orderby=age">Order by age</a>
   </div>
   {% if actor_list %}
     <ul class="item-list">
       {% for actor in actor_list %}
-        <li class="item" onclick="window.location.href='{% url 'movies:actor_detail' pk=actor.id %}';">
+        <li class="item" onclick="window.location.href='{% url 'movies:actor-detail' pk=actor.id %}';">
           <div class="list-container">
             <img src="{{ actor.photo.url }}" alt="Actor Picture" class="list-photo">
           </div>

@@ -27,23 +27,23 @@ from movie.views import (
 
 urlpatterns = [
     path("", index, name="home"),
-    path("user/<int:pk>/", user_detail_view, name="user_detail"),
-    path("user/<int:pk>/update", UserUpdateView.as_view(), name="user_update"),
-    path("actors/", ActorListView.as_view(), name="actor_list"),
-    path("actors/create/", ActorCreateView.as_view(), name="actor_create"),
+    path("user/<int:pk>/", user_detail_view, name="user-detail"),
+    path("user/<int:pk>/update", UserUpdateView.as_view(), name="user-update"),
+    path("actors/", ActorListView.as_view(), name="actor-list"),
+    path("actors/create/", ActorCreateView.as_view(), name="actor-create"),
     path(
         "actors/<int:pk>/update/",
         ActorUpdateView.as_view(),
-        name="actor_update"
+        name="actor-update"
     ),
-    path("actors/<int:pk>/", ActorDetailView.as_view(), name="actor_detail"),
+    path("actors/<int:pk>/", ActorDetailView.as_view(), name="actor-detail"),
     path(
         "actors/<int:pk>/delete/",
         ActorDeleteView.as_view(),
-        name="actor_delete"
+        name="actor-delete"
     ),
-    path("movies/", MovieListView.as_view(), name="movie_list"),
-    path("movies/create/", MovieCreateView.as_view(), name="movie_create"),
+    path("movies/", MovieListView.as_view(), name="movie-list"),
+    path("movies/create/", MovieCreateView.as_view(), name="movie-create"),
     path(
         "movies/<int:pk>/add_favourite/",
         toggle_add_to_favourites,
@@ -52,45 +52,45 @@ urlpatterns = [
     path(
         "movies/<int:pk>/update/",
         MovieUpdateView.as_view(),
-        name="movie_update"
+        name="movie-update"
     ),
     path(
         "movies/<int:pk>/delete/",
         MovieDeleteView.as_view(),
-        name="movie_delete"
+        name="movie-delete"
     ),
-    path("movie/<int:pk>/add_review/", add_review, name="add_review"),
+    path("movie/<int:pk>/add_review/", add_review, name="review-create"),
     path(
         "movie/<int:movie_pk>/review/<int:review_pk>/update/",
         update_review,
-        name="update_review"
+        name="review-update"
     ),
     path(
         "movie/<int:movie_pk>/review/<int:review_pk>/delete/",
         delete_review,
-        name="delete_review"
+        name="review-delete"
     ),
-    path("movies/<int:pk>/", MovieDetailView.as_view(), name="movie_detail"),
-    path("directors/", DirectorListView.as_view(), name="directors_list"),
+    path("movies/<int:pk>/", MovieDetailView.as_view(), name="movie-detail"),
+    path("directors/", DirectorListView.as_view(), name="director-list"),
     path(
         "directors/create/",
         DirectorCreateView.as_view(),
-        name="director_create"
+        name="director-create"
     ),
     path(
         "directors/<int:pk>/update/",
         DirectorUpdateView.as_view(),
-        name="director_update"
+        name="director-update"
     ),
     path(
         "directors/<int:pk>/delete/",
         DirectorDeleteView.as_view(),
-        name="director_delete"
+        name="director-delete"
     ),
     path(
         "directors/<int:pk>/",
         DirectorDetailView.as_view(),
-        name="director_detail"
+        name="director-detail"
     ),
 
 ]

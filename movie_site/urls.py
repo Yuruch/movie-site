@@ -26,7 +26,7 @@ urlpatterns = [
     path("__debug__/", include("debug_toolbar.urls")),
     path("accounts/logout/", user_logout),
     path("accounts/", include("django.contrib.auth.urls")),
-    path("accounts/signup/", sign_up, name="sign_up"),
+    path("accounts/signup/", sign_up, name="sign-up"),
     path("", include("movie.urls", namespace="movies"))
 ]
 
