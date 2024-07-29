@@ -1,7 +1,16 @@
 from datetime import timedelta
+
 from django.test import TestCase
 from django.utils import timezone
-from movie.models import Genre, Director, Actor, Movie, Review, User
+
+from movie.models import (
+    Genre,
+    Director,
+    Actor,
+    Movie,
+    Review,
+    User
+)
 
 
 class GenreModelTest(TestCase):

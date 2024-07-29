@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import (
+
+from movie.models import (
     Genre,
     Director,
     Actor,

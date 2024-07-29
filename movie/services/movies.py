@@ -1,7 +1,11 @@
 from django.db.models import QuerySet, Avg
 from django.db.models.functions import Round
 
-from movie.models import Movie, User, Genre
+from movie.models import (
+    Movie,
+    User,
+    Genre
+)
 
 
 def best_movies(number: int) -> QuerySet:

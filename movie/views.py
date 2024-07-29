@@ -198,7 +198,7 @@ class MovieDetailView(generic.DetailView):
 class ActorCreateView(generic.CreateView):
     model = Actor
     form_class = ActorForm
-    success_url = reverse_lazy("movies:actor_list")
+    success_url = reverse_lazy("movies:actor-list")
 
     def form_valid(self, form):
         response = super().form_valid(form)
@@ -209,7 +209,7 @@ class ActorCreateView(generic.CreateView):
 class ActorUpdateView(generic.UpdateView):
     model = Actor
     form_class = ActorForm
-    success_url = reverse_lazy("movies:actor_list")
+    success_url = reverse_lazy("movies:actor-list")
 
     def get_initial(self):
         initial = super().get_initial()
@@ -225,7 +225,7 @@ class ActorUpdateView(generic.UpdateView):
 class DirectorCreateView(generic.CreateView):
     model = Director
     form_class = DirectorForm
-    success_url = reverse_lazy("movies:directors_list")
+    success_url = reverse_lazy("movies:director-list")
 
     def form_valid(self, form):
         response = super().form_valid(form)
@@ -236,7 +236,7 @@ class DirectorCreateView(generic.CreateView):
 class DirectorUpdateView(generic.UpdateView):
     model = Director
     form_class = DirectorForm
-    success_url = reverse_lazy("movies:directors_list")
+    success_url = reverse_lazy("movies:director-list")
 
     def get_initial(self):
         initial = super().get_initial()
@@ -252,7 +252,7 @@ class DirectorUpdateView(generic.UpdateView):
 class MovieCreateView(generic.CreateView):
     model = Movie
     form_class = MovieForm
-    success_url = reverse_lazy("movies:movie_list")
+    success_url = reverse_lazy("movies:movie-list")
 
 
 class MovieUpdateView(generic.UpdateView):
@@ -261,7 +261,7 @@ class MovieUpdateView(generic.UpdateView):
 
     def get_success_url(self):
         return reverse_lazy(
-            "movies:movie_detail",
+            "movies:movie-detail",
             kwargs={"pk": self.object.pk}
         )
 
@@ -275,7 +275,7 @@ def add_review(request: HttpRequest, pk: int) -> HttpResponse:
             review.creator = request.user
             review.movie = movie
             review.save()
-            return redirect("movies:movie_detail", pk=movie.id)
+            return redirect("movies:movie-detail", pk=movie.id)
     else:
         form = ReviewForm()
     return render(
@@ -297,7 +297,7 @@ def update_review(
         form = ReviewForm(request.POST, instance=review)
         if form.is_valid():
             form.save()
-            return redirect("movies:movie_detail", pk=movie.pk)
+            return redirect("movies:movie-detail", pk=movie.pk)
     else:
         form = ReviewForm(instance=review)
 
@@ -356,7 +356,7 @@ def toggle_add_to_favourites(request, pk):
         user.favourite_movies.remove(movie)
     else:
         user.favourite_movies.add(movie)
-    return HttpResponseRedirect(reverse_lazy("movies:movie_detail", args=[pk]))
+    return HttpResponseRedirect(reverse_lazy("movies:movie-detail", args=[pk]))
 
 
 class UserUpdateView(generic.UpdateView):
@@ -367,14 +367,14 @@ class UserUpdateView(generic.UpdateView):
 
 class MovieDeleteView(generic.DeleteView):
     model = Movie
-    success_url = reverse_lazy("movies:movie_list")
+    success_url = reverse_lazy("movies:movie-list")
 
 
 class ActorDeleteView(generic.DeleteView):
     model = Actor
-    success_url = reverse_lazy("movies:actor_list")
+    success_url = reverse_lazy("movies:actor-list")
 
 
 class DirectorDeleteView(generic.DeleteView):
     model = Director
-    success_url = reverse_lazy("movies:directors_list")
+    success_url = reverse_lazy("movies:director-list")

@@ -143,18 +143,19 @@ INTERNAL_IPS = [
     "127.0.0.1",
 ]
 
-STORAGES = {
-    "default": {
-        "BACKEND": "storages.backends.dropbox.DropboxStorage",
-        "OPTIONS": {
-            "oauth2_access_token": os.environ.get("oauth2_access_token"),
-            "oauth2_refresh_token": os.environ.get("oauth2_refresh_token"),
-            "app_secret": os.environ.get("app_secret"),
-            "app_key": os.environ.get("app_key"),
-            "root_path": "/media/"
+if os.environ.get("MEDIA") == "dropbox":
+    STORAGES = {
+        "default": {
+            "BACKEND": "storages.backends.dropbox.DropboxStorage",
+            "OPTIONS": {
+                "oauth2_access_token": os.environ.get("DROPBOX_OAUTH2_ACCESS_TOKEN"),
+                "oauth2_refresh_token": os.environ.get("DROPBOX_OAUTH2_REFRESH_TOKEN"),
+                "app_secret": os.environ.get("DROPBOX_APP_SECRET"),
+                "app_key": os.environ.get("DROPBOX_APP_KEY"),
+                "root_path": "/media/"
+            },
         },
-    },
-    "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-    },
-}
+        "staticfiles": {
+            "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+        },
+    }

@@ -1,8 +1,16 @@
 import json
 from datetime import timedelta
+
 from django.contrib.auth import get_user_model
 from django.core.management.base import BaseCommand
-from movie.models import Genre, Director, Actor, Movie, Review
+
+from movie.models import (
+    Genre,
+    Director,
+    Actor,
+    Movie,
+    Review
+)
 
 
 class Command(BaseCommand):

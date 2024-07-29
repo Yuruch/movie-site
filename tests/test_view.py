@@ -1,7 +1,16 @@
+from datetime import timedelta
+
 from django.test import TestCase, Client
 from django.urls import reverse
-from movie.models import Actor, Director, Movie, User, Genre, Review
-from datetime import timedelta
+
+from movie.models import (
+    Actor,
+    Director,
+    Movie,
+    User,
+    Genre,
+    Review
+)
 
 
 class ViewTests(TestCase):

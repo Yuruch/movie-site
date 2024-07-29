@@ -1,4 +1,7 @@
+from datetime import timedelta
+
 from django.test import TestCase
+
 from movie.forms import (
     ActorForm,
     DirectorForm,
@@ -8,15 +11,14 @@ from movie.forms import (
     UserUpdateForm,
     MovieSearchForm,
     ActorSearchForm,
-    DirectorSearchForm
+    DirectorSearchForm,
 )
 from movie.models import (
     Actor,
     Director,
     Movie,
-    Genre
+    Genre,
 )
-from datetime import timedelta
 
 
 class FormTests(TestCase):
