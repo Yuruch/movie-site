@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="centered-heading">
+    <h1>Delete director?</h1>
+  </div>
+  <div class="centered-heading">
+    <h2 style="color: red">All related objects will be deleted!</h2>
+  </div>
+  <br>
+  <form action="" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Yes" class="clear-button">
+  </form>
+  <br>
+  <a class="search-button" href="{% url 'movies:director-detail' pk=director.id %}">No, go back</a>
+{% endblock %}

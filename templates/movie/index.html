@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="centered-heading">
+  <h1>Welcome to the best movie site!</h1>
+  </div>
+  {% if request.user.is_authenticated %}
+    {% if movies_you_like %}
+    	<div class="centered-heading">
+        <h2>Movies for you</h2>
+      </div>
+    {% endif %}
+  <div class="movies-container">
+    {% for movie in movies_you_like %}
+      <div class="movie-container" onclick="window.location.href='{% url "movies:movie-detail" pk=movie.id %}';">
+        <div class="movie-poster-container">
+          <img class="movie-poster" src="{{ movie.poster.url }}" alt="Movie Poster Picture">
+        </div>
+        <div class="movie-text-container">
+          <h5>{{ movie.title }}</h5>
+          <p>Rating: {{ movie.avg_rating }} / 10</p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+  <div class="centered-heading">
+    <h2>Best movies</h2>
+  </div>
+  <div class="movies-container">
+    {% for movie in best_movies %}
+      <div class="movie-container" onclick="window.location.href='{% url "movies:movie-detail" pk=movie.id %}';">
+        <div class="movie-poster-container">
+          <img class="movie-poster" src="{{ movie.poster.url }}" alt="Movie Poster Picture">
+        </div>
+        <div class="movie-text-container">
+          <h5>{{ movie.title }}</h5>
+          <p>Rating: {{ movie.avg_rating }} / 10</p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+{% endblock %}

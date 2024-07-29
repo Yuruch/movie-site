@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+  <form method="post" novalidate>
+    {% csrf_token %}
+    {% for field in form %}
+      <div class="nice-form-group">
+        <p>{{ field.errors }}</p>
+        {{ field.label_tag }}
+        {{ field }}
+      </div>
+    {% endfor %}
+    <button type="submit" class="btn btn-primary">Sign up</button>
+</form>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="detail-container">
+    <div class="title-heart-container">
+      <h1>{{ director.first_name }} {{ director.last_name }}</h1>
+        <div class="actions">
+          <a href="{% url 'movies:director-delete' pk=director.id %}" class="delete-link">
+            <i class="fas fa-trash-alt"></i>
+          </a>
+          <a href="{% url 'movies:director-update' pk=director.id %}" class="edit-link">
+            <i class="fas fa-pencil-alt"></i>
+          </a>
+        </div>
+    </div>
+    <div class="detail-info-container">
+      <div class="detail-photo-container">
+        <img src="{{ director.photo.url }}" alt="Director Photo Picture" class="detail-photo">
+      </div>
+      <div class="detail-info">
+        <p>Age: {{ director.age }} year{{ director.age|pluralize }}</p>
+        <p>Birthdate {{ director.birth_date }}</p>
+        <p>
+          Best movie: 
+          {% if not director.best_movie %}
+            No movies
+          {% else %}
+            <a class="movie-info-link" href="{% url 'movies:movie-detail' pk=director.best_movie.id %}">
+              {{ director.best_movie.title }}
+            </a>
+          {% endif %}
+        </p>
+        <br>
+        <div class="centered-heading">
+          <h2>Bio</h2>
+        </div>
+        <p>{{ director.bio }}</p>
+      </div>
+    </div>
+    <div class="centered-heading">
+      <h1>Movies made by {{ actor.first_name }} {{ actor.last_name }}</h1>
+    </div>
+    <ul class="item-list">
+      {% for movie in director.movies.all %}
+        <li class="item" onclick="window.location.href='{% url 'movies:movie-detail' pk=movie.id %}';">
+          <div class="list-container">
+            <img src="{{ movie.poster.url }}" alt="Movie Poster Picture" class="list-photo">
+          </div>
+          <div class="text-container">
+            <h4>{{ movie.title }}</h4>
+            <p>{{ movie.description }}</p>
+          </div>
+        </li>
+      {% endfor %}
+      </ul>
+  </div>
+{% endblock %}

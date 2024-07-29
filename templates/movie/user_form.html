@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Update info</h1>
+  <form action="" method="post" novalidate enctype='multipart/form-data'>
+    {% csrf_token %}
+    <div class="nice-form-group">
+      {{ field.errors }}
+      {{ field.label_tag }}
+      {{ field }}
+    </div>
+
+    <input type="submit" value="Submit" class="btn btn-primary">
+  </form>
+{% endblock %}
