@@ -1,0 +1,317 @@
+[
+    {
+        "username": "john_doe",
+        "email": "john@example.com",
+        "first_name": "John",
+        "last_name": "Doe",
+        "profile_pic": "john_doe_profile.jpg",
+        "favourite_movies": [
+            "The Shawshank Redemption",
+            "The Godfather",
+            "The Dark Knight",
+            "Pulp Fiction",
+            "Forrest Gump"
+        ],
+        "password": "password123"
+    },
+    {
+        "username": "jane_smith",
+        "email": "jane@example.com",
+        "first_name": "Jane",
+        "last_name": "Smith",
+        "profile_pic": "jane_smith_profile.jpg",
+        "favourite_movies": [
+            "The Lord of the Rings: The Return of the King",
+            "Inception",
+            "Spirited Away",
+            "Parasite",
+            "The Grand Budapest Hotel"
+        ],
+        "password": "password123"
+    },
+    {
+        "username": "mike_jones",
+        "email": "mike@example.com",
+        "first_name": "Mike",
+        "last_name": "Jones",
+        "profile_pic": "mike_jones_profile.jpg",
+        "favourite_movies": [
+            "The Matrix",
+            "Fight Club",
+            "Gladiator",
+            "The Silence of the Lambs",
+            "City of God"
+        ],
+        "password": "password123"
+    },
+    {
+        "username": "lisa_lee",
+        "email": "lisa@example.com",
+        "first_name": "Lisa",
+        "last_name": "Lee",
+        "profile_pic": "lisa_lee_profile.jpg",
+        "favourite_movies": [
+            "The Lord of the Rings: The Fellowship of the Ring",
+            "The Usual Suspects",
+            "The Green Mile",
+            "Léon: The Professional",
+            "American History X"
+        ],
+        "password": "password123"
+    },
+    {
+        "username": "david_brown",
+        "email": "david@example.com",
+        "first_name": "David",
+        "last_name": "Brown",
+        "profile_pic": "david_brown_profile.jpg",
+        "favourite_movies": [
+            "Back to the Future",
+            "Terminator 2: Judgment Day",
+            "The Departed",
+            "The Prestige",
+            "Interstellar"
+        ],
+        "password": "password123"
+    },
+    {
+        "username": "emily_clark",
+        "email": "emily@example.com",
+        "first_name": "Emily",
+        "last_name": "Clark",
+        "profile_pic": "emily_clark_profile.jpg",
+        "favourite_movies": [
+            "Whiplash",
+            "The Intouchables",
+            "Her",
+            "The Revenant",
+            "A Beautiful Mind"
+        ],
+        "password": "password123"
+    },
+    {
+        "username": "robert_wilson",
+        "email": "robert@example.com",
+        "first_name": "Robert",
+        "last_name": "Wilson",
+        "profile_pic": "robert_wilson_profile.jpg",
+        "favourite_movies": [
+            "The Shining",
+            "The Breakfast Club",
+            "The Truman Show",
+            "Donnie Darko",
+            "The Hunt for Red October"
+        ],
+        "password": "password123"
+    },
+    {
+        "username": "sarah_davis",
+        "email": "sarah@example.com",
+        "first_name": "Sarah",
+        "last_name": "Davis",
+        "profile_pic": "sarah_davis_profile.jpg",
+        "favourite_movies": [
+            "Once Upon a Time in the West",
+            "The Good, the Bad and the Ugly",
+            "Cinema Paradiso",
+            "Pan's Labyrinth",
+            "The Seventh Seal"
+        ],
+        "password": "password123"
+    },
+    {
+        "username": "chris_martin",
+        "email": "chris@example.com",
+        "first_name": "Chris",
+        "last_name": "Martin",
+        "profile_pic": "chris_martin_profile.jpg",
+        "favourite_movies": [
+            "The Lives of Others",
+            "Raging Bull",
+            "Amélie",
+            "Life of Pi",
+            "The Wolf of Wall Street"
+        ],
+        "password": "password123"
+    },
+    {
+        "username": "anna_morris",
+        "email": "anna@example.com",
+        "first_name": "Anna",
+        "last_name": "Morris",
+        "profile_pic": "anna_morris_profile.jpg",
+        "favourite_movies": [
+            "Oldboy",
+            "Your Name",
+            "The Grand Budapest Hotel",
+            "Joker",
+            "The Dark Knight"
+        ],
+        "password": "password123"
+    },
+    {
+        "username": "james_taylor",
+        "email": "james@example.com",
+        "first_name": "James",
+        "last_name": "Taylor",
+        "profile_pic": "james_taylor_profile.jpg",
+        "favourite_movies": [
+            "The Godfather",
+            "The Shawshank Redemption",
+            "Goodfellas",
+            "Fight Club",
+            "The Matrix"
+        ],
+        "password": "password123"
+    },
+    {
+        "username": "olivia_anderson",
+        "email": "olivia@example.com",
+        "first_name": "Olivia",
+        "last_name": "Anderson",
+        "profile_pic": "olivia_anderson_profile.jpg",
+        "favourite_movies": [
+            "The Lord of the Rings: The Fellowship of the Ring",
+            "The Silence of the Lambs",
+            "Gladiator",
+            "Se7en",
+            "The Prestige"
+        ],
+        "password": "password123"
+    },
+    {
+        "username": "ben_jackson",
+        "email": "ben@example.com",
+        "first_name": "Ben",
+        "last_name": "Jackson",
+        "profile_pic": "ben_jackson_profile.jpg",
+        "favourite_movies": [
+            "The Green Mile",
+            "Back to the Future",
+            "The Departed",
+            "Interstellar",
+            "Whiplash"
+        ],
+        "password": "password123"
+    },
+    {
+        "username": "sophie_wood",
+        "email": "sophie@example.com",
+        "first_name": "Sophie",
+        "last_name": "Wood",
+        "profile_pic": "sophie_wood_profile.jpg",
+        "favourite_movies": [
+            "Spirited Away",
+            "The Grand Budapest Hotel",
+            "Parasite",
+            "City of God",
+            "The Matrix"
+        ],
+        "password": "password123"
+    },
+    {
+        "username": "matthew_harris",
+        "email": "matthew@example.com",
+        "first_name": "Matthew",
+        "last_name": "Harris",
+        "profile_pic": "matthew_harris_profile.jpg",
+        "favourite_movies": [
+            "The Big Lebowski",
+            "Django Unchained",
+            "The Revenant",
+            "Her",
+            "A Beautiful Mind"
+        ],
+        "password": "password123"
+    },
+    {
+        "username": "natalie_cooper",
+        "email": "natalie@example.com",
+        "first_name": "Natalie",
+        "last_name": "Cooper",
+        "profile_pic": "natalie_cooper_profile.jpg",
+        "favourite_movies": [
+            "The Usual Suspects",
+            "Oldboy",
+            "Your Name",
+            "The Shining",
+            "The Breakfast Club"
+        ],
+        "password": "password123"
+    },
+    {
+        "username": "jack_lee",
+        "email": "jack@example.com",
+        "first_name": "Jack",
+        "last_name": "Lee",
+        "profile_pic": "jack_lee_profile.jpg",
+        "favourite_movies": [
+            "The Hunt for Red October",
+            "Donnie Darko",
+            "Once Upon a Time in the West",
+            "The Good, the Bad and the Ugly",
+            "Cinema Paradiso"
+        ],
+        "password": "password123"
+    },
+    {
+        "username": "megan_baker",
+        "email": "megan@example.com",
+        "first_name": "Megan",
+        "last_name": "Baker",
+        "profile_pic": "megan_baker_profile.jpg",
+        "favourite_movies": [
+            "Pan's Labyrinth",
+            "The Seventh Seal",
+            "The Lives of Others",
+            "Raging Bull",
+            "Amélie"
+        ],
+        "password": "password123"
+    },
+    {
+        "username": "luke_adams",
+        "email": "luke@example.com",
+        "first_name": "Luke",
+        "last_name": "Adams",
+        "profile_pic": "luke_adams_profile.jpg",
+        "favourite_movies": [
+            "The Wolf of Wall Street",
+            "Life of Pi",
+            "The Green Mile",
+            "The Departed",
+            "Inception"
+        ],
+        "password": "password123"
+    },
+    {
+        "username": "grace_carter",
+        "email": "grace@example.com",
+        "first_name": "Grace",
+        "last_name": "Carter",
+        "profile_pic": "grace_carter_profile.jpg",
+        "favourite_movies": [
+            "The Dark Knight",
+            "Se7en",
+            "Fight Club",
+            "Goodfellas",
+            "The Lord of the Rings: The Two Towers"
+        ],
+        "password": "password123"
+    },
+    {
+        "username": "oliver_smith",
+        "email": "oliver@example.com",
+        "first_name": "Oliver",
+        "last_name": "Smith",
+        "profile_pic": "oliver_smith_profile.jpg",
+        "favourite_movies": [
+            "The Grand Budapest Hotel",
+            "The Prestige",
+            "The Matrix",
+            "The Departed",
+            "Joker"
+        ],
+        "password": "password123"
+    }
+]

@@ -1,0 +1,583 @@
+body {
+  margin: 0;
+}
+
+header {
+  width: 100%;
+  background: #007bff;
+}
+
+nav a {
+  color: #fff;
+  padding: 10px 15px;
+  text-decoration: none;
+}
+
+nav .auth-links {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+}
+
+nav .auth-links a,
+nav .auth-links span {
+  color: #fff;
+  padding: 10px 15px;
+  text-decoration: none;
+}
+
+.centered-heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ul {
+  text-decoration: none;
+}
+
+li{
+  list-style: none;
+}
+
+.item-list {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item {
+  width: 900px;
+  margin: 10px 0; /* Vertical margin for spacing */
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: left; /* Align text to the left */
+  cursor: pointer;
+  transition: box-shadow 0.3s ease-in-out;
+  display: flex; /* Use flexbox for layout */
+  /*align-items: center; !* Center items vertically *!*/
+  justify-content: flex-start; /* Align items to the start */
+}
+
+.item:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.container {
+  width: 900px;
+  margin-top: 30px;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-pic-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  width: 150px; /* Fixed width */
+  height: 150px; /* Fixed height */
+}
+
+.profile-pic {
+  border-radius: 50%;
+  width: 150px; /* Fixed width */
+  height: 150px; /* Fixed height */
+  object-fit: cover;
+}
+
+.list-photo {
+  width: 150px; /* Fixed width */
+  height: 225px; /* Fixed height */
+  object-fit: cover;
+}
+
+.list-container {
+  width: 150px; /* Fixed width */
+  height: 225px; /* Fixed height */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center poster vertically */
+  margin-right: 20px; /* Space between poster and text */
+  margin-bottom: 0;
+}
+
+.text-container {
+  align-items: flex-start;
+  text-align: left;
+  margin-left: 40px;
+  flex-grow: 1; /* Allow text container to grow */
+  padding-right: 20px; /* Space between text and poster */
+  width: 650px;
+}
+
+.text-container p {
+  margin-bottom: 20px;
+}
+
+h4 {
+  margin: 0; /* Remove default margin */
+  padding-bottom: 30px;
+}
+
+p {
+  margin-top: 0; /* Add margin for spacing */
+  margin-bottom: 0;
+}
+
+.detail-container {
+  width: 900px;
+  margin: 0 auto;
+}
+
+.detail-info-container {
+  margin: 10px 0; /* Vertical margin for spacing */
+  padding: 10px;
+  text-align: left; /* Align text to the left */
+  display: flex; /* Use flexbox for layout */
+  justify-content: flex-start; /* Align items to the start */
+}
+
+.detail-photo-container {
+  width: 300px; /* Fixed width */
+  height: 450px; /* Fixed height */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center poster vertically */
+  margin-right: 20px; /* Space between poster and text */
+}
+
+.detail-photo {
+  width: 300px; /* Fixed width */
+  height: 450px; /* Fixed height */
+  object-fit: cover;
+}
+
+.detail-info {
+  width: 580px;
+  text-align: left; /* Align text to the left */
+}
+
+.title-heart-container {
+  margin-left: 10px;
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Align items vertically */
+  justify-content: space-between; /* Space items out */
+}
+
+.title-heart-container h1 {
+  margin: 0; /* Remove default margin */
+  flex-grow: 1; /* Allow the title to take up available space */
+}
+
+.actions {
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Align items vertically */
+}
+
+.edit-link,
+.favourite-toggle {
+  text-decoration: none; /* Remove underline from the link */
+  font-size: 24px; /* Adjust the size of the icons */
+  margin-left: 10px; /* Space between icons */
+}
+
+.edit-link {
+  color: grey; /* Icon color for the edit link */
+}
+
+.edit-link:hover {
+  color: black; /* Change color on hover */
+}
+
+.delete-link {
+  color: grey; /* Icon color for the edit link */
+  text-decoration: none; /* Remove underline from the link */
+  font-size: 24px; /* Adjust the size of the icons */
+  margin-left: 10px; /* Space between icons */
+}
+
+.delete-link:hover {
+  color: red; /* Change color on hover */
+}
+
+.favourite-toggle {
+  color: hotpink; /* Icon color for the heart */
+}
+
+.favourite-toggle:hover {
+  color: #c0392b; /* Change color on hover */
+}
+
+.edit-link i {
+  margin-right: 5px; /* Space between icon and text if text is added later */
+}
+
+.director-links {
+  display: flex; /* Use flexbox for layout */
+  flex-wrap: wrap; /* Allow wrapping if necessary */
+  gap: 5px; /* Space between links */
+}
+
+.director-link {
+  text-decoration: none; /* Remove underline from links */
+  color: deepskyblue; /* Link color */
+  font-size: 16px; /* Font size */
+}
+
+.director-link:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+.movie-info-links {
+  display: flex; /* Use flexbox for layout */
+  flex-wrap: wrap; /* Allow wrapping if necessary */
+  gap: 5px; /* Space between links */
+  padding-top: 10px;
+}
+
+.movie-info-link {
+  text-decoration: none; /* Remove underline from links */
+  color: deepskyblue; /* Link color */
+  font-size: 16px; /* Font size */
+}
+
+.movie-info-link:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+.movie-info-line {
+  padding-bottom: 10px;
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px; /* Add margin-bottom to separate from comment */
+}
+
+.review-pic-container {
+  flex-shrink: 0;
+}
+
+.review-pic {
+  border-radius: 50%;
+  width: 50px; /* Adjust the width as needed */
+  height: 50px; /* Adjust the height as needed */
+  object-fit: cover;
+}
+
+.review-info {
+  flex-grow: 1;
+  margin-left: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.review-info a {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.review-rating {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.review-body {
+  margin-top: 10px; /* Ensure comment is separated from the header */
+}
+
+.review-comment {
+  font-size: 1em;
+}
+
+.review-date {
+  font-size: 0.9em;
+  color: #666;
+  text-align: right;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.movie-review-container {
+  cursor: default;
+  display: block;
+  position: relative;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.review-movie-container {
+  display: block;
+  position: relative;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.review-link {
+  text-decoration: none;
+  color: black;
+}
+
+.centered-heading h1 {
+  position: relative;
+}
+
+.add {
+  text-decoration: none;
+  font-size: 1.2em; /* Adjust font size as needed */
+  color: grey; /* Inherit color from parent element */
+  margin: 10px 20px;
+}
+
+.add:hover {
+  color: #000; /* Change color on hover if needed */
+}
+
+.profile-info-container {
+  margin: 10px auto; /* Vertical margin for spacing */
+  padding: 10px;
+  text-align: left; /* Align text to the left */
+  display: flex; /* Use flexbox for layout */
+  justify-content: flex-start; /* Align items to the start */
+}
+
+.form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+/* Style the search container */
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.search-container input{
+  height: 34px;
+  width: 500px;
+}
+
+.search-container input[type="submit"] {
+  width: 100px;
+
+}
+
+/* Initially hide the genre section */
+.genre-section {
+  display: none;
+}
+
+/* Show the genre section when the checkbox is checked */
+.toggle-checkbox:checked ~ .genre-section {
+  display: block;
+}
+
+/* Style the toggle buttons */
+.toggle-button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 10px;
+  cursor: pointer;
+  font-size: 16px;
+  display: inline-block;
+  text-align: center;
+  margin-top: 10px;
+  margin-right: 10px; /* Adds space between the toggle buttons */
+  position: relative;
+}
+
+/* Show only the "Show Genres" button when the checkbox is unchecked */
+.toggle-checkbox:checked ~ .show-genres {
+  display: none;
+}
+
+/* Show only the "Hide Genres" button when the checkbox is checked */
+.toggle-checkbox:not(:checked) ~ .hide-genres {
+  display: none;
+}
+
+/* Button appearance when checked */
+.toggle-checkbox:checked ~ .hide-genres {
+  background: grey;
+}
+
+/* Button appearance when unchecked */
+.toggle-checkbox:not(:checked) ~ .show-genres {
+  background: #007bff;
+}
+
+
+/* Style the search button */
+.search-button {
+  background: #28a745;
+  color: white;
+  border: none;
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 14px 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.search-button:hover {
+  background: #218838;
+}
+
+.sorting-buttons a {
+  background: #28a745;
+  color: white;
+  border: none;
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 5px 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.sorting-buttons a:hover {
+  background: #218838;
+}
+
+/* Style the clear button */
+.clear-button {
+  text-decoration: none;
+  background: orangered;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.clear-button:hover {
+  text-decoration: underline;
+  background: indianred;
+}
+
+/* Style the genre options to display in columns */
+.genre-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Adds space between genre options */
+  margin-bottom: 10px;
+}
+
+.genre-options label {
+  display: block;
+  margin-right: 10px; /* Adds space between the labels */
+}
+
+.movie-rating {
+
+  font-size: 1.2em;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.nice-form-group {
+  font-size: 20px;
+}
+
+.nice-form-group div div label input {
+  width: 20px;
+  height: 20px;
+}
+
+.nice-form-group div div {
+    margin-bottom: 10px;
+}
+
+.movies-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Add some space between the movie containers */
+  justify-content: center; /* Center the items horizontally */
+}
+
+.movie-container {
+  cursor: pointer;
+  width: 200px;
+  height: 400px;
+  display: flex; /* Ensure child elements are aligned correctly */
+  flex-direction: column; /* Arrange child elements in a column */
+  margin-bottom: 50px;
+}
+
+.movie-poster-container {
+  width: 200px;
+  height: 300px;
+}
+
+.movie-poster {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  width: 100%;
+  height: 300px;
+  object-fit: cover; /* Ensure the image covers the container without distortion */
+}
+
+.movie-text-container {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #ddd;
+  border-top: none;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 10px 5px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination a {
+  background: #007bff;
+  color: white;
+  border-radius: 5px;
+  float: left;
+  margin: 0 10px;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.pagination a:hover {
+  background: #0056b3;
+}
+
+.star-rating {
+  display: flex;
+  font-size: 2em;
+  color: #ddd;
+  cursor: pointer;
+}
+
+.star-rating .star {
+  transition: color 0.2s;
+}
+
+.star-rating .star:hover,
+.star-rating .star.selected {
+  color: gold;
+}

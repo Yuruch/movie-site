@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="profile-info-container">
+    <div class="profile-pic-container">
+      <img src="{{ user.profile_pic.url }}" alt="User Profile Picture" class="profile-pic">
+    </div>
+    <div class="text-container">
+      <h1>{{ user.username }}</h1>
+      <p>Name: {{ user.first_name }}</p>
+      <p>Last name: {{ user.last_name }}</p>
+    </div>
+  </div>
+  <div class="centered-heading">
+    <h1>Movies {{ user.username }} like</h1>
+  </div>
+  <ul class="item-list">
+    {% for movie in user.favourite_movies.all %}
+        <li class="item" onclick="window.location.href='/movies/{{ movie.id }}';">
+          <h4>{{ movie.title }}</h4>
+          <br>
+          {{ movie.description }}
+        </li>
+    {% empty %}
+      <p>{{ user.username }} don't have any favourite movies</p>
+    {% endfor %}
+  </ul>
+  <div class="centered-heading">
+    <h1>Reviews written by {{ user.username }}</h1>
+  </div>
+  <ul class="item-list">
+  {% for review in user.reviews.all %}
+    <li class="item review-movie-container" onclick="window.location.href='/movies/{{ review.movie.id }}';">
+      <div class="review-header">
+        <div class="review-pic-container">
+          <img src="{{ review.movie.poster.url }}" alt="Movie Poster Picture" class="review-pic">
+        </div>
+        <div class="review-info">
+          <h4>
+            {{ review.movie.title }}
+          </h4>
+          <span class="review-rating">{{ review.rating }} / 10</span>
+        </div>
+      </div>
+      <div class="review-body">
+        <p class="review-comment">{{ review.comment }}</p>
+      </div>
+      <br>
+      <p class="review-date">{{ review.created_at }}</p>
+    </li>
+  {% empty %}
+    <p>There are no reviews</p>
+  {% endfor %}
+  </ul>
+{% endblock %}

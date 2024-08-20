@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="detail-container">
+    <div class="title-heart-container">
+      <h1>{{ actor.first_name }} {{ actor.last_name }}</h1>
+        <div class="actions">
+          <a href="{% url 'movies:actor-delete' pk=actor.id %}" class="delete-link">
+            <i class="fas fa-trash-alt"></i>
+          </a>
+          <a href="{% url 'movies:actor-update' pk=actor.id %}" class="edit-link">
+            <i class="fas fa-pencil-alt"></i>
+          </a>
+        </div>
+    </div>
+    <div class="detail-info-container">
+      <div class="detail-photo-container">
+        <img src="{{ actor.photo.url }}" alt="Actor Photo Picture" class="detail-photo">
+      </div>
+      <div class="detail-info">
+        <p>Age: {{ actor.age }} year{{ actor.age|pluralize }}</p>
+        <p>Birthdate: {{ actor.birth_date }}</p>
+        <p>
+          Best movie: 
+          {% if not actor.best_movie %}
+            No movies
+          {% else %}
+            <a class="movie-info-link" href="{% url 'movies:movie-detail' pk=actor.best_movie.id %}">
+              {{ actor.best_movie.title }}
+            </a>
+          {% endif %}
+        </p>
+        <br>
+        <div class="centered-heading">
+          <h2>Bio</h2>
+        </div>
+        <p>{{ actor.bio }}</p>
+      </div>
+    </div>
+    <div class="centered-heading">
+      <h1>Movies with {{ actor.first_name }} {{ actor.last_name }}</h1>
+    </div>
+    <ul class="item-list">
+      {% for movie in actor.movies.all %}
+        <li class="item" onclick="window.location.href='{% url 'movies:movie-detail' pk=movie.id %}';">
+          <div class="list-container">
+            <img src="{{ movie.poster.url }}" alt="Movie Poster Picture" class="list-photo">
+          </div>
+          <div class="text-container">
+            <h4>{{ movie.title }}</h4>
+            <p>{{ movie.description }}</p>
+          </div>
+        </li>
+      {% endfor %}
+      </ul>
+  </div>
+{% endblock %}

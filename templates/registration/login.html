@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Log In</h2>
+  <form action="" method="post">
+    {% csrf_token %}
+    {% if form.non_field_errors %}
+      {% for error in form.non_field_errors %}
+        <p>{{ error }}</p>
+      {% endfor %}
+    {% endif %}
+    {% for field in form %}
+      <div class="nice-form-group">
+        {{ field.label_tag }}
+        {{ field }}
+      </div>
+    {% endfor %}
+  <br>
+    <button type="submit" class="search-button">Log in</button>
+  </form>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+  <h1>{{ object|yesno:"Update,Create" }}  a review for {{ movie.title }}</h1>
+  <form style="margin-top: 50px" method="post">
+    {% csrf_token %}
+    
+      <h4 style="padding-bottom: 0">Rating</h4>
+      <div class="star-rating">
+        <span class="star" data-value="1">&#9733;</span>
+        <span class="star" data-value="2">&#9733;</span>
+        <span class="star" data-value="3">&#9733;</span>
+        <span class="star" data-value="4">&#9733;</span>
+        <span class="star" data-value="5">&#9733;</span>
+        <span class="star" data-value="6">&#9733;</span>
+        <span class="star" data-value="7">&#9733;</span>
+        <span class="star" data-value="8">&#9733;</span>
+        <span class="star" data-value="9">&#9733;</span>
+        <span class="star" data-value="10">&#9733;</span>
+        <input type="hidden" name="rating" id="rating-value">
+      </div>
+      <div class="nice-form-group">
+        <h4>Comment</h4>
+        {{ form.comment }}
+      </div>
+    <button class="search-button" type="submit">Submit</button>
+  </form>
+  
+  <script src="{% static 'js/star_rating.js' %}"></script> 
+{% endblock %}

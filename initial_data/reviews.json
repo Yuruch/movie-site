@@ -1,0 +1,857 @@
+[
+    {
+        "title": "The Shawshank Redemption",
+        "reviews": [
+            {
+                "username": "john_doe",
+                "rating": 10,
+                "comment": "An incredibly moving story of hope and friendship. Tim Robbins and Morgan Freeman deliver unforgettable performances."
+            },
+            {
+                "username": "jane_smith",
+                "rating": 9,
+                "comment": "A brilliant film with a powerful message about resilience and redemption. The narrative is masterfully crafted."
+            }
+        ]
+    },
+    {
+        "title": "The Godfather",
+        "reviews": [
+            {
+                "username": "jane_smith",
+                "rating": 10,
+                "comment": "A cinematic masterpiece that redefined the crime genre. Marlon Brando's performance is iconic."
+            },
+            {
+                "username": "mike_jones",
+                "rating": 8,
+                "comment": "A complex and engaging film with a rich story. Some scenes felt slow, but the overall impact is profound."
+            }
+        ]
+    },
+    {
+        "title": "The Dark Knight",
+        "reviews": [
+            {
+                "username": "mike_jones",
+                "rating": 10,
+                "comment": "Heath Ledger's portrayal of the Joker is mesmerizing. The film is a thrilling ride with great depth."
+            },
+            {
+                "username": "lisa_lee",
+                "rating": 9,
+                "comment": "A gripping superhero film with an exceptional villain. The plot twists and action sequences are top-notch."
+            }
+        ]
+    },
+    {
+        "title": "Pulp Fiction",
+        "reviews": [
+            {
+                "username": "lisa_lee",
+                "rating": 9,
+                "comment": "Quentin Tarantino's unique storytelling and sharp dialogue make this a standout film. The non-linear narrative is captivating."
+            },
+            {
+                "username": "david_brown",
+                "rating": 8,
+                "comment": "A fascinating and unconventional film with memorable performances. The structure takes some getting used to, but it's worth it."
+            }
+        ]
+    },
+    {
+        "title": "The Lord of the Rings: The Return of the King",
+        "reviews": [
+            {
+                "username": "david_brown",
+                "rating": 10,
+                "comment": "An epic and fitting conclusion to the trilogy. The scale of the battle scenes and the emotional depth are extraordinary."
+            },
+            {
+                "username": "david_brown",
+                "rating": 9,
+                "comment": "A grand finale with stunning visuals and a powerful story. Some scenes felt a bit drawn out, but overall a fantastic end to the saga."
+            }
+        ]
+    },
+    {
+        "title": "Forrest Gump",
+        "reviews": [
+            {
+                "username": "david_brown",
+                "rating": 10,
+                "comment": "A heartwarming and inspirational film. Tom Hanks delivers an exceptional performance, and the story is both touching and memorable."
+            },
+            {
+                "username": "emily_clark",
+                "rating": 8,
+                "comment": "An endearing film with a great lead performance. The storytelling is unique, but some moments felt overly sentimental."
+            }
+        ]
+    },
+    {
+        "title": "Inception",
+        "reviews": [
+            {
+                "username": "david_brown",
+                "rating": 9,
+                "comment": "A visually stunning and intellectually stimulating film. The concept is fascinating, and the execution is impressive."
+            },
+            {
+                "username": "emily_clark",
+                "rating": 7,
+                "comment": "An ambitious film with incredible visuals. The complex plot might be confusing for some, but it’s worth the effort."
+            }
+        ]
+    },
+    {
+        "title": "The Matrix",
+        "reviews": [
+            {
+                "username": "robert_wilson",
+                "rating": 10,
+                "comment": "A groundbreaking film with revolutionary effects and a compelling story. It changed the sci-fi genre forever."
+            },
+            {
+                "username": "emily_clark",
+                "rating": 8,
+                "comment": "An innovative and thought-provoking film with impressive action scenes. The philosophical undertones add depth."
+            }
+        ]
+    },
+    {
+        "title": "Goodfellas",
+        "reviews": [
+            {
+                "username": "robert_wilson",
+                "rating": 9,
+                "comment": "An electrifying and intense look at mob life. Scorsese’s direction and the performances are top-notch."
+            },
+            {
+                "username": "emily_clark",
+                "rating": 7,
+                "comment": "A gripping crime drama with strong performances. The length and pacing could be overwhelming, but the story is engaging."
+            }
+        ]
+    },
+    {
+        "title": "Fight Club",
+        "reviews": [
+            {
+                "username": "sarah_davis",
+                "rating": 8,
+                "comment": "A provocative and thought-provoking film. The performances by Pitt and Norton are standout and the story is unique."
+            },
+            {
+                "username": "robert_wilson",
+                "rating": 9,
+                "comment": "A dark and intriguing film with a twist that lingers long after the credits roll. Fight Club challenges perceptions effectively."
+            }
+        ]
+    },
+    {
+        "title": "The Lord of the Rings: The Fellowship of the Ring",
+        "reviews": [
+            {
+                "username": "sarah_davis",
+                "rating": 10,
+                "comment": "A fantastic start to an epic trilogy. The world-building and character development are exceptional."
+            },
+            {
+                "username": "robert_wilson",
+                "rating": 9,
+                "comment": "A beautifully crafted film with an engaging story. Some pacing issues, but overall an immersive experience."
+            }
+        ]
+    },
+    {
+        "title": "The Lord of the Rings: The Two Towers",
+        "reviews": [
+            {
+                "username": "chris_martin",
+                "rating": 9,
+                "comment": "A thrilling middle chapter with intense battles and strong character arcs. The visual effects and storytelling are impressive."
+            },
+            {
+                "username": "sarah_davis",
+                "rating": 8,
+                "comment": "A solid continuation of the trilogy with great action sequences. The length might be a bit much for some, but it’s worth it."
+            }
+        ]
+    },
+    {
+        "title": "Gladiator",
+        "reviews": [
+            {
+                "username": "sarah_davis",
+                "rating": 9,
+                "comment": "A powerful epic with a gripping story and impressive performances. Russell Crowe is outstanding as Maximus."
+            },
+            {
+                "username": "chris_martin",
+                "rating": 8,
+                "comment": "An engaging historical drama with excellent visuals and action. The pacing is a bit uneven, but it’s still a great film."
+            }
+        ]
+    },
+    {
+        "title": "The Silence of the Lambs",
+        "reviews": [
+            {
+                "username": "sarah_davis",
+                "rating": 10,
+                "comment": "A chilling and masterful thriller. Anthony Hopkins delivers a career-defining performance as Hannibal Lecter."
+            },
+            {
+                "username": "chris_martin",
+                "rating": 9,
+                "comment": "A tense and gripping psychological thriller with exceptional performances. The atmosphere and tension are palpable."
+            }
+        ]
+    },
+    {
+        "title": "City of God",
+        "reviews": [
+            {
+                "username": "sarah_davis",
+                "rating": 9,
+                "comment": "A powerful and raw depiction of life in the slums of Rio. The storytelling and direction are highly effective."
+            },
+            {
+                "username": "chris_martin",
+                "rating": 8,
+                "comment": "An intense and gripping film with strong performances. The depiction of violence is harsh but impactful."
+            }
+        ]
+    },
+    {
+        "title": "Se7en",
+        "reviews": [
+            {
+                "username": "chris_martin",
+                "rating": 9,
+                "comment": "A dark and compelling thriller with an unforgettable ending. Brad Pitt and Morgan Freeman shine in this suspenseful film."
+            },
+            {
+                "username": "sarah_davis",
+                "rating": 8,
+                "comment": "A gripping crime drama with a chilling atmosphere. The plot is intense, though it may be too disturbing for some."
+            }
+        ]
+    },
+    {
+        "title": "The Usual Suspects",
+        "reviews": [
+            {
+                "username": "chris_martin",
+                "rating": 9,
+                "comment": "A brilliantly crafted thriller with a shocking twist. The performances and plot are top-notch."
+            },
+            {
+                "username": "sarah_davis",
+                "rating": 8,
+                "comment": "An engaging and clever film with a twist that changes everything. The story keeps you guessing until the end."
+            }
+        ]
+    },
+    {
+        "title": "The Green Mile",
+        "reviews": [
+            {
+                "username": "anna_morris",
+                "rating": 10,
+                "comment": "A deeply moving film with a powerful story and performances. Tom Hanks delivers a remarkable performance."
+            },
+            {
+                "username": "james_taylor",
+                "rating": 9,
+                "comment": "A touching and emotional film with strong performances. The story is compelling and heart-wrenching."
+            }
+        ]
+    },
+    {
+        "title": "Léon: The Professional",
+        "reviews": [
+            {
+                "username": "james_taylor",
+                "rating": 9,
+                "comment": "An intense and emotionally charged film with incredible performances. Jean Reno and Natalie Portman shine in their roles."
+            },
+            {
+                "username": "anna_morris",
+                "rating": 8,
+                "comment": "A gripping story with a unique bond between the characters. The film's mix of action and drama is well-executed."
+            }
+        ]
+    },
+    {
+        "title": "American History X",
+        "reviews": [
+            {
+                "username": "james_taylor",
+                "rating": 10,
+                "comment": "A powerful and hard-hitting film about redemption and change. Edward Norton delivers a remarkable performance."
+            },
+            {
+                "username": "anna_morris",
+                "rating": 9,
+                "comment": "An intense drama with a compelling story. The film's exploration of hate and transformation is both thought-provoking and disturbing."
+            }
+        ]
+    },
+    {
+        "title": "Spirited Away",
+        "reviews": [
+            {
+                "username": "james_taylor",
+                "rating": 10,
+                "comment": "A visually stunning and imaginative film. Hayao Miyazaki's storytelling is enchanting and deeply moving."
+            },
+            {
+                "username": "anna_morris",
+                "rating": 9,
+                "comment": "A beautifully crafted animated film with a rich, imaginative world. The story is captivating, though it can be complex for younger viewers."
+            }
+        ]
+    },
+    {
+        "title": "Saving Private Ryan",
+        "reviews": [
+            {
+                "username": "james_taylor",
+                "rating": 10,
+                "comment": "A gripping and realistic portrayal of war. The D-Day landing scene is one of the most intense in cinema history."
+            },
+            {
+                "username": "olivia_anderson",
+                "rating": 9,
+                "comment": "An epic and emotional war film with strong performances. The realistic battle scenes and character development are outstanding."
+            }
+        ]
+    },
+    {
+        "title": "The Lion King",
+        "reviews": [
+            {
+                "username": "james_taylor",
+                "rating": 10,
+                "comment": "A timeless classic with unforgettable music and a touching story. Disney at its best with beautifully animated characters."
+            },
+            {
+                "username": "olivia_anderson",
+                "rating": 8,
+                "comment": "A beloved animated film with a strong emotional core. The story is engaging, though some of the humor may feel dated."
+            }
+        ]
+    },
+    {
+        "title": "Back to the Future",
+        "reviews": [
+            {
+                "username": "ben_jackson",
+                "rating": 9,
+                "comment": "A fun and inventive time-travel adventure. Michael J. Fox and Christopher Lloyd have great chemistry, making the film a joy to watch."
+            },
+            {
+                "username": "olivia_anderson",
+                "rating": 8,
+                "comment": "A clever and entertaining sci-fi film with a nostalgic charm. The concept is engaging, though some effects are a bit dated."
+            }
+        ]
+    },
+    {
+        "title": "Terminator 2: Judgment Day",
+        "reviews": [
+            {
+                "username": "ben_jackson",
+                "rating": 10,
+                "comment": "A groundbreaking sci-fi action film with impressive effects and a compelling story. Arnold Schwarzenegger and Linda Hamilton are fantastic."
+            },
+            {
+                "username": "olivia_anderson",
+                "rating": 9,
+                "comment": "An action-packed and visually stunning sequel. The film builds on its predecessor with a more complex narrative and memorable characters."
+            }
+        ]
+    },
+    {
+        "title": "The Departed",
+        "reviews": [
+            {
+                "username": "olivia_anderson",
+                "rating": 9,
+                "comment": "A gripping and intense crime thriller with stellar performances. The plot twists keep you on the edge of your seat."
+            },
+            {
+                "username": "james_taylor",
+                "rating": 8,
+                "comment": "A well-crafted thriller with strong performances from a top-notch cast. The story is engaging, though the pacing can be a bit uneven."
+            }
+        ]
+    },
+    {
+        "title": "The Prestige",
+        "reviews": [
+            {
+                "username": "james_taylor",
+                "rating": 9,
+                "comment": "A clever and intricate film with a fantastic twist. Christian Bale and Hugh Jackman deliver outstanding performances."
+            },
+            {
+                "username": "james_taylor",
+                "rating": 8,
+                "comment": "An engaging and well-executed film about rivalry and illusion. The twists and turns keep the audience guessing until the end."
+            }
+        ]
+    },
+    {
+        "title": "Interstellar",
+        "reviews": [
+            {
+                "username": "james_taylor",
+                "rating": 10,
+                "comment": "A visually stunning and emotionally powerful film. Christopher Nolan's direction and Hans Zimmer's score make for an unforgettable experience."
+            },
+            {
+                "username": "james_taylor",
+                "rating": 9,
+                "comment": "A thought-provoking sci-fi epic with impressive visuals. The complex narrative and emotional depth make it a standout film."
+            }
+        ]
+    },
+    {
+        "title": "The Intouchables",
+        "reviews": [
+            {
+                "username": "ben_jackson",
+                "rating": 9,
+                "comment": "A heartwarming and humorous film about friendship and overcoming adversity. The chemistry between the leads is fantastic."
+            },
+            {
+                "username": "ben_jackson",
+                "rating": 8,
+                "comment": "An uplifting film with strong performances and a touching story. The humor and heart make it a memorable watch."
+            }
+        ]
+    },
+    {
+        "title": "Whiplash",
+        "reviews": [
+            {
+                "username": "ben_jackson",
+                "rating": 9,
+                "comment": "An intense and gripping drama about ambition and the pursuit of greatness. Miles Teller and J.K. Simmons deliver powerhouse performances."
+            },
+            {
+                "username": "ben_jackson",
+                "rating": 8,
+                "comment": "A compelling and intense film about the pressures of pursuing perfection. The performances are outstanding, though the story can be quite intense."
+            }
+        ]
+    },
+    {
+        "title": "Parasite",
+        "reviews": [
+            {
+                "username": "sophie_wood",
+                "rating": 10,
+                "comment": "A brilliant and socially insightful film with a unique and unpredictable plot. Bong Joon-ho's direction is masterful."
+            },
+            {
+                "username": "ben_jackson",
+                "rating": 9,
+                "comment": "An engaging and thought-provoking film with a fresh narrative. The blend of dark comedy and drama makes it a standout movie."
+            }
+        ]
+    },
+    {
+        "title": "Joker",
+        "reviews": [
+            {
+                "username": "sophie_wood",
+                "rating": 10,
+                "comment": "A dark and haunting portrayal of a troubled mind. Joaquin Phoenix's performance is exceptional and the film's atmosphere is gripping."
+            },
+            {
+                "username": "ben_jackson",
+                "rating": 9,
+                "comment": "A powerful and disturbing film with an outstanding performance by Joaquin Phoenix. The story is intense and thought-provoking."
+            }
+        ]
+    },
+    {
+        "title": "The Grand Budapest Hotel",
+        "reviews": [
+            {
+                "username": "sophie_wood",
+                "rating": 9,
+                "comment": "A visually stunning and whimsical film with a quirky story. Wes Anderson's direction and the ensemble cast are fantastic."
+            },
+            {
+                "username": "ben_jackson",
+                "rating": 8,
+                "comment": "A charming and unique film with a delightful story. The style and humor are distinctive, though it may not appeal to everyone."
+            }
+        ]
+    },
+    {
+        "title": "Memento",
+        "reviews": [
+            {
+                "username": "matthew_harris",
+                "rating": 9,
+                "comment": "A clever and innovative thriller with a non-linear narrative. Guy Pearce's performance and the film's structure are outstanding."
+            },
+            {
+                "username": "matthew_harris",
+                "rating": 8,
+                "comment": "An intriguing and complex film with a unique storytelling approach. The mystery is compelling, though it requires full attention."
+            }
+        ]
+    },
+    {
+        "title": "The Big Lebowski",
+        "reviews": [
+            {
+                "username": "matthew_harris",
+                "rating": 9,
+                "comment": "A cult classic with a hilarious and offbeat story. Jeff Bridges and John Goodman are fantastic in their roles."
+            },
+            {
+                "username": "matthew_harris",
+                "rating": 8,
+                "comment": "A quirky and entertaining film with a unique sense of humor. The characters and dialogue are memorable, though the plot can be meandering."
+            }
+        ]
+    },
+    {
+        "title": "Django Unchained",
+        "reviews": [
+            {
+                "username": "natalie_cooper",
+                "rating": 9,
+                "comment": "A bold and stylish film with strong performances and a gripping story. Quentin Tarantino's direction is top-notch."
+            },
+            {
+                "username": "matthew_harris",
+                "rating": 8,
+                "comment": "A thrilling and violent western with an engaging story. The film's style and performances are impressive, though it can be intense."
+            }
+        ]
+    },
+    {
+        "title": "The Revenant",
+        "reviews": [
+            {
+                "username": "natalie_cooper",
+                "rating": 9,
+                "comment": "A visually stunning and intense survival drama. Leonardo DiCaprio's performance is remarkable and the cinematography is breathtaking."
+            },
+            {
+                "username": "natalie_cooper",
+                "rating": 8,
+                "comment": "A gripping and visually impressive film. The story of survival and revenge is powerful, though the pacing can be slow."
+            }
+        ]
+    },
+    {
+        "title": "Her",
+        "reviews": [
+            {
+                "username": "jack_lee",
+                "rating": 9,
+                "comment": "A thought-provoking and emotional film about human connection. Joaquin Phoenix and Scarlett Johansson deliver excellent performances."
+            },
+            {
+                "username": "jack_lee",
+                "rating": 8,
+                "comment": "A unique and touching film with a compelling story. The concept of a relationship with an AI is explored in a thought-provoking way."
+            }
+        ]
+    },
+    {
+        "title": "A Beautiful Mind",
+        "reviews": [
+            {
+                "username": "jack_lee",
+                "rating": 9,
+                "comment": "A powerful and inspiring biopic with a stellar performance by Russell Crowe. The story of John Nash's life is both moving and enlightening."
+            },
+            {
+                "username": "natalie_cooper",
+                "rating": 8,
+                "comment": "An engaging and well-crafted film about a brilliant but troubled mind. The performances and storytelling are strong, though some aspects feel dramatized."
+            }
+        ]
+    },
+    {
+        "title": "The Shining",
+        "reviews": [
+            {
+                "username": "natalie_cooper",
+                "rating": 10,
+                "comment": "A masterful horror film with an eerie atmosphere and unforgettable performances. Jack Nicholson's portrayal is iconic."
+            },
+            {
+                "username": "megan_baker",
+                "rating": 9,
+                "comment": "A chilling and atmospheric horror film. The tension and suspense build throughout, making it a classic in the genre."
+            }
+        ]
+    },
+    {
+        "title": "The Breakfast Club",
+        "reviews": [
+            {
+                "username": "megan_baker",
+                "rating": 9,
+                "comment": "A classic coming-of-age film that captures the essence of teenage angst and growth. The characters and dialogue are memorable."
+            },
+            {
+                "username": "jack_lee",
+                "rating": 8,
+                "comment": "A relatable and insightful film about high school cliques and personal growth. The performances are strong, though the pacing can feel slow at times."
+            }
+        ]
+    },
+    {
+        "title": "The Truman Show",
+        "reviews": [
+            {
+                "username": "megan_baker",
+                "rating": 9,
+                "comment": "A thought-provoking film with a unique concept. Jim Carrey delivers a standout performance in a dramatic role."
+            },
+            {
+                "username": "jack_lee",
+                "rating": 8,
+                "comment": "A clever and engaging film about the nature of reality and media. The story is intriguing, though it can be a bit predictable."
+            }
+        ]
+    },
+    {
+        "title": "The Hunt for Red October",
+        "reviews": [
+            {
+                "username": "megan_baker",
+                "rating": 9,
+                "comment": "A tense and exciting thriller with a gripping plot. Sean Connery and Alec Baldwin deliver strong performances."
+            },
+            {
+                "username": "luke_adams",
+                "rating": 8,
+                "comment": "An engaging and well-crafted Cold War thriller. The story is suspenseful, though some elements may feel dated."
+            }
+        ]
+    },
+    {
+        "title": "Donnie Darko",
+        "reviews": [
+            {
+                "username": "megan_baker",
+                "rating": 9,
+                "comment": "A mind-bending and atmospheric film with a standout performance by Jake Gyllenhaal. The blend of mystery and psychological drama is fascinating."
+            },
+            {
+                "username": "luke_adams",
+                "rating": 8,
+                "comment": "A unique and intriguing film with a complex narrative. The story is engaging, though it can be challenging to follow."
+            }
+        ]
+    },
+    {
+        "title": "Once Upon a Time in the West",
+        "reviews": [
+            {
+                "username": "luke_adams",
+                "rating": 9,
+                "comment": "A masterful Spaghetti Western with stunning cinematography and a compelling story. The film's epic scope and strong performances are impressive."
+            },
+            {
+                "username": "megan_baker",
+                "rating": 8,
+                "comment": "An epic and visually striking Western with a memorable score. The pacing can be slow, but the film's grandeur makes up for it."
+            }
+        ]
+    },
+    {
+        "title": "The Good, the Bad and the Ugly",
+        "reviews": [
+            {
+                "username": "luke_adams",
+                "rating": 10,
+                "comment": "A quintessential Spaghetti Western with unforgettable performances and a memorable score. Clint Eastwood, Lee Van Cleef, and Eli Wallach are all exceptional."
+            },
+            {
+                "username": "megan_baker",
+                "rating": 9,
+                "comment": "A classic Western with a compelling story and great characters. The film's iconic score and memorable moments make it a standout in the genre."
+            }
+        ]
+    },
+    {
+        "title": "The Great Dictator",
+        "reviews": [
+            {
+                "username": "luke_adams",
+                "rating": 9,
+                "comment": "A brilliant and satirical film with Charlie Chaplin's iconic performance. The film's humor and social commentary are both powerful and timeless."
+            },
+            {
+                "username": "grace_carter",
+                "rating": 8,
+                "comment": "A poignant and impactful satire with a memorable performance by Chaplin. The film's message is strong, though some of the humor may feel dated."
+            }
+        ]
+    },
+    {
+        "title": "Cinema Paradiso",
+        "reviews": [
+            {
+                "username": "luke_adams",
+                "rating": 9,
+                "comment": "A heartwarming and nostalgic film about the love of cinema. The story is touching and beautifully crafted."
+            },
+            {
+                "username": "grace_carter",
+                "rating": 8,
+                "comment": "A charming and emotional film about childhood and cinema. The story is engaging, though it may feel a bit sentimental at times."
+            }
+        ]
+    },
+    {
+        "title": "Pan's Labyrinth",
+        "reviews": [
+            {
+                "username": "grace_carter",
+                "rating": 10,
+                "comment": "A dark and enchanting fairy tale with stunning visuals and a hauntingly beautiful story. Guillermo del Toro's direction is exceptional."
+            },
+            {
+                "username": "oliver_smith",
+                "rating": 9,
+                "comment": "A visually stunning and emotionally powerful film. The blend of fantasy and reality creates a captivating experience."
+            }
+        ]
+    },
+    {
+        "title": "The Seventh Seal",
+        "reviews": [
+            {
+                "username": "grace_carter",
+                "rating": 9,
+                "comment": "A thought-provoking and visually striking film. Ingmar Bergman's exploration of life and death is profound and moving."
+            },
+            {
+                "username": "oliver_smith",
+                "rating": 8,
+                "comment": "A classic film with deep existential themes and striking imagery. The slow pace and philosophical dialogue may not appeal to everyone."
+            }
+        ]
+    },
+    {
+        "title": "The Lives of Others",
+        "reviews": [
+            {
+                "username": "oliver_smith",
+                "rating": 9,
+                "comment": "A gripping and emotionally charged film about surveillance and personal freedom. The performances and storytelling are exceptional."
+            },
+            {
+                "username": "grace_carter",
+                "rating": 8,
+                "comment": "An intense and compelling drama about life under surveillance. The film's portrayal of personal and political struggles is powerful."
+            }
+        ]
+    },
+    {
+        "title": "Raging Bull",
+        "reviews": [
+            {
+                "username": "grace_carter",
+                "rating": 10,
+                "comment": "A raw and powerful portrayal of a troubled boxer. Robert De Niro's performance is extraordinary and the film's intensity is palpable."
+            },
+            {
+                "username": "oliver_smith",
+                "rating": 9,
+                "comment": "An intense and visceral film with a stunning performance by De Niro. The story of Jake LaMotta's rise and fall is both compelling and heartbreaking."
+            }
+        ]
+    },
+    {
+        "title": "Amélie",
+        "reviews": [
+            {
+                "username": "grace_carter",
+                "rating": 9,
+                "comment": "A whimsical and charming film about a young woman trying to make the world a better place. Audrey Tautou's performance is delightful."
+            },
+            {
+                "username": "grace_carter",
+                "rating": 8,
+                "comment": "A visually enchanting and heartwarming film. The story is engaging and the film's unique style is captivating."
+            }
+        ]
+    },
+    {
+        "title": "Life of Pi",
+        "reviews": [
+            {
+                "username": "grace_carter",
+                "rating": 9,
+                "comment": "A visually spectacular and emotionally resonant film. The relationship between Pi and the tiger is both captivating and profound."
+            },
+            {
+                "username": "grace_carter",
+                "rating": 8,
+                "comment": "A visually stunning film with a touching story. The film's exploration of faith and survival is thought-provoking."
+            }
+        ]
+    },
+    {
+        "title": "The Wolf of Wall Street",
+        "reviews": [
+            {
+                "username": "grace_carter",
+                "rating": 8,
+                "comment": "A high-energy and entertaining film about greed and excess. Leonardo DiCaprio's performance is electrifying, though the film's length can be daunting."
+            },
+            {
+                "username": "grace_carter",
+                "rating": 7,
+                "comment": "A wild and extravagant film with a memorable performance by DiCaprio. The film's depiction of excess is engaging, but the length may test some viewers' patience."
+            }
+        ]
+    },
+    {
+        "title": "Oldboy",
+        "reviews": [
+            {
+                "username": "grace_carter",
+                "rating": 9,
+                "comment": "A gripping and intense thriller with a shocking twist. The film's exploration of revenge and redemption is both compelling and thought-provoking."
+            },
+            {
+                "username": "grace_carter",
+                "rating": 8,
+                "comment": "A dark and twisted film with a powerful story. The film's unique narrative and intense scenes make it a standout."
+            }
+        ]
+    },
+    {
+        "title": "Your Name",
+        "reviews": [
+            {
+                "username": "grace_carter",
+                "rating": 9,
+                "comment": "A beautifully animated and emotionally resonant film. The story of connection and memory is touching and well-crafted."
+            },
+            {
+                "username": "grace_carter",
+                "rating": 8,
+                "comment": "A visually stunning and heartfelt film. The narrative is engaging, though some elements may feel melodramatic."
+            }
+        ]
+    }
+]
